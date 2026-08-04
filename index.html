@@ -276,1006 +276,506 @@
 // 1. QUESTION DATABASE
 // ==========================================
 const questions = [
-    {
-"q": "1. Which of the following post-mortem changes is also known as 'cadaveric spasm'?",
-"options": [
-"Rigors mortis",
-"Instantaneous rigor",
-"Livor mortis",
-"Algor mortis"
-],
-"answer": 1
-},
-{
-"q": "2. The 'rule of nines' used in forensic medicine for assessing burn injuries was devised by:",
-"options": [
-"Wallace",
-"Casper",
-"Tardieu",
-"Lattes"
-],
-"answer": 0
-},
-{
-"q": "3. 'Paltauf's spots' are characteristic post-mortem findings associated with:",
-"options": [
-"Hanging",
-"Drowning",
-"Strangulation",
-"Carbon monoxide poisoning"
-],
-"answer": 1
-},
-{
-"q": "4. According to Casper's Dictum, the rate of decomposition of a body in air, water, and earth is in the ratio of:",
-"options": [
-"1 : 2 : 8",
-"8 : 2 : 1",
-"1 : 8 : 2",
-"2 : 1 : 8"
-],
-"answer": 0
-},
-{
-"q": "5. Which test is used to detect the presence of human blood using specific antibodies?",
-"options": [
-"Takayama test",
-"Teichmann test",
-"Precipitin test",
-"Benzidine test"
-],
-"answer": 2
-},
-{
-"q": "6. The phenomenon of 'adipocere formation' occurs primarily due to the hydrolysis and hydrogenation of body fats in:",
-"options": [
-"Hot and dry environment",
-"Warm, moist, and anaerobic environment",
-"Sub-zero temperatures",
-"Hyper-oxygenated environment"
-],
-"answer": 1
-},
-{
-"q": "7. Cherry-red discoloration of blood and tissues is typically seen in fatal poisoning due to:",
-"options": [
-"Phosphorus",
-"Carbon monoxide",
-"Potassium cyanide",
-"Hydrogen sulfide"
-],
-"answer": 1
-},
-{
-"q": "8. Under Section 174 of the Code of Criminal Procedure (CrPC) / Section 194 of BNSS, an inquest is conducted by:",
-"options": [
-"Magistrate only",
-"Police Officer",
-"Medical Examiner",
-"Coroner"
-],
-"answer": 1
-},
-{
-"q": "9. 'Lynch law' refers to:",
-"options": [
-"Execution of a person without due process of law by a mob",
-"Euthanasia legal guidelines",
-"Medical negligence standard",
-"Laws governing clinical trials"
-],
-"answer": 0
-},
-{
-"q": "10. 'Brush abrasions' are a specific type of:",
-"options": [
-"Imprint abrasion",
-"Frictional or sliding abrasion",
-"Crush injury",
-"Lacerated wound"
-],
-"answer": 1
-},
-{
-"q": "11. 'Puppe's Rule' is used in forensic pathology to determine:",
-"options": [
-"Sequence of multiple fractures to the skull",
-"Time since death using vitreous humor",
-"Height of a person from long bones",
-"Age from dental eruption"
-],
-"answer": 0
-},
-{
-"q": "12. In judicial hanging, the cause of immediate death is primarily due to:",
-"options": [
-"Asphyxia",
-"Venous congestion",
-"Fracture-dislocation of upper cervical vertebrae causing brainstem injury",
-"Vagal inhibition"
-],
-"answer": 2
-},
-{
-"q": "13. 'Kerr's sign' or 'Sign of Trotter' in gunshot wounds is associated with:",
-"options": [
-"Beveling of bone",
-"Deposition of soot",
-"Cherry-red margin around the entrance wound",
-"Distortion of the bullet"
-],
-"answer": 0
-},
-{
-"q": "14. A 'defense wound' found on the palms or ulnar borders of the forearm indicates that the victim was:",
-"options": [
-"Trying to commit suicide",
-"Attempting to ward off an attack",
-"Falling from a height",
-"Experiencing post-mortem spasms"
-],
-"answer": 1
-},
-{
-"q": "15. 'Tardieu spots' in asphyxial deaths are caused by the rupture of:",
-"options": [
-"Capillaries",
-"Arterioles",
-"Venules",
-"Lymphatics"
-],
-"answer": 0
-},
-{
-"q": "16. Which suture of the skull typically fuses last among the following?",
-"options": [
-"Sagittal suture",
-"Coronal suture",
-"Lambdoid suture",
-"Squamosal suture"
-],
-"answer": 3
-},
-{
-"q": "17. The estimate of time since death by measuring potassium concentration is best done using:",
-"options": [
-"Whole blood",
-"Cerebrospinal fluid",
-"Vitreous humor",
-"Synovial fluid"
-],
-"answer": 2
-},
-{
-"q": "18. 'La facies sympathique' (Horner's-like unilateral eye signs) can sometimes be seen in:",
-"options": [
-"Antemortem hanging",
-"Drowning",
-"Arsenic poisoning",
-"Electric shock"
-],
-"answer": 0
-},
-{
-"q": "19. Which bone is considered the most reliable for sex determination from an adult skeleton?",
-"options": [
-"Femur",
-"Pelvis",
-"Skull",
-"Sternum"
-],
-"answer": 1
-},
-{
-"q": "20. 'Gettler's test' measures the chloride content in the heart blood to confirm death due to:",
-"options": [
-"Cyanide poisoning",
-"Drowning",
-"Carbon monoxide poisoning",
-"Starvation"
-],
-"answer": 1
-},
-{
-"q": "21. A mechanical injury characterized by tearing of skin and tissue due to blunt force impact is a:",
-"options": [
-"Incised wound",
-"Lacerated wound",
-"Puncture wound",
-"Abrasion"
-],
-"answer": 1
-},
-{
-"q": "22. The term 'Resuscitation injury' refers to injuries sustained during CPR. A common example is:",
-"options": [
-"Fracture of ribs and sternum",
-"Laceration of brain",
-"Subdural hematoma",
-"Fracture of femur"
-],
-"answer": 0
-},
-{
-"q": "23. In forensic odontology, 'Gustafson's method' is used for:",
-"options": [
-"Sex determination from teeth",
-"Age estimation from adult teeth",
-"Bitemark analysis",
-"Race determination"
-],
-"answer": 1
-},
-{
-"q": "24. 'Pistol-tailing' or 'Tailing' of a wound is typically seen in:",
-"options": [
-"Chop wounds",
-"Incised wounds",
-"Lacerations",
-"Firearm exit wounds"
-],
-"answer": 1
-},
-{
-"q": "25. Rigor mortis first becomes evident in which muscles according to Nysten's Law?",
-"options": [
-"Lower limb muscles",
-"Small muscles of the face and eyelids",
-"Abdominal muscles",
-"Heart muscles"
-],
-"answer": 1
-},
-{
-"q": "26. Which of the following is an example of a secondary sign of death?",
-"options": [
-"Cessation of circulation",
-"Cessation of respiration",
-"Post-mortem hypostasis (Livor mortis)",
-"Loss of reflexes"
-],
-"answer": 2
-},
-{
-"q": "27. 'Marshall's triad' is a feature associated with:",
-"options": [
-"Electric shock death",
-"Lightning strike",
-"Blast injuries",
-"Heat stroke"
-],
-"answer": 2
-},
-{
-"q": "28. An abrasion caused by the tip of a fingernail pressed into the skin is known as a:",
-"options": [
-"Scratch abrasion",
-"Graze abrasion",
-"Impression / Claw mark abrasion",
-"Frictional abrasion"
-],
-"answer": 2
-},
-{
-"q": "29. The presence of 'diatoms' in the bone marrow strongly suggests that the drowning was:",
-"options": [
-"Post-mortem in nature",
-"Antemortem in nature",
-"Secondary to head injury",
-"Dry drowning"
-],
-"answer": 1
-},
-{
-"q": "30. 'Walthard cysts' or 'Tardieu spots' on the pleura and pericardium are classic signs of:",
-"options": [
-"Rapid asphyxial death",
-"Corrosive poisoning",
-"Thermal burns",
-"Hypothermia"
-],
-"answer": 0
-},
-{
-"q": "31. 'Choking' as a cause of asphyxial death involves obstruction of the:",
-"options": [
-"Nostrils and mouth externally",
-"Airway internally by a foreign body",
-"Chest wall by heavy weight",
-"Neck by a ligature"
-],
-"answer": 1
-},
-{
-"q": "32. Heat rigor occurs at temperatures above approximately:",
-"options": [
-"40 °C",
-"50 °C",
-"65 °C",
-"80 °C"
-],
-"answer": 2
-},
-{
-"q": "33. 'Burking' is a method of homicidal asphyxia combining:",
-"options": [
-"Hanging and strangulation",
-"Smothering and traumatic asphyxia",
-"Drowning and choking",
-"Gagging and throttling"
-],
-"answer": 1
-},
-{
-"q": "34. The presence of a 'muzzle imprint' or 'contact ring' around a firearm wound of entrance indicates a:",
-"options": [
-"Distant shot",
-"Intermediate shot",
-"Contact shot",
-"Ricochet shot"
-],
-"answer": 2
-},
-{
-"q": "35. In thermal injuries, 'Pugilistic attitude' is caused by:",
-"options": [
-"Cadaveric spasm before death",
-"Coagulation and contraction of muscle proteins due to extreme heat",
-"Fracture of long bones",
-"Desiccation of tendons"
-],
-"answer": 1
-},
-{
-"q": "36. 'Lichtenberg figures' (arborescent markings) on the skin are pathognomonic for:",
-"options": [
-"High-voltage electrocution",
-"Lightning strike",
-"Chemical burns",
-"Radiation injury"
-],
-"answer": 1
-},
-{
-"q": "37. 'Mummification' occurs predominantly in bodies exposed to environments that are:",
-"options": [
-"Cold and humid",
-"Hot, dry, and well-ventilated",
-"Warm, wet, and stagnant",
-"Freezing and submerged"
-],
-"answer": 1
-},
-{
-"q": "38. Subdural hematoma is caused by the rupture of:",
-"options": [
-"Middle meningeal artery",
-"Bridging veins",
-"Circle of Willis arteries",
-"Basilar artery"
-],
-"answer": 1
-},
-{
-"q": "39. Under the Indian Evidence Act / Bharatiya Sakshya Adhiniyam, expert opinion given by a forensic medical expert falls under:",
-"options": [
-"Section 45 (IEA) / Section 39 (BSA)",
-"Section 32 (IEA)",
-"Section 114 (IEA)",
-"Section 73 (IEA)"
-],
-"answer": 0
-},
-{
-"q": "40. 'Ponsold's sign' is associated with:",
-"options": [
-"Drowning",
-"Hanging",
-"Throttling",
-"Gunshot injury"
-],
-"answer": 1
-},
-{
-"q": "41. A sharp-edged weapon delivered with heavy force causing underlying bone damage produces a:",
-"options": [
-"Stab wound",
-"Chop wound",
-"Incised wound",
-"Laceration"
-],
-"answer": 1
-},
-{
-"q": "42. 'Kevorkian's sign' refers to:",
-"options": [
-"Segmentation of retinal blood vessels after death",
-"Stiffening of muscles after death",
-"Post-mortem lividity in internal organs",
-"Cooling of the body post-mortem"
-],
-"answer": 0
-},
-{
-"q": "43. 'Marbling' of skin during putrefaction is caused by the reaction of hydrogen sulfide gas with hemoglobin to form:",
-"options": [
-"Methemoglobin",
-"Sulfhemoglobin",
-"Carboxyhemoglobin",
-"Oxyhemoglobin"
-],
-"answer": 1
-},
-{
-"q": "44. In legal medicine, 'Perjury' means:",
-"options": [
-"Giving false evidence intentionally under oath",
-"Refusing to testify in court",
-"Medical malpractice",
-"Falsifying medical records"
-],
-"answer": 0
-},
-{
-"q": "45. The 'Diatom test' is less reliable if the victim drowned in:",
-"options": [
-"Sea water",
-"Well water",
-"Distilled water or sterile water",
-"River water"
-],
-"answer": 2
-},
-{
-"q": "46. What is the typical shape of a stab wound caused by a single-edged knife blade?",
-"options": [
-"Cross-shaped",
-"Wedge-shaped (one sharp end, one blunt end)",
-"Star-shaped",
-"Circular"
-],
-"answer": 1
-},
-{
-"q": "47. Which organ decomposes fastest post-mortem among the following?",
-"options": [
-"Non-gravid uterus",
-"Prostate",
-"Larynx and trachea",
-"Brain of an infant"
-],
-"answer": 3
-},
-{
-"q": "48. 'Tattooing' or 'peppering' around an entrance firearm wound is produced by unburnt or partially burnt:",
-"options": [
-"Gunpowder particles",
-"Metal fragments from the bullet",
-"Hot expanding gases",
-"Grease from the barrel"
-],
-"answer": 0
-},
-{
-"q": "49. 'Mercy killing' or intentional termination of life to relieve pain and suffering is known as:",
-"options": [
-"Infanticide",
-"Euthanasia",
-"Manslaughter",
-"Suicide"
-],
-"answer": 1
-},
-{
-"q": "50. 'Magistrate's Inquest' in India is mandatory under Section 176 CrPC (Section 196 BNSS) in cases of:",
-"options": [
-"Road traffic accidents",
-"Custodial death or death in police custody",
-"Snake bite deaths",
-"Accidental drowning"
-],
-"answer": 1
-},
-{
-"q": "51. 'Somatometric' measurements of the skull for determination of race and ethnicity commonly utilize which of the following indices?",
-"options": [
-"Cephalic index",
-"Ponderal index",
-"Gould index",
-"Broad-arm index"
-],
-"answer": 0
-},
-{
-"q": "52. In hanging, the 'knot' located at the nape of the neck produces a symmetric suspension mark. This condition is termed:",
-"options": [
-"Atypical hanging",
-"Typical hanging",
-"Partial hanging",
-"Complete hanging"
-],
-"answer": 1
-},
-{
-"q": "53. The presence of 'foam at the mouth and nostrils' in drowning deaths is characteristically described as:",
-"options": [
-"Coarse, reddish, and quick to clear",
-"Fine, white, tenacious, and lathery",
-"Bloody, viscous, and malodorous",
-"Yellowish, greasy, and watery"
-],
-"answer": 1
-},
-{
-"q": "54. 'Spitz and Fisher' describe the key difference between entrance and exit gunshot wounds on the skull as 'beveling'. Inner beveling of the skull bone indicates an:",
-"options": [
-"Exit wound",
-"Entrance wound",
-"Tangential ricochet wound",
-"Infalling flap fracture"
-],
-"answer": 1
-},
-{
-"q": "55. Which phase of hair growth is characterized by active mitotic activity and pigment production?",
-"options": [
-"Catagen phase",
-"Telogen phase",
-"Anagen phase",
-"Exogen phase"
-],
-"answer": 2
-},
-{
-"q": "56. 'McNaughten Rules' (1843) serve as the foundation for the legal defense regarding:",
-"options": [
-"Medical negligence",
-"Insanity",
-"Dying declaration validity",
-"Voluntary intoxication"
-],
-"answer": 1
-},
-{
-"q": "57. In forensic toxicology, 'post-mortem redistribution' refers to:",
-"options": [
-"The spread of poison on the skin due to hypostasis",
-"Changes in drug concentrations in blood post-mortem due to diffusion from tissue reservoirs",
-"Conversion of toxins into active metabolites after cardiac arrest",
-"Migration of maggots containing absorbed poison"
-],
-"answer": 1
-},
-{
-"q": "58. 'Tache noire' is a post-mortem ocular change characterized by:",
-"options": [
-"Clouding of the cornea due to calcium accumulation",
-"A reddish-brown or black line/band on the sclera exposed to air",
-"Complete detachment of the retina within 2 hours",
-"Dilation of the pupils under sunlight"
-],
-"answer": 1
-},
-{
-"q": "59. Which section of the Indian Penal Code (IPC) / Bharatiya Nyaya Sanhita (BNS) defines 'Grievous Hurt'?",
-"options": [
-"Section 320 IPC / Section 116 BNS",
-"Section 319 IPC / Section 115 BNS",
-"Section 300 IPC / Section 101 BNS",
-"Section 304A IPC / Section 106 BNS"
-],
-"answer": 0
-},
-{
-"q": "60. 'Somatic death' is defined as the complete and irreversible cessation of the functions of the 'Tripod of Life', which consists of:",
-"options": [
-"Brain, Heart, and Lungs",
-"Brain, Liver, and Kidneys",
-"Heart, Lungs, and Kidneys",
-"Spinal cord, Heart, and Lungs"
-],
-"answer": 0
-},
-{
-"q": "61. A 'coup injury' in head trauma refers to a brain lesion that occurs:",
-"options": [
-"At the site opposite to the point of impact",
-"Directly at the site of impact",
-"Only in deceleration injury without impact",
-"In the cervical spinal cord following whiplash"
-],
-"answer": 1
-},
-{
-"q": "62. 'Ocular changes' such as loss of corneal reflex typically occur within how many minutes following clinical death?",
-"options": [
-"Immediate to a few seconds",
-"12 to 24 hours",
-"48 hours",
-"72 hours"
-],
-"answer": 0
-},
-{
-"q": "63. A 'keyhole lesion' in cranial firearm trauma is formed when a bullet impacts the skull bone at an:",
-"options": [
-"Exact 90-degree perpendicular angle",
-"Oblique angle",
-"Angle from a distance exceeding 100 meters",
-"Angle after penetrating a suppressor"
-],
-"answer": 1
-},
-{
-"q": "64. 'Hyoid bone fracture' is most frequently encountered in which type of asphyxial death?",
-"options": [
-"Smothering",
-"Manual strangulation (Throttling)",
-"Traumatic asphyxia",
-"Drowning"
-],
-"answer": 1
-},
-{
-"q": "65. What is the minimum duration of marriage under Section 304B IPC / Section 80 BNS for a death to be classified as 'Dowry Death'?",
-"options": [
-"Within 3 years",
-"Within 5 years",
-"Within 7 years",
-"Within 10 years"
-],
-"answer": 2
-},
-{
-"q": "66. 'Rigidity' that develops in muscles immediately upon death without an intervening phase of primary muscle flaccidity is known as:",
-"options": [
-"Secondary relaxation",
-"Cadaveric spasm",
-"Heat rigor",
-"Cold rigor"
-],
-"answer": 1
-},
-{
-"q": "67. 'Fabere's test' (Patrick's test) is used in orthopedics and forensic anthropology during living assessment to evaluate pathology of the:",
-"options": [
-"Sacroiliac joint and hip joint",
-"Temporomandibular joint",
-"Atlanto-axial joint",
-"Knee joint"
-],
-"answer": 0
-},
-{
-"q": "68. In 'dry drowning', death primarily occurs as a result of:",
-"options": [
-"Massive inhalation of water into alveoli",
-"Laryngeal spasm triggered by fluid entry into the upper respiratory tract",
-"Ventricular fibrillation due to fresh water absorption",
-"Electrolyte imbalance from salt water"
-],
-"answer": 1
-},
-{
-"q": "69. 'Tendon of Todaro' is an anatomical landmark located in the heart near the:",
-"options": [
-"Right atrium near the coronary sinus",
-"Left ventricle apex",
-"Pulmonary valve orifice",
-"Aortic arch"
-],
-"answer": 0
-},
-{
-"q": "70. 'Aschoff bodies' seen during microscopic cardiac examination are pathognomonic of:",
-"options": [
-"Rheumatic carditis",
-"Myocardial infarction from cocaine abuse",
-"Carbon monoxide cardiotoxicity",
-"Arsenic cardiomyopathy"
-],
-"answer": 0
-},
-{
-"q": "71. What is the characteristic microscopic appearance of a burn wound created 'antemortem' compared to 'post-mortem'?",
-"options": [
-"Presence of inflammatory cellular reaction and enzyme activity",
-"Complete absence of capillaries",
-"Lack of vesication",
-"Presence of charring without carbon deposition"
-],
-"answer": 0
-},
-{
-"q": "72. Which of the following conditions accelerates the onset and progress of putrefaction?",
-"options": [
-"Septicemia / bacterial infection prior to death",
-"Sub-zero environmental temperature",
-"Poisoning by arsenic or zinc chloride",
-"Complete immersion in deep cold water"
-],
-"answer": 0
-},
-{
-"q": "73. 'Dying Declaration' recorded by a Magistrate or Doctor is admissible under which section of the Indian Evidence Act / Bharatiya Sakshya Adhiniyam?",
-"options": [
-"Section 32(1) IEA / Section 26(a) BSA",
-"Section 45 IEA / Section 39 BSA",
-"Section 101 IEA / Section 104 BSA",
-"Section 161 IEA / Section 174 BSA"
-],
-"answer": 0
-},
-{
-"q": "74. 'Overlying' is an accidental form of suffocative asphyxia commonly involving:",
-"options": [
-"Infants sleeping in the same bed with an adult",
-"Miners trapped in a collapsed cave",
-"Industrial workers in sealed chambers",
-"Epileptic patients falling face down"
-],
-"answer": 0
-},
-{
-"q": "75. In forensic skeletal identification, 'Symphysis pubis' age estimation is most famously evaluated using the criteria established by:",
-"options": [
-"Suchey-Brooks",
-"Krogman",
-"Pearson",
-"Trotter and Gleser"
-],
-"answer": 0
-},
-{
-"q": "76. 'Contusion' is another term used in medical jurisprudence to denote a:",
-"options": [
-"Bruise",
-"Graze",
-"Cut wound",
-"Laceration"
-],
-"answer": 0
-},
-{
-"q": "77. Post-mortem hypostasis (livor mortis) usually becomes 'fixed' after approximately how many hours?",
-"options": [
-"1 to 2 hours",
-"6 to 12 hours",
-"24 to 36 hours",
-"48 to 72 hours"
-],
-"answer": 1
-},
-{
-"q": "78. 'Balthazard's formula' or law in ballistics and forensic trauma is related to:",
-"options": [
-"Number of pellets hitting a target relative to distance",
-"Estimation of blood loss from wound surface area",
-"Determination of vehicle speed from skid marks",
-"Rate of body cooling"
-],
-"answer": 0
-},
-{
-"q": "79. In cases of suspected 'infanticide', hydrostatic test (Floatation test) of the lungs is performed to determine if the baby:",
-"options": [
-"Was born alive and breathed air",
-"Died of drowning",
-"Was poisoned in utero",
-"Had congenital pneumonia"
-],
-"answer": 0
-},
-{
-"q": "80. 'Kerr's sign' or 'beveling' observed in gunshot entrance injuries of flat bones shows maximum destruction at the:",
-"options": [
-"Inner table of the skull",
-"Outer table of the skull",
-"Diploe layer",
-"Periosteum exterior"
-],
-"answer": 0
-},
-{
-"q": "81. 'Phossy jaw' is a chronic occupational disease caused by exposure to:",
-"options": [
-"White/Yellow Phosphorus",
-"Lead carbonate",
-"Mercury vapor",
-"Arsenic trioxide"
-],
-"answer": 0
-},
-{
-"q": "82. Which type of injury is characterized by extravasation of blood into tissues without breach of overlying skin continuity?",
-"options": [
-"Contusion",
-"Laceration",
-"Incised wound",
-"Abrasion"
-],
-"answer": 0
-},
-{
-"q": "83. 'Manning's rule' or formula in forensic jurisprudence relates to evaluating:",
-"options": [
-"Disability assessment in physical trauma",
-"Stature calculation from long bones",
-"Estimation of time since death by vitreous potassium",
-"Gunshot velocity estimation"
-],
-"answer": 0
-},
-{
-"q": "84. 'Tardieu's spots' in asphyxial deaths are most commonly found beneath which membranes?",
-"options": [
-"Pleura, Pericardium, and Subconjunctiva",
-"Peritoneum and Synovium",
-"Dura mater and Periosteum",
-"Epidermis and Dermis"
-],
-"answer": 0
-},
-{
-"q": "85. In an autopsy of a carbon monoxide poisoning victim, the characteristic color of hypostasis is:",
-"options": [
-"Cherry red",
-"Dark violet",
-"Chocolate brown",
-"Bright green"
-],
-"answer": 0
-},
-{
-"q": "86. 'Suicide' by exposure to high-concentration Hydrogen Sulfide gas is classically associated with an odor of:",
-"options": [
-"Rotten eggs",
-"Bitter almonds",
-"Garlic",
-"Fruity apples"
-],
-"answer": 0
-},
-{
-"q": "87. The fusion of the sternal end of the clavicle (epiphysis) occurs around the age of:",
-"options": [
-"12-14 years",
-"16-18 years",
-"21-25 years",
-"35-40 years"
-],
-"answer": 2
-},
-{
-"q": "88. 'Concussion' of the brain is functionally defined as:",
-"options": [
-"A transient, reversible post-traumatic impairment of neural function",
-"A localized collection of blood in the epidural space",
-"Permanent structural tearing of cerebral cortex tissue",
-"Infection of the meninges due to skull fracture"
-],
-"answer": 0
-},
-{
-"q": "89. 'Wasp-waist' appearance of the torso in post-mortem examination is a feature observed due to compression in:",
-"options": [
-"Traumatic asphyxia",
-"Ligature strangulation",
-"Burking",
-"Gagging"
-],
-"answer": 0
-},
-{
-"q": "90. 'Punctate hemorrhages' in the white matter of the brain are classically seen in death due to:",
-"options": [
-"Fat embolism",
-"Carbon monoxide poisoning",
-"Strangulation",
-"All of the above"
-],
-"answer": 3
-},
-{
-"q": "91. In forensic toxicology, 'Mees' lines' on nails are a characteristic finding in chronic poisoning by:",
-"options": [
-"Arsenic",
-"Lead",
-"Mercury",
-"Copper"
-],
-"answer": 0
-},
-{
-"q": "92. 'Saponification' is another medical term for which post-mortem change?",
-"options": [
-"Adipocere formation",
-"Mummification",
-"Putrefaction",
-"Maceration"
-],
-"answer": 0
-},
-{
-"q": "93. 'Paltauf's spots' in drowning lungs are caused by:",
-"options": [
-"Rupture of alveolar walls and capillaries due to increased pressure during deep inspiration",
-"Bacterial colonies growing post-mortem",
-"Inhalation of sand particles",
-"Deposition of plankton"
-],
-"answer": 0
-},
-{
-"q": "94. 'Dermo-epidermal junction separation' causing skin slippage occurs during which post-mortem process?",
-"options": [
-"Putrefaction",
-"Rigor mortis",
-"Algor mortis",
-"Cadaveric spasm"
-],
-"answer": 0
-},
-{
-"q": "95. 'Chop wound' combines the features of both:",
-"options": [
-"Incised wound and Lacerated wound",
-"Abrasion and Contusion",
-"Stab wound and Puncture wound",
-"Firearm entrance and exit wound"
-],
-"answer": 0
-},
-{
-"q": "96. 'Gettler's test' compares the level of chloride between the right and left heart chambers. A lower chloride level in the left heart chamber compared to the right indicates drowning in:",
-"options": [
-"Fresh water",
-"Sea water / Salt water",
-"Chlorinated pool water",
-"Sewage water"
-],
-"answer": 0
-},
-{
-"q": "97. 'Whiplash injury' most commonly affects which region of the vertebral column?",
-"options": [
-"Cervical spine",
-"Thoracic spine",
-"Lumbar spine",
-"Sacrum"
-],
-"answer": 0
-},
-{
-"q": "98. 'Lucid interval' is a classical clinical feature seen in which intracranial hemorrhage?",
-"options": [
-"Extradural (Epidural) hematoma",
-"Subdural hematoma",
-"Subarachnoid hemorrhage",
-"Intracerebral hemorrhage"
-],
-"answer": 0
-},
-{
-"q": "99. 'Arborescent markings' on the skin produced by lightning strike usually fade within:",
-"options": [
-"24 to 48 hours",
-"1 to 2 weeks",
-"1 to 2 months",
-"They are permanent scars"
-],
-"answer": 0
-},
-{
-"q": "100. Which section of the Code of Criminal Procedure (CrPC) / Bharatiya Nagarik Suraksha Sanhita (BNSS) authorizes a police officer to summon witnesses during an inquest?",
-"options": [
-"Section 175 CrPC / Section 195 BNSS",
-"Section 174 CrPC / Section 194 BNSS",
-"Section 176 CrPC / Section 196 BNSS",
-"Section 160 CrPC / Section 179 BNSS"
-],
-"answer": 0
-}
+  {
+    "q": "1. Lock time in internal ballistics refers to the time interval between which two events?",
+    "options": [
+      "Pulling the trigger and the ignition of the primer",
+      "Ignition of the primer and the bullet leaving the barrel",
+      "Release of the sear/hammer strike and the detonation of the primer",
+      "Bullet exiting the muzzle and hitting the target"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "2. The 'Gauge' or 'Bore' of a shotgun is defined as the number of lead spheres of the barrel's inner diameter that collectively weigh how much?",
+    "options": [
+      "1 Kilogram",
+      "1 Pound",
+      "1 Ounce",
+      "1 Grain"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "3. Which chemical reagent is used in the Walker Test to detect nitrite residues from gunpowder?",
+    "options": [
+      "Sulfanilic acid and alpha-naphthylamine",
+      "Sodium rhodizonate and hydrochloric acid",
+      "Diphenylamine and concentrated sulfuric acid",
+      "Dithiooxamide and ammonium hydroxide"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "4. The Sodium Rhodizonate test is specifically used in forensic ballistics to detect the presence of which element?",
+    "options": [
+      "Antimony",
+      "Barium",
+      "Lead",
+      "Copper"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "5. In modern sinoxid primer compositions, which chemical compound serves as the primary explosive or initiator?",
+    "options": [
+      "Barium nitrate",
+      "Lead styphnate",
+      "Antimony trisulfide",
+      "Tetrazene"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "6. What is the primary role of Tetrazene in primer compositions?",
+    "options": [
+      "Oxidizing agent",
+      "Fuel",
+      "Sensitizer",
+      "Binder"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "7. Which instrumental technique is considered the gold standard for automated morphology and elemental composition analysis of inorganic gunshot residue (GSR) particles?",
+    "options": [
+      "Atomic Absorption Spectrometry (AAS)",
+      "Inductively Coupled Plasma Mass Spectrometry (ICP-MS)",
+      "Scanning Electron Microscopy with Energy Dispersive X-ray Spectroscopy (SEM-EDX)",
+      "Fourier Transform Infrared Spectroscopy (FTIR)"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "8. The distance measured along the barrel length for the rifling to complete one full 360-degree turn is known as:",
+    "options": [
+      "Land width",
+      "Groove depth",
+      "Pitch of rifling",
+      "Bore caliber"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "9. Caliber of a rifled firearm barrel is defined as the diameter measured between:",
+    "options": [
+      "Two opposite grooves",
+      "Two opposite lands",
+      "One land and one opposite groove",
+      "The outer surface of the barrel"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "10. In shotgun ballistics, which pattern choke provides the highest degree of constriction at the muzzle end?",
+    "options": [
+      "Cylinder bore",
+      "Improved Cylinder",
+      "Modified choke",
+      "Full choke"
+    ],
+    "answer": 3
+  },
+  {
+    "q": "11. Black powder is traditionally composed of Potassium Nitrate, Charcoal, and Sulfur in what standard weight ratio?",
+    "options": [
+      "70 : 20 : 10",
+      "75 : 15 : 10",
+      "60 : 30 : 10",
+      "80 : 10 : 10"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "12. Double-base smokeless gunpowder primarily contains which two energetic ingredients?",
+    "options": [
+      "Nitrocellulose and TNT",
+      "Nitrocellulose and Nitroglycerin",
+      "Nitroglycerin and RDX",
+      "Nitrocellulose and Nitroguanidine"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "13. Which compound is commonly added to smokeless powder as a stabilizer to prevent auto-catalytic thermal decomposition?",
+    "options": [
+      "Potassium nitrate",
+      "Diphenylamine",
+      "Lead azide",
+      "Barium peroxide"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "14. The angle between the long axis of a bullet in flight and its trajectory vector is termed as:",
+    "options": [
+      "Pitch",
+      "Roll",
+      "Yaw",
+      "Precession"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "15. What phenomenon occurs when a spinning projectile experiences a slow, gyroscopic conical rotation of its longitudinal axis around the flight path?",
+    "options": [
+      "Nutation",
+      "Precession",
+      "Yawing",
+      "Magnus effect"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "16. Sectional Density (SD) of a bullet is mathematically defined as:",
+    "options": [
+      "Mass divided by overall length",
+      "Mass divided by the square of bullet diameter",
+      "Diameter divided by bullet mass",
+      "Ballistic coefficient divided by drag coefficient"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "17. Who is widely regarded as the pioneer who adapted the comparison microscope for forensic bullet and cartridge casing identification?",
+    "options": [
+      "Calvin Goddard",
+      "Edmond Locard",
+      "Hans Gross",
+      "August Vollmer"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "18. Stippling or tattooing around an entrance gunshot wound is primarily caused by:",
+    "options": [
+      "Hot muzzle flames burning the skin",
+      "Unburnt and partially burnt powder grains impacting and embedding in skin",
+      "Smoke particles settling on the skin surface",
+      "Metal shaving fragments from the bullet jacket"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "19. The presence of a bright pinkish/cherry-red coloration of sub-dermal tissues around a contact gunshot wound is due to the formation of:",
+    "options": [
+      "Methemoglobin",
+      "Carboxyhemoglobin",
+      "Sulfhemoglobin",
+      "Oxyhemoglobin"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "20. The 'abrasion collar' or 'abrasion rim' is a characteristic diagnostic feature found surrounding which type of wound?",
+    "options": [
+      "Entrance gunshot wound",
+      "Exit gunshot wound",
+      "Stab wound",
+      "Lacerated wound caused by blunt impact"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "21. Intermediate (transitional) ballistics studies the behavior of:",
+    "options": [
+      "The bullet while inside the firearm barrel",
+      "The projectile as it travels through air toward the target",
+      "The projectile as it strikes and penetrates target media",
+      "The projectile and high-pressure gases from the moment the bullet exits the muzzle until gas pressure dissipates"
+    ],
+    "answer": 3
+  },
+  {
+    "q": "22. The Greiss test is used in forensic ballistics to detect which chemical species?",
+    "options": [
+      "Nitrates",
+      "Nitrites",
+      "Lead",
+      "Antimony"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "23. In forensic ballistics software databases, IBIS stands for:",
+    "options": [
+      "Integrated Ballistics Identification System",
+      "International Bullet Inspection System",
+      "Integrated Bullet Impression Software",
+      "Internal Ballistics Information System"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "24. In the IBIS system, the automated module dedicated specifically to capturing and comparing fired cartridge casings is called:",
+    "options": [
+      "BulletTrax",
+      "BrassTrax",
+      "MatchTrax",
+      "ShellTrax"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "25. Which fundamental physical principle governs the operation of a classical Ballistic Pendulum used to determine bullet velocity?",
+    "options": [
+      "Law of Conservation of Angular Momentum",
+      "Law of Conservation of Linear Momentum",
+      "Hooke's Law",
+      "Boyle's Law"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "26. Gilding metal, commonly used as bullet jacketing, typically consists of an alloy of:",
+    "options": [
+      "90% Copper and 10% Zinc",
+      "70% Copper and 30% Nickel",
+      "50% Lead and 50% Tin",
+      "95% Iron and 5% Carbon"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "27. In internal ballistics, peak chamber pressure inside a firearm barrel is generally reached:",
+    "options": [
+      "Before the bullet begins moving",
+      "Just as the bullet moves a very short distance down the barrel",
+      "When the bullet is halfway down the barrel",
+      "Just as the bullet exits the muzzle"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "28. The threshold velocity required for a standard lead bullet to penetrate human skin is approximately:",
+    "options": [
+      "10 - 20 m/s",
+      "40 - 50 m/s",
+      "150 - 200 m/s",
+      "300 - 340 m/s"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "29. What type of microscopic mark on a cartridge case is produced by high internal pressure forcing the case head against the rear wall of the chamber?",
+    "options": [
+      "Extractor mark",
+      "Ejector mark",
+      "Breechface mark",
+      "Chamber mark"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "30. The small, high-frequency oscillatory motion superimposed upon the precession of a spinning bullet's longitudinal axis is termed:",
+    "options": [
+      "Yaw",
+      "Nutation",
+      "Canting",
+      "Drift"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "31. A bullet that strikes an intervening surface at an oblique angle and deflects off without penetrating is said to have undergone:",
+    "options": [
+      "Tumbling",
+      "Fragmentation",
+      "Ricochet",
+      "Spalling"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "32. The angle formed between the target plane and the trajectory of an incoming bullet prior to impact is called:",
+    "options": [
+      "Angle of ricochet",
+      "Angle of impact",
+      "Angle of departure",
+      "Angle of elevation"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "33. Which of the following features on a recovered fired bullet is classified as an INDIVIDUAL characteristic?",
+    "options": [
+      "Number of lands and grooves",
+      "Direction of rifling twist",
+      "Width of land and groove impressions",
+      "Microscopic striations within land or groove impressions"
+    ],
+    "answer": 3
+  },
+  {
+    "q": "34. Under Section 2 of the Indian Arms Act 1959, smooth-bore firearms having a barrel length of less than how many inches are categorized under prohibited arms?",
+    "options": [
+      "12 inches",
+      "18 inches",
+      "20 inches",
+      "24 inches"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "35. In the Harrison and Gilroy test, which reagent is utilized specifically to test for the presence of Antimony in primer residues?",
+    "options": [
+      "Sodium rhodizonate",
+      "Triphenylmethylarsonium iodide",
+      "Diphenylamine",
+      "Dithizone"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "36. Triple-base smokeless powders contain Nitrocellulose, Nitroglycerin, and which third primary energetic component?",
+    "options": [
+      "Nitroguanidine",
+      "PETN",
+      "RDX",
+      "TNT"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "37. The phenomenon where a crosswind acting on a spinning bullet generates a lateral force causing vertical and horizontal trajectory deflection is called the:",
+    "options": [
+      "Coriolis Effect",
+      "Magnus Effect",
+      "Poisson Effect",
+      "Venturi Effect"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "38. Contact gunshot wounds over anatomical regions where skin tightly overlies bony structures (such as the skull) typically display what characteristic entrance appearance?",
+    "options": [
+      "Circular with clean margins",
+      "Stellate (star-shaped) lacerated wound",
+      "Punctated small pinhole wound",
+      "Slit-like wound without soot deposition"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "39. The mathematical measure of a projectile's efficiency in overcoming air resistance during flight is its:",
+    "options": [
+      "Sectional Density",
+      "Form factor",
+      "Ballistic Coefficient",
+      "Terminal Kinetic Energy"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "40. In shotgun ammunition, the component designed to seal expanding gas behind the shot column and prevent gas blow-by is called the:",
+    "options": [
+      "Buffer",
+      "Wad",
+      "Crimp",
+      "Anvil"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "41. Which modern instrument uses photoelectric screens or infrared light beams to measure bullet velocity accurately?",
+    "options": [
+      "Piezoelectric Transducer",
+      "Optical Chronograph",
+      "Comparison Microscope",
+      "Ballistic Pendulum"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "42. The term 'Skid marks' on a fired bullet refers to marks produced when:",
+    "options": [
+      "The bullet slips forward along the lands before fully engaging the rifling twist",
+      "The bullet ricochets off a smooth concrete surface",
+      "The bullet travels through Ordnance gelatin",
+      "The bullet strikes a flat bone surface"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "43. 'Stripping marks' or 'Slippage marks' on a bullet typically occur when:",
+    "options": [
+      "The bullet diameter is significantly smaller than the bore",
+      "The rifling grooves are worn out or the bullet velocity is too high for the rifling twist rate",
+      "The cartridge case expands rapidly inside the chamber",
+      "The primer cup ruptures during ignition"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "44. What type of pressure-measuring device utilizes a calibrated metal cylinder compressed by gas pressure to measure peak chamber pressure?",
+    "options": [
+      "Piezoelectric Transducer",
+      "Crusher Gauge",
+      "Strain Gauge",
+      "Bourdon Tube"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "45. In terminal wound ballistics, the large dynamic tissue displacement produced by high-velocity kinetic energy transfer that rapidly expands and contracts is termed the:",
+    "options": [
+      "Permanent cavity",
+      "Temporary cavity",
+      "Abrasion rim",
+      "Permanent tract"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "46. What standard optical setup does a comparison microscope utilize to enable simultaneous side-by-side comparison of two specimens?",
+    "options": [
+      "Split-field optical bridge system",
+      "Stereoscopic 3D projection screen",
+      "Monocular single-lens view with overlay filters",
+      "Darkfield illumination condenser"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "47. The chemical reagent Dithiooxamide (Rubeanic Acid) is used in forensic ballistics to detect deposits of which metal around bullet entry holes?",
+    "options": [
+      "Lead",
+      "Copper",
+      "Barium",
+      "Antimony"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "48. In ballistics terminology, 'Muzzle Velocity' strictly defined is the velocity of the projectile:",
+    "options": [
+      "Inside the chamber prior to firing",
+      "At the exact instant it exits the barrel muzzle",
+      "At the midpoint of its flight trajectory",
+      "At the moment of impact with the target"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "49. Which rifling profile features smooth, rounded transitions between lands and grooves instead of traditional sharp, right-angled cut edges?",
+    "options": [
+      "Metford rifling",
+      "Polygonal rifling",
+      "Enfield rifling",
+      "Lancaster rifling"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "50. What does the term 'Hangfire' refer to in internal ballistics?",
+    "options": [
+      "A total failure of the cartridge primer to ignite",
+      "A perceptible delay between trigger pull/hammer impact and ignition of the main propellant powder",
+      "Catastrophic destruction of the barrel due to excessive pressure",
+      "Simultaneous double ignition of two cartridges in multi-barrel guns"
+    ],
+    "answer": 1
+  }
 ];
 
 let currentIndex = 0;

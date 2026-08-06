@@ -277,77 +277,87 @@
 // ==========================================
 const questions = [
   {
-    "q": "1. Watermark on paper is formed during manufacturing at which specific component of the paper machine?",
+    "q": "1. Which component is added during paper manufacturing to reduce paper absorbency and prevent ink from spreading?",
     "options": [
-      "Dandy roll",
-      "Calender stack",
-      "Press section",
-      "Drying cylinders"
+      "Fillers like kaolin",
+      "Sizing agents like rosin and alum",
+      "Optical brightening agents",
+      "Bleaching agents"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "2. A watermark in high-quality paper is created during manufacturing at which specific stage?",
+    "options": [
+      "At the dandy roll in the wet end of the paper machine",
+      "During the final drying process on hot cylinders",
+      "After calendering through heavy steel rollers",
+      "During chemical bleaching of wood pulp"
     ],
     "answer": 0
   },
   {
-    "q": "2. Fiber composition of paper can be tested using Hertzberg stain. What color do rag fibers turn upon treatment with Hertzberg stain?",
+    "q": "3. Which micro-destructive analytical method is most standard for separating and comparing the dyestuff components in writing ink?",
     "options": [
-      "Yellow",
-      "Wine red to pink",
-      "Blue to violet",
-      "Green"
+      "Fourier Transform Infrared Spectroscopy",
+      "Thin Layer Chromatography",
+      "Video Spectral Comparator",
+      "Electrostatic Detection Apparatus"
     ],
     "answer": 1
   },
   {
-    "q": "3. The Electrostatic Detection Apparatus (ESDA) is primarily used in forensic document examination for revealing:",
+    "q": "4. Electrostatic Detection Apparatus (ESDA) is primarily used in questioned document examination to detect:",
     "options": [
-      "Chemical erasures",
-      "Indented writings",
-      "Ink composition",
-      "Paper sizing"
+      "Chemical erasures on paper",
+      "Indented writing impressions",
+      "Invisible or sympathetic ink",
+      "Aging of ballpoint ink dyes"
     ],
     "answer": 1
   },
   {
-    "q": "4. Iron gallotannate ink contains an acid added to prevent premature precipitation of iron tannate. Which acid is conventionally used for this purpose?",
+    "q": "5. The phenomenon where an ink absorbs light in the visible region and re-emits light in the infrared region is known as:",
     "options": [
-      "Hydrochloric acid or Sulfuric acid",
-      "Acetic acid",
-      "Formic acid",
-      "Oxalic acid"
+      "Infrared Luminescence",
+      "Infrared Absorption",
+      "Ultraviolet Fluorescence",
+      "Optical Reflection"
     ],
     "answer": 0
   },
   {
-    "q": "5. Under the Bharatiya Sakshya Adhiniyam, 2023 (BSA), which section provides for the relevancy of expert opinion regarding handwriting?",
+    "q": "6. Which type of traditional printing process leaves a characteristic squeezed ink rim or halo effect around the edges of printed characters?",
     "options": [
-      "Section 39",
-      "Section 45",
-      "Section 61",
-      "Section 26"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "6. Which printing process exhibits a characteristic 'halo effect' around printed characters due to ink squeezing out under pressure?",
-    "options": [
-      "Offset lithography",
-      "Letterpress",
-      "Intaglio",
-      "Gravure"
+      "Intaglio printing",
+      "Relief or Letterpress printing",
+      "Offset Lithography",
+      "Inkjet printing"
     ],
     "answer": 1
   },
   {
-    "q": "7. High-security documents such as currency notes utilize Intaglio printing. Which feature uniquely identifies Intaglio printing under microscopic examination?",
+    "q": "7. High-value security documents, such as currency notes, utilize which printing technique that creates a distinct tactile raised feeling on paper?",
     "options": [
-      "Flat ink layer with sharp edges",
-      "Raised ink film with surrounding paper embossing",
-      "Serrated edges around characters",
-      "Dot matrix pattern"
+      "Planography",
+      "Intaglio printing",
+      "Screen printing",
+      "Gravure printing"
     ],
     "answer": 1
   },
   {
-    "q": "8. What is standard pitch for a 'Pica' typewriter?",
+    "q": "8. In typewriter examination, what does the term 'pitch' refer to?",
+    "options": [
+      "The vertical distance between lines of text",
+      "The number of printed characters per linear inch",
+      "The impact force of the typebar against the platen",
+      "The angle of inclination of printed letters"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "9. What is the standard pitch for a standard Pica typewriter?",
     "options": [
       "8 characters per inch",
       "10 characters per inch",
@@ -357,427 +367,647 @@ const questions = [
     "answer": 1
   },
   {
-    "q": "9. Transmitted light examination of a questioned document is most suitable for detecting:",
+    "q": "10. When two questioned signatures from the same person superimpose exactly over each other in length, stroke, and form, it strongly indicates that:",
     "options": [
-      "Surface obliterations",
-      "Watermarks and physical erasures",
-      "Chemical ink components",
-      "Indented impressions"
+      "The signatures are genuine and written fluently",
+      "One of the signatures is a traced forgery",
+      "The writer possesses extraordinary motor consistency",
+      "The signatures were written under emotional distress"
     ],
     "answer": 1
   },
   {
-    "q": "10. 'Auto-forgery' refers to a situation where the writer:",
+    "q": "11. Slow drawing speed, unnatural hesitations, pen lifts at non-standard places, and line tremors are classic indicators of:",
     "options": [
-      "Traces another person's signature",
-      "Simulates another person's signature from memory",
-      "Intentionally disguises their own signature to deny it later",
-      "Uses a mechanical pantograph to copy a signature"
+      "High graphic maturity",
+      "Simulated forgery",
+      "Natural variation",
+      "Rapid freehand writing"
     ],
-    "answer": 2
+    "answer": 1
   },
   {
-    "q": "11. Fragile and brittle charred documents can be stabilized and preserved before handling by spraying them with a solution of:",
+    "q": "12. What term describes the non-fraudulent deviations in an individual's handwriting that naturally occur across different writing instances?",
     "options": [
-      "3 percent Polyvinyl acetate in acetone",
-      "10 percent Sodium hydroxide",
-      "Concentrated Hydrochloric acid",
-      "50 percent Ethanol in water"
+      "Disguised variation",
+      "Natural variation",
+      "Forced variation",
+      "Tremor of age"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "13. In questioned document analysis, what is an 'admitted standard'?",
+    "options": [
+      "Writing obtained from a suspect in court during proceedings",
+      "Pre-existing genuine writing created in the normal course of business",
+      "Writing sample dictated to a suspect by an investigating officer",
+      "Specimen signatures signed repeatedly under direct supervision"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "14. Which method is recommended for stabilizing fragile charred documents found at a crime scene before decipherment?",
+    "options": [
+      "Flattening them between dry glass plates immediately",
+      "Spraying with a thin solution of polyvinyl acetate in acetone",
+      "Laminating them under high heat and pressure",
+      "Submerging them directly in warm water"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "15. Which non-destructive optical technique is best suited for deciphering written content that has been obliterated with dark, opaque ink of a different chemical formula?",
+    "options": [
+      "Short-wave UV radiation",
+      "Infrared luminescence or reflectance",
+      "Transmitted visible light",
+      "Oblique white light"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "16. Chemical erasures on paper often alter the paper sizing and can be visualized chemically or optically using:",
+    "options": [
+      "Iodine fuming or UV fluorescence examination",
+      "Scanning Electron Microscopy",
+      "Transmitted white light photography",
+      "X-ray diffraction"
     ],
     "answer": 0
   },
   {
-    "q": "12. In handwriting examination, which handwriting characteristic is considered most persistent and resistant to disguise?",
+    "q": "17. Secret writings made with organic fluids like lemon juice, onion juice, or milk can usually be developed using:",
     "options": [
-      "Letter size",
-      "Slant and movement rhythm",
-      "Style of capital letters",
-      "Ink color"
+      "Controlled application of heat",
+      "Exposure to ozone gas",
+      "Treatment with concentrated acid",
+      "Freezing below zero degrees Celsius"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "18. What is 'Auto-forgery' or self-disguise?",
+    "options": [
+      "Forging another person's signature using a mechanical device",
+      "Distorting one's own genuine signature intentionally to deny authorship later",
+      "Tracing one's own signature onto carbon paper",
+      "Simulating a famous personality's signature"
     ],
     "answer": 1
   },
   {
-    "q": "13. Tremor of fraud in a forged signature differs from tremor of age or illness because tremor of fraud exhibits:",
+    "q": "19. In laser printing technology, what mechanism permanently fixes toner particles to the paper substrate?",
     "options": [
-      "Continuous rhythmic strokes",
-      "Hesitation, unnatural stops, and uniform line quality defects",
-      "Lighter ink pressure on upward strokes",
-      "Symmetrical letter formations"
+      "Air drying over extended time",
+      "Heat and pressure applied by the fuser assembly",
+      "Chemical absorption into paper sizing",
+      "Ultraviolet light polymerization"
     ],
     "answer": 1
   },
   {
-    "q": "14. Thin Layer Chromatography (TLC) of ink samples extracted from questioned documents uses which solvent commonly to dissolve ballpoint pen ink dyes?",
+    "q": "20. Tiny yellow dots printed in repeating code patterns on documents by color laser printers are known as:",
     "options": [
-      "Water",
-      "Pyridine or Dimethylformamide",
-      "Hexane",
-      "Dilute Hydrochloric acid"
+      "Microprinting",
+      "Machine Identification Codes",
+      "Watermark remnants",
+      "Halftone screen defects"
     ],
     "answer": 1
   },
   {
-    "q": "15. Secret writings produced using starch solution can be visualized by exposing the paper to:",
+    "q": "21. Under the Bharatiya Sakshya Adhiniyam 2023, Section 39 deals with which of the following evidentiary matters?",
+    "options": [
+      "Opinions of experts",
+      "Comparison of signatures by court",
+      "Relevancy of electronic records",
+      "Presumption as to documents"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "22. The term 'Tremor of Fraud' in handwriting analysis refers to:",
+    "options": [
+      "Involuntary physiological shakes caused by advanced age or disease",
+      "Shakes and hesitation marks caused by the cognitive stress and slow speed of copying",
+      "Regular rhythmic movement variations in fluent handwriting",
+      "Distortion resulting from writing in a moving vehicle"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "23. The relative ratio between the height of lowercase short letters (like 'a', 'e', 'o') and tall letters (like 'b', 'd', 'k') is categorized under:",
+    "options": [
+      "Proportional height ratio",
+      "Slant index",
+      "Baseline deviation",
+      "Graphic maturity"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "24. What is the fundamental mechanism used to encode data on credit card magnetic stripes?",
+    "options": [
+      "Optical scanning of microscopic dots",
+      "Magnetization of tiny iron oxide particles in tiny magnetic domains",
+      "Fluorescent dye emission under ultraviolet radiation",
+      "Capacitive electrical charges"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "25. Which chemical stain reagent is used in fiber analysis to differentiate mechanical wood pulp from chemical rag pulp in paper?",
+    "options": [
+      "Herzberg stain",
+      "Ninhydrin reagent",
+      "DAB reagent",
+      "Luminol reagent"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "26. What feature characterizes 'Blind Forgery'?",
+    "options": [
+      "The perpetrator traces a signature using a light box",
+      "The perpetrator copies a model signature from memory",
+      "The perpetrator writes a victim's name without knowing what the genuine signature looks like",
+      "The perpetrator uses a computerized mechanical plotter"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "27. In paper production, the alignment of pulp fibers parallel to the direction of machine movement is known as paper:",
+    "options": [
+      "Grain direction",
+      "Sizing orientation",
+      "Texture bias",
+      "Deckle angle"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "28. Which traditional writing ink formula contains iron sulfate, tannic acid, and gallic acid, forming dark insoluble compounds over time?",
+    "options": [
+      "Ballpoint pen ink",
+      "Iron gallotannate ink",
+      "Gel pen ink",
+      "Carbon ink"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "29. When dictating standard handwriting samples from a suspect, which action MUST be strictly avoided by the investigator?",
+    "options": [
+      "Dictating text at variable speeds",
+      "Showing the suspect the questioned document or spelling of words",
+      "Providing similar writing paper and writing instrument",
+      "Dictating the text multiple times"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "30. Microscopic analysis of intersecting lines between a ballpoint stroke and a stamp impression relies primarily on evaluating:",
+    "options": [
+      "Continuity of ink line deposit and physical drag of stamp ink across the pen line",
+      "Difference in paper thickness",
+      "Fluorescence under shortwave UV light",
+      "Watermark displacement"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "31. A document examiner uses a stereo microscope with oblique side lighting primarily to inspect:",
+    "options": [
+      "Ink chemical formulas",
+      "Surface topography, physical erasures, and line stroke sequence",
+      "Trace elements in paper ash",
+      "Dye fluorescence emission wavelengths"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "32. What is the key visual characteristic of offset lithographic printing under magnification?",
+    "options": [
+      "Heavy ink rims around letters with indented centers",
+      "Smooth, sharp character edges with clean non-printed background and no paper embossing",
+      "Deep physical paper impression with heavy ink deposits",
+      "Feathered splatter droplets around letter edges"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "33. Which credit card security feature produces a three-dimensional visual image that shifts appearance when tilted under light?",
+    "options": [
+      "Magnetic stripe",
+      "Optically Variable Device or Hologram",
+      "Embossed primary account number",
+      "Card Verification Value"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "34. Unconscious, automatic handwriting execution resulting from long practice, reflecting high coordination, is called:",
+    "options": [
+      "Graphic maturity",
+      "Pen pressure",
+      "Line tremor",
+      "Alignment deviation"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "35. In typewriter defect analysis, 'off-gauge' refers to a defect where a printed character:",
+    "options": [
+      "Prints consistently above or below its proper horizontal baseline",
+      "Prints lighter on one side than the other",
+      "Strikes the paper ribbon twice",
+      "Sticks repeatedly in the typebar guide"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "36. In the Bharatiya Sakshya Adhiniyam 2023, expert testimony regarding opinion on handwriting is covered under Section 39. Which section of the old Indian Evidence Act did this correspond to?",
+    "options": [
+      "Section 45",
+      "Section 47",
+      "Section 73",
+      "Section 65B"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "37. Which system offers comprehensive non-destructive optical comparison of inks across ultraviolet, visible, and infrared wavebands?",
+    "options": [
+      "Video Spectral Comparator",
+      "Thin Layer Chromatography",
+      "High Performance Liquid Chromatography",
+      "Gas Chromatography-Mass Spectrometry"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "38. Sympathetic ink composed of starch solution can be chemically rendered visible by exposure to:",
     "options": [
       "Iodine vapor",
       "Ammonia gas",
-      "Ultraviolet light only",
-      "Infrared radiation only"
+      "Ultraviolet light",
+      "Heat radiation"
     ],
     "answer": 0
   },
   {
-    "q": "16. Magnetic stripes on credit cards store data conforming to international standard ISO/IEC 7811. Track 1 on a standard magnetic stripe typically encodes:",
+    "q": "39. In handwriting terminology, what does 'hiatus' mean?",
     "options": [
-      "Numeric data only up to 40 digits",
-      "Alphanumeric data up to 79 characters",
-      "Numeric data up to 107 digits",
-      "Biometric thumbprint data"
+      "A sudden increase in pen force",
+      "An unexpected gap or break between letters where the pen was lifted without stopping motion",
+      "An exaggerated loop in capital letters",
+      "A terminal stroke flourish"
     ],
     "answer": 1
   },
   {
-    "q": "17. The term 'GSM' in paper specifications stands for:",
+    "q": "40. What is the character pitch for an Elite typewriter?",
     "options": [
-      "Grams per Square Meter",
-      "Grains per Square Meter",
-      "Grams per Standard Meter",
-      "Gauge per Square Millimeter"
+      "10 characters per inch",
+      "12 characters per inch",
+      "14 characters per inch",
+      "16 characters per inch"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "41. Text covered underneath liquid correction fluid (tipp-ex) can best be read non-destructively using:",
+    "options": [
+      "Infrared backlighting or transmitted light",
+      "Iodine fuming",
+      "Ninhydrin treatment",
+      "X-ray diffraction"
     ],
     "answer": 0
   },
   {
-    "q": "18. What constitutes 'Natural Variation' in handwriting analysis?",
+    "q": "42. Synthetic aniline dyes were first introduced into writing inks during the mid-19th century following the discovery of:",
     "options": [
-      "Inconsistencies produced by two different writers",
-      "Normal, non-systematic divergence found in repeated genuine writings of the same individual",
-      "Disguise features introduced deliberately",
-      "Defects produced by a damaged pen tip"
+      "Iron gallotannates",
+      "Mauveine dye",
+      "Carbon black",
+      "Logwood extracts"
     ],
     "answer": 1
   },
   {
-    "q": "19. Which optical examination technique is most effective when the obliterating ink absorbs visible light but is transparent to infrared radiation while the underlying ink reflects infrared?",
+    "q": "43. Which type of forgery involves placing carbon paper over a blank sheet and tracing the outline of a genuine signature model?",
     "options": [
-      "Ultraviolet fluorescence",
-      "Infrared reflectography",
-      "Oblique light examination",
-      "Transmitted white light"
+      "Simulated forgery",
+      "Carbon-process traced forgery",
+      "Spurious forgery",
+      "Freehand forgery"
     ],
     "answer": 1
   },
   {
-    "q": "20. In typewriter defect analysis, 'rebound' refers to which defect?",
+    "q": "44. What term describes a stroke where the pen makes contact with paper while already in motion, producing a tapered start?",
     "options": [
-      "A character printing above the baseline",
-      "A character printing a faint double impression adjacent to the main stroke",
-      "A character printed heavier on one side",
-      "A character completely missing from the page"
+      "Blunt stroke",
+      "Flying start",
+      "Hesitation mark",
+      "Retouching stroke"
     ],
     "answer": 1
   },
   {
-    "q": "21. Phloroglucinol reagent turns bright red-pink in the presence of which paper component?",
+    "q": "45. Physical or mechanical erasures remove ink by localized abrasion, which primarily damages the paper's:",
     "options": [
-      "Cotton rag",
-      "Mechanical groundwood pulp containing lignin",
-      "Bleached chemical pulp",
-      "Synthetic polyester fibers"
+      "Chemical dye formulation",
+      "Surface sizing and pulp fibers",
+      "Watermark pattern",
+      "Fluorescent brightening agent"
     ],
     "answer": 1
   },
   {
-    "q": "22. In handwriting terminology, the ratio of the height of short letters like 'a', 'e', 'o' to tall letters like 'b', 'd', 'h' is called:",
+    "q": "46. Which handwriting characteristic is LEAST useful for identifying the true author of a disguised handwriting sample?",
     "options": [
-      "Alignment",
-      "Proportion",
-      "Slant",
-      "Diacritics"
+      "Superficial capital letter forms deliberately modified",
+      "Unconscious stroke connections and micro-habits",
+      "Spelling, grammar, and punctuation patterns",
+      "Ratio of relative height in lowercase letters"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
-    "q": "23. Simulated forgery is best defined as:",
+    "q": "47. In printing technology, the term 'dot gain' refers to:",
     "options": [
-      "Tracing a genuine signature using carbon paper",
-      "Freehand drawing of a signature while attempting to copy a genuine model signature",
-      "Signing one's own name in a modified style",
-      "Writing a signature without ever seeing the genuine model"
+      "The expansion of printed ink dots on absorbent paper substrate",
+      "The total yellow tracking dots added by laser printers",
+      "A defect in photoconductor drums",
+      "The weight of toner deposited per character"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
-    "q": "24. A 'Guided hand signature' occurs when:",
+    "q": "48. Microscopic spreading of liquid ink along individual paper fibers, creating a fuzzy line edge, is known as:",
     "options": [
-      "A forger uses a ruler to guide the pen path",
-      "The writer's hand is physically supported or directed by another person due to infirmity",
-      "A computer plotter draws the signature",
-      "A signature is traced over a light box"
+      "Ink bleeding or feathering",
+      "Ink luminescence",
+      "Striation",
+      "Squeezed edge"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
-    "q": "25. Which lighting technique is most effective to decipher faint text on a charred document?",
+    "q": "49. Which feature represents an INDIVIDUAL characteristic of a specific mechanical typewriter?",
     "options": [
-      "Direct overhead lighting",
-      "Oblique or side lighting",
-      "Diffused room lighting",
-      "Transmitted light from beneath"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "26. Phenoxyethanol is widely used as a high-boiling solvent in which type of writing instrument ink?",
-    "options": [
-      "Fountain pen ink",
-      "Ballpoint pen ink",
-      "Traditional Indian black ink",
-      "Gel pen water-based ink"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "27. The presence of 'patching' or careful 'retouching' of stroke endings in a signature strongly suggests:",
-    "options": [
-      "Genuine spontaneous writing",
-      "High writing speed",
-      "Forged or simulated execution",
-      "Natural variation"
+      "Typeface design style",
+      "Ribbon spool dimensions",
+      "A unique physical chip or break in a specific character typebar",
+      "Standard character spacing pitch"
     ],
     "answer": 2
   },
   {
-    "q": "28. In forensic handwriting standards, 'Request Specimens' refer to:",
+    "q": "50. Under the Bharatiya Sakshya Adhiniyam, 2023, when the Court has to form an opinion as to the person by whom any document was written or signed, the opinion of any person acquainted with the handwriting of that person is relevant under:",
     "options": [
-      "Writings executed by the suspect prior to the dispute in course of routine business",
-      "Writings executed by the suspect upon official request in the presence of an investigating authority",
-      "Photocopies of documents found at the crime scene",
-      "Dictated writings obtained from an independent witness"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "29. An Elite typewriter prints how many characters per linear inch?",
-    "options": [
-      "10",
-      "12",
-      "14",
-      "16"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "30. Secret writing executed using phenolphthalein solution turns pink when exposed to:",
-    "options": [
-      "Acidic fumes",
-      "Ammonia or alkaline vapors",
-      "Ultraviolet light",
-      "Water spray"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "31. The basic principle of Electrostatic Detection Apparatus (ESDA) relies on:",
-    "options": [
-      "Chemical reaction between paper filler and toner",
-      "Differential retention of electrostatic charge in indented areas of paper",
-      "Absorption of radioactive isotopes",
-      "Thermal conductivity of compacted cellulose"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "32. Microprinting on security documents like credit cards and currency notes typically requires what minimum magnification for clear legibility?",
-    "options": [
-      "2x to 3x",
-      "10x to 20x",
-      "100x to 200x",
-      "1000x"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "33. In handwriting analysis, a 'pen lift' refers to:",
-    "options": [
-      "The pressure exerted on paper",
-      "An interruption in a continuous writing stroke caused by lifting the pen tip from paper",
-      "The angle at which the pen is held",
-      "The thickness of the ink stroke"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "34. According to standard ISO 216, what are the exact dimensions of A4 size paper?",
-    "options": [
-      "210 mm by 297 mm",
-      "216 mm by 279 mm",
-      "148 mm by 210 mm",
-      "297 mm by 420 mm"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "35. Under the Bharatiya Sakshya Adhiniyam, 2023 (BSA), provisions relating to secondary evidence of documents are contained in:",
-    "options": [
-      "Section 58",
-      "Section 61",
+      "Section 39",
+      "Section 41",
       "Section 45",
-      "Section 39"
+      "Section 73"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "51. Which device is primarily used during the manufacturing of paper to introduce watermarks onto the wet paper pulp web?",
+    "options": [
+      "Fourdrinier wire mesh",
+      "Dandy roll",
+      "Calender roll",
+      "Couch roll"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "52. In Thin Layer Chromatography (TLC) of ballpoint pen inks, which stationary phase is most commonly employed for effective dye separation?",
+    "options": [
+      "Alumina G",
+      "Silica gel 60 F254",
+      "Cellulose powder",
+      "Kieselguhr"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "53. Sympathetic or secret writings made with cobalt chloride solution turn into which color upon mild heating?",
+    "options": [
+      "Dark blue",
+      "Deep red",
+      "Brownish yellow",
+      "Bright green"
     ],
     "answer": 0
   },
   {
-    "q": "36. An alignment defect in typewriting where a letter consistently prints shifted above or below the baseline is known as:",
+    "q": "54. What is the recommended chemical solution for spraying or stabilizing extremely fragile charred documents prior to examination?",
     "options": [
-      "Horizontal misalignment",
-      "Vertical misalignment",
-      "Off-tilt character",
-      "Twisted stem"
+      "Ten percent Sodium Hydroxide solution",
+      "Three percent Polyvinyl Acetate in acetone or atomized mist of glycerine and water",
+      "Pure concentrated Hydrochloric acid",
+      "Fifty percent Ethyl alcohol in chloroform"
     ],
     "answer": 1
   },
   {
-    "q": "37. Stereomicroscopic examination of a ballpoint pen line on paper typically shows:",
+    "q": "55. Physical erasures on a paper document disrupt the surface sizing and fiber structure. Which illumination technique is best suited to reveal this mechanical disturbance?",
     "options": [
-      "Uniform heavy ink coverage with halo effect",
-      "Ink burr, striations, and un-inked central gaps along sharp curves",
-      "Feathering along all edges into paper pores",
-      "Embossing on the reverse side of paper"
+      "Direct vertical lighting",
+      "Transmitted light",
+      "Oblique or side lighting",
+      "Coaxial illumination"
     ],
-    "answer": 1
+    "answer": 2
   },
   {
-    "q": "38. Traced forgery executed by the 'carbon paper method' leaves which specific microscopic physical evidence on the document?",
+    "q": "56. Chemical erasures often leave invisible residues or alter ink under obliterations. Which non-destructive technique is most effective for deciphering underlying text beneath an obliterating ink layer?",
     "options": [
-      "Uniform metallic sheen",
-      "Carbon granules embedded along the stroke outline without natural pen pressure variations",
-      "Fluid ink bleeds with haloing",
-      "Sharp raised embossing"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "39. In a Video Spectral Comparator (VSC), which component is placed before the camera to block excitation wavelengths and capture infrared luminescence?",
-    "options": [
-      "Short-pass filter",
-      "Barrier long-pass filter",
-      "Polarizing filter",
-      "Diffraction grating"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "40. Security holograms applied to credit cards and identity cards function based on the optical principle of:",
-    "options": [
-      "Refraction",
-      "Light interference and diffraction",
-      "Polarization",
-      "Total internal reflection"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "41. Under the Bharatiya Nyaya Sanhita, 2023 (BNS), making a false document or electronic record is defined as forgery under:",
-    "options": [
-      "Section 335",
-      "Section 336",
-      "Section 318",
-      "Section 303"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "42. Unnatural hesitation dots, blunt initial strokes, and uniform line weight in a disputed signature indicate:",
-    "options": [
-      "High pen speed",
-      "Forced simulation or forgery",
-      "Natural tremor of Parkinsonism",
-      "Fluent writing habitual pattern"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "43. Sizing agents like alum-rosin are added to paper during manufacture primarily to:",
-    "options": [
-      "Increase paper whiteness",
-      "Prevent absorption and bleeding of liquid inks",
-      "Increase paper weight",
-      "Impart magnetic properties"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "44. Chemical erasure of iron gallotannate ink treated with a bleaching agent can often be restored by exposing the paper to:",
-    "options": [
-      "Ammonium sulfide fumes",
-      "Carbon dioxide gas",
-      "Nitrogen gas",
-      "Acetone vapor"
+      "Infrared luminescence spectroscopy",
+      "High Performance Liquid Chromatography",
+      "Scanning Electron Microscopy",
+      "X-ray diffraction"
     ],
     "answer": 0
   },
   {
-    "q": "45. Under Section 338 of Bharatiya Nyaya Sanhita, 2023 (BNS), punishment for forgery of valuable security, will, or authority to adopt is defined. This corresponds to which section of the former Indian Penal Code (IPC)?",
+    "q": "57. When determining the sequence of intersecting lines between a ballpoint pen stroke and a rubber stamp impression, which instrument provides superior three-dimensional topographic relief visualization?",
     "options": [
-      "Section 467 IPC",
-      "Section 420 IPC",
-      "Section 406 IPC",
-      "Section 471 IPC"
+      "Comparison microscope",
+      "Stereomicroscope",
+      "Polarizing microscope",
+      "Phase contrast microscope"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "58. Which printing process produces distinct raised ink deposits on paper with embossed edges on the reverse side, commonly used in printing currency notes?",
+    "options": [
+      "Offset Lithography",
+      "Intaglio Printing",
+      "Flexography",
+      "Letterpress Printing"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "59. Which feature on printed text is highly characteristic of Offset Lithographic printing?",
+    "options": [
+      "Heavy ink feathering along all stroke borders",
+      "Smooth edges with uniform ink distribution and no paper embossing",
+      "Serrated, stair-stepped edge patterns",
+      "Raised thick tactile ink layer"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "60. Small, irregular stray particles of fused toner scattered across the non-image background areas of a printed document are known as:",
+    "options": [
+      "Trash marks",
+      "Satellite drops",
+      "Squeeze marks",
+      "Crown effects"
     ],
     "answer": 0
   },
   {
-    "q": "46. In credit card manufacturing, CVV stands for:",
+    "q": "61. A typewriter character that consistently strikes above or below its proper horizontal baseline exhibits which type of mechanical defect?",
     "options": [
-      "Card Verification Value",
-      "Card Validation Version",
-      "Central Verification Variable",
-      "Credit Value Validation"
+      "Twisted letter defect",
+      "Vertical alignment defect",
+      "Horizontal off-set defect",
+      "Rebound defect"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "62. Standard 'Pica' typewriters produce how many characters per linear inch?",
+    "options": [
+      "Eight characters per inch",
+      "Ten characters per inch",
+      "Twelve characters per inch",
+      "Fourteen characters per inch"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "63. On standard credit cards, what dynamic security element changes image appearance when viewed from different angles and is embedded into the card plastic layers?",
+    "options": [
+      "Optically Variable Magnetic Stripe",
+      "Diffractive Optically Variable Image Device or Hologram",
+      "Ultraviolet Watermark Seal",
+      "Micro-embossed Signature Strip"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "64. The normal, unavoidable deviation found among repeated genuine handwritings or signatures executed by the same individual is defined as:",
+    "options": [
+      "Individual defect",
+      "Natural variation",
+      "Forfeited movement",
+      "Systematic aberration"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "65. Handwriting features derived from the system of writing learned during early school education are referred to as:",
+    "options": [
+      "Individual characteristics",
+      "Accidental characteristics",
+      "Class characteristics",
+      "Personal traits"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "66. Pathological or senile tremor observed in genuine handwriting of aged or infirm individuals is typically characterized by:",
+    "options": [
+      "Rhythmic and uniform line vibrations with preserved speed",
+      "Involuntary, erratic, weak strokes with pen rests on vertical elements but retaining overall fluency pattern",
+      "Sharp, deliberate, uniform angular strokes with high speed",
+      "Coarse tremors occurring only at the start and end of strokes while rest is swift"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "67. In a carbon-paper traced forgery, microscopic examination of the forged signature stroke under vertical illumination typically reveals:",
+    "options": [
+      "Particles of carbon wax medium underneath or alongside the fluid ink stroke",
+      "Deep paper fiber cuts without extraneous color",
+      "Double fluid ink lines running parallel",
+      "Absence of light refraction along line edges"
     ],
     "answer": 0
   },
   {
-    "q": "47. Which type of typewriter defect occurs when a character prints heavier on the left or right side than on the rest of the letter?",
+    "q": "68. Which physical feature is most characteristic of a traced forgery produced using a light box (transmitted light method)?",
     "options": [
-      "Vertical misalignment",
-      "Off-tilt or improper impression (cut-off)",
-      "Rebound",
-      "Lateral slippage"
+      "High line speed and dynamic stroke embellishment",
+      "Hesitant line quality, uniform ink intensity, lack of pen pressure variation, and frequent pen lifts",
+      "Feathering of ink along the stroke margin",
+      "Complete absence of tremor or hesitation"
     ],
     "answer": 1
   },
   {
-    "q": "48. Tracing a signature by holding original and disputed document against a brightly lit glass window is called:",
+    "q": "69. A simulated forgery is executed by a forger who:",
     "options": [
-      "Carbon paper tracing",
-      "Transmitted light method (light-box tracing)",
-      "Indented tracing",
-      "Projection tracing"
+      "Traces the signature using carbon paper directly onto document",
+      "Draws or copies a genuine signature model by freehand imitation",
+      "Writes the victim's name in their own normal cursive handwriting",
+      "Uses a stamp signature pad to replicate the impression"
     ],
     "answer": 1
   },
   {
-    "q": "49. Which writing instrument leaves ink line characteristics showing two thin parallel ink margins with a lighter center line due to a split nib?",
+    "q": "70. A spurious or simple forgery occurs when the perpetrator:",
     "options": [
-      "Ballpoint pen",
-      "Fountain pen",
-      "Felt-tip marker",
-      "Gel pen"
+      "Carefully traces a genuine model signature using indented outline",
+      "Practices a model signature for days before signing",
+      "Writes a signature without knowing or attempting to copy the genuine style of the person",
+      "Uses computer software to scan and print the exact replica"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "71. In handwriting evaluation, line quality refers to:",
+    "options": [
+      "The exact angle of inclination of individual letters to the baseline",
+      "The overall smooth, fluent, or hesitant appearance of a written line reflecting freedom of movement",
+      "The distance between consecutive words across a line",
+      "The proportional height ratio between uppercase and lowercase letters"
     ],
     "answer": 1
   },
   {
-    "q": "50. 'Blind forgery' (or simple forgery) is characterized by:",
+    "q": "72. Standard writings collected from official records created in the ordinary course of business prior to the document dispute are classified as:",
     "options": [
-      "Tracing through heavy carbon paper without light",
-      "The forger writing a signature without knowing or seeing the genuine signature model",
-      "Forging a signature while wearing blindfolds",
-      "Simulating a signature from memory after long practice"
+      "Requested standards",
+      "Admitted or collected standards",
+      "Experimental standards",
+      "Post litem motam standards"
     ],
     "answer": 1
   },
   {
-    "q": "51. Under the Bharatiya Sakshya Adhiniyam, 2023, which section corresponds to the relevancy of expert opinions in court proceedings?",
+    "q": "73. While obtaining requested handwriting exemplars from a suspect, which protocol must be strictly observed by the investigator?",
+    "options": [
+      "Allow the suspect to look at the questioned document while writing",
+      "Dictate the text to the suspect without showing the questioned document or dictating punctuation",
+      "Provide the exact pen and paper used, but dictate only once at high speed",
+      "Show the suspect the forged signature and ask them to copy it five times"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "74. Under the Bharatiya Sakshya Adhiniyam 2023, which section governs the relevancy of the opinion of an expert regarding handwriting or digital signature?",
     "options": [
       "Section 39",
       "Section 45",
@@ -787,494 +1017,264 @@ const questions = [
     "answer": 0
   },
   {
-    "q": "52. Which section of the Bharatiya Nyaya Sanhita (BNS), 2023 explicitly defines the offense of Forgery?",
+    "q": "75. Under Section 73 of Bharatiya Sakshya Adhiniyam 2023, the Court is empowered to:",
     "options": [
-      "Section 335",
-      "Section 336",
-      "Section 338",
-      "Section 340"
+      "Seize financial records without warrant",
+      "Direct any person present in court to write words or figures for comparison by the Court",
+      "Appoint an investigating officer as handwriting expert automatically",
+      "Cancel bail if signature does not match"
     ],
     "answer": 1
   },
   {
-    "q": "53. What is the primary purpose of a dandy roll in the paper manufacturing process?",
+    "q": "76. What is the working principle of the Electrostatic Detection Apparatus (ESDA) used for revealing indented writing?",
     "options": [
-      "Bleaching raw cellulose fibers",
-      "Creating watermarks and continuous wire marks in paper",
-      "Applying kaolin clay coating to paper surface",
-      "Cutting continuous paper rolls into sheets"
+      "Absorption of ultraviolet light by crushed paper fibers",
+      "Charge retention differential on the polyester film surface over crushed paper fibers visualization via toner cascade",
+      "Chemical oxidation of paper cellulose using iodine vapor",
+      "Refractive index changes detected under polarized light"
     ],
     "answer": 1
   },
   {
-    "q": "54. Which non-destructive visualization technique is commonly used to detect chemical erasures on document paper using luminescence?",
+    "q": "77. Which volatile solvent component present in ballpoint pen ink is routinely quantified using Gas Chromatography-Mass Spectrometry (GC-MS) to estimate the relative age of ink?",
     "options": [
-      "Transmitted visible light",
-      "Ultraviolet illumination or Infrared fluorescence",
-      "Grazing side light",
-      "Soft X-ray radiography"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "55. Which analytical method relies on measuring the extractability and solvent solubility of ink dyes to determine relative ink age?",
-    "options": [
-      "Scanning Electron Microscopy",
-      "Solvent Extraction and Dye Bleaching Technique",
-      "Pyrolysis Gas Chromatography",
-      "High-Performance Liquid Chromatography"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "56. When deciphering underlying text beneath a dark ink obliteration, which optical method works best if the top ink is transparent to infrared rays while the bottom ink absorbs them?",
-    "options": [
-      "Infrared Reflectance or Infrared Luminescence photography",
-      "Ultraviolet Absorption imaging",
-      "Transmitted visible light photography",
-      "Oblique white light illumination"
+      "2-Phenoxyethanol",
+      "Toluene diisocyanate",
+      "Acetone peroxide",
+      "Ethanolamine"
     ],
     "answer": 0
   },
   {
-    "q": "57. Which specialized forensic instrument uses electrostatic charging and toner visualization to restore invisible indented writing impressions on paper?",
+    "q": "78. Sizing agents such as rosin and alum are added during paper manufacturing primarily to:",
     "options": [
-      "Video Spectral Comparator",
-      "Electrostatic Detection Apparatus",
-      "Stereomicroscope",
-      "Comparison Microscope"
+      "Increase paper weight and thickness",
+      "Reduce water absorbency and prevent ink spreading or feathering",
+      "Impart a bright white color to recycled pulp",
+      "Bind toxic residues inside paper pulp"
     ],
     "answer": 1
   },
   {
-    "q": "58. Sympathetic secret inks containing cobalt chloride can be rendered visible by applying which treatment?",
+    "q": "79. Graff's C stain or Herzberg stain is used in forensic paper examination to determine:",
     "options": [
-      "Controlled heat application",
-      "Ammonia gas exposure",
-      "Iodine vapor treatment",
-      "Short-wave UV irradiation"
+      "The age of ink deposited on paper",
+      "The fiber composition and pulp processing method of paper",
+      "The thickness of gelatin sizing on surface",
+      "The elemental composition of filler materials"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "80. Secret writing written with starch solution can be readily developed and rendered visible by treating with:",
+    "options": [
+      "Iodine vapor or iodine solution",
+      "Ninhydrin spray",
+      "Ammonium hydroxide fumes",
+      "Silver nitrate solution"
     ],
     "answer": 0
   },
   {
-    "q": "59. What is the recommended physical preservation treatment applied to fragile charred documents before detailed examination?",
+    "q": "81. Decipherment of writing on severely charred documents without physical contact can be achieved using:",
     "options": [
-      "Soaking thoroughly in warm water",
-      "Spraying with a 10 percent solution of polyvinyl acetate or atomized lacquer",
-      "Heating in an oven at high temperature",
-      "Treating with concentrated sulfuric acid vapor"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "60. Which technique is most effective for deciphering printed or written text on heavily charred black paper?",
-    "options": [
-      "Infrared reflectance imaging and oblique light illumination",
-      "Transmitted short-wave ultraviolet light",
-      "Ultrasonic scanning",
-      "Gamma-ray radiography"
+      "Infrared reflection or luminescence photography",
+      "Acid etching",
+      "Flame ionization technique",
+      "Sodium hydroxide immersion"
     ],
     "answer": 0
   },
   {
-    "q": "61. Which commercial printing process leaves raised ink edges with a central hollow or feathered appearance due to ink squeezing under relief plate pressure?",
+    "q": "82. In conventional manual typewriters, which mechanism regulates the uniform step-by-step horizontal movement of the carriage after each keystroke?",
     "options": [
-      "Offset Lithography",
-      "Letterpress printing",
-      "Intaglio printing",
-      "Rotogravure"
+      "Typebar segment",
+      "Escapement mechanism",
+      "Platen roller knob",
+      "Ribbon vibrator"
     ],
     "answer": 1
   },
   {
-    "q": "62. Which high-security printing technique creates raised, tactile ink features felt on genuine currency notes?",
+    "q": "83. Characters generated by a Dot Matrix printer are readily identified under magnification by:",
     "options": [
-      "Flexography",
-      "Screen Printing",
-      "Intaglio Printing",
-      "Inkjet Printing"
-    ],
-    "answer": 2
-  },
-  {
-    "q": "63. In typewriter examination, what is the term for a character stroke being horizontally or vertically out of its proper central position?",
-    "options": [
-      "Escapement slip",
-      "Off-pitch printing",
-      "Horizontal or Vertical Malalignment",
-      "Rebound impression"
-    ],
-    "answer": 2
-  },
-  {
-    "q": "64. A mechanical typewriter designed to print exactly 10 characters per horizontal inch is classified as having:",
-    "options": [
-      "Pica pitch",
-      "Elite pitch",
-      "Proportional pitch",
-      "Metric pitch"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "65. What magnetic material is primarily incorporated into the magnetic stripe of genuine credit cards to store account data?",
-    "options": [
-      "Copper oxide particles",
-      "Barium ferrite or high-coercivity Iron oxide",
-      "Aluminum silicate",
-      "Zinc sulfide"
+      "Continuous smooth liquid ink lines with sharp edges",
+      "Individual round dot matrix patterns forming each character letter matrix",
+      "Heavy plastic fusion ridges surrounding each character",
+      "Embossed rear indentations"
     ],
     "answer": 1
   },
   {
-    "q": "66. The three-dimensional optical image embedded on modern credit cards to prevent color-copier counterfeiting is known as a:",
+    "q": "84. Satellite droplets surrounding printed character outlines are a characteristic defect associated with which printing technology?",
     "options": [
-      "Micro-text line",
-      "Hologram",
-      "Watermark",
-      "Kinegram strip"
+      "Thermal wax printing",
+      "Inkjet printing",
+      "Laser printing",
+      "Dry electrostatic printing"
     ],
     "answer": 1
   },
   {
-    "q": "67. In handwriting terminology, standard specimens executed during normal routine business or personal activities prior to any legal controversy are known as:",
+    "q": "85. Which security feature on high-denomination Indian Currency notes (Mahatma Gandhi New Series) exhibits a optical color shift from green to blue when tilted?",
     "options": [
-      "Requested standards",
-      "Collected standards",
-      "Dictated standards",
-      "Post-litem motam standards"
+      "Microlettering 'RBI'",
+      "Optically Variable Ink (OVI) on the numeral density feature",
+      "See-through register design",
+      "Bleed lines"
     ],
     "answer": 1
   },
   {
-    "q": "68. Natural variation in handwriting is best described as:",
+    "q": "86. In handwriting examination, 'shading' refers to:",
     "options": [
-      "Deliberate attempts by the writer to disguise handwriting",
-      "Normal deviations present in a person's handwriting executed under similar conditions",
-      "Errors caused exclusively by defective writing instruments",
-      "Variations resulting solely from external physical force"
+      "Color variation in different segments of paper",
+      "The contrast between thick downward strokes and thin upward strokes caused by lateral pen pressure variations",
+      "The dark shadow produced under oblique light",
+      "Background smudges left by hand resting on paper"
     ],
     "answer": 1
   },
   {
-    "q": "69. In handwriting evaluation, the relative vertical height ratio of short letters (like a, e, o) to tall letters (like b, d, h) is called:",
-    "options": [
-      "Ratio and Proportion",
-      "Line Quality",
-      "Slant",
-      "Alignment"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "70. Smoothness, speed, rhythm, and tremor in handwriting strokes are collectively evaluated under:",
-    "options": [
-      "Arrangement",
-      "Line Quality",
-      "Spacing",
-      "Placement"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "71. Which method of traced forgery involves placing a light box under the model signature and the target document?",
-    "options": [
-      "Carbon paper method",
-      "Transmitted light method",
-      "Indented line method",
-      "Chemical transfer method"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "72. What is considered a classic primary indicator of a traced forgery when comparing the questioned signature to a model signature?",
-    "options": [
-      "High speed and natural line quality",
-      "Exact superimposability with the genuine model signature",
-      "Presence of unique individual habits of the suspect",
-      "Dynamic shading and pressure variation"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "73. How is a simulated forgery produced?",
-    "options": [
-      "By directly tracing over a genuine signature using carbon paper",
-      "By drawing or copying a genuine signature while looking closely at a genuine model",
-      "By writing freely without ever seeing a genuine signature specimen",
-      "By using a computer optical scanner to cut and paste"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "74. Which defect is characteristically observed in simulated forgeries because the simulator works slowly and focuses on copying letter forms?",
-    "options": [
-      "Excessive writing speed",
-      "Hesitation, pen lifts, and tremor of forgery",
-      "Natural, smooth line quality",
-      "Fluent pen movement"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "75. A spurious signature created without any knowledge or model of the genuine signature, executed in the imposter's own normal or disguised hand, is called a:",
-    "options": [
-      "Simulated forgery",
-      "Traced forgery",
-      "Simple or Blind forgery",
-      "Photomechanical forgery"
-    ],
-    "answer": 2
-  },
-  {
-    "q": "76. When a legitimate writer intentionally alters their own handwriting habits to later repudiate their signature, the process is called:",
-    "options": [
-      "Simulated forgery",
-      "Disguised writing or Auto-forgery",
-      "Traced forgery",
-      "Blind forgery"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "77. Which handwriting feature is the most difficult for a person to successfully disguise over extended writing passages?",
-    "options": [
-      "Slant of writing",
-      "Gross letter size and capital letter design",
-      "Fine subconscious movement habits and spatial arrangement",
-      "Initial stroke embellishments"
-    ],
-    "answer": 2
-  },
-  {
-    "q": "78. In paper fiber analysis, Herzberg stain turns chemical wood pulp fibers into which characteristic color?",
-    "options": [
-      "Yellow",
-      "Blue or Claret Red to Violet",
-      "Bright Green",
-      "Deep Black"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "79. Inorganic filler materials in paper, such as clay, titanium dioxide, or calcium carbonate, are quantitatively measured using:",
-    "options": [
-      "Ash content determination",
-      "Thin Layer Chromatography",
-      "UV-Visible Spectrophotometry",
-      "Paper Electrophoresis"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "80. Standard modern ballpoint pen inks are primarily formulated with synthetic dyes suspended in which medium?",
-    "options": [
-      "Water and glycol base",
-      "High-boiling organic solvents like phenoxyethanol or glycol ethers",
-      "Ethyl alcohol base only",
-      "Aqueous acid base"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "81. Traditional iron gallotannate ink forms a dark, water-insoluble compound on paper upon exposure to atmospheric oxygen through the conversion of ferrous ions into:",
-    "options": [
-      "Ferric gallotannate",
-      "Ferrous oxide",
-      "Ferric chloride",
-      "Iron carbonate"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "82. A standard Video Spectral Comparator (VSC) allows non-destructive document examination across which combined spectral regions?",
-    "options": [
-      "Ultraviolet, Visible, and Infrared regions",
-      "X-ray and Gamma-ray regions",
-      "Microwave and Radio wave regions",
-      "Ultrasonic spectrum"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "83. When analyzing the sequence of intersecting ink lines, what phenomenon occurs when a ballpoint pen line crosses an earlier fluid ink line, dragging wet ink along the stroke furrow?",
-    "options": [
-      "Furrow ink flow and drag effect",
-      "Squeezing effect",
-      "Edge lift effect",
-      "Diffraction artifact"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "84. Electrophotographic laser printers fix solid toner particles onto paper fibers using:",
-    "options": [
-      "High pressure and heat from fuser rollers",
-      "Ultraviolet light curing",
-      "Chemical solvent spray",
-      "Water jet application"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "85. In photocopy and scanner forensics, unique repeating marks on output pages caused by dirt, scratches, or defects on the glass platen are called:",
-    "options": [
-      "Trash marks or Corona defects",
-      "Watermarks",
-      "Ghost lines",
-      "Stencil marks"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "86. What primary advantage does a single-use carbon film typewriter ribbon offer to a document examiner compared to a fabric ribbon?",
-    "options": [
-      "It can be reused multiple times without degradation",
-      "It retains a continuous, highly legible negative record of typed text",
-      "It resists all chemical solvent extractions",
-      "It automatically erases erroneous strokes"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "87. The variation in downward force exerted by the writing instrument onto the paper surface during stroke execution is defined as:",
+    "q": "87. An unintentional gap or interruption in a continuous handwriting line stroke where the pen lifts slightly off paper is termed a:",
     "options": [
       "Pen scope",
-      "Pen pressure",
-      "Pen slant",
-      "Pen angle"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "88. Pathological tremor caused by severe illness or old age differs from the tremor of forgery because pathological tremor:",
-    "options": [
-      "Appears consistently across all writing strokes, including initial, medial, and terminal strokes",
-      "Occurs only at the start of a signature",
-      "Is accompanied by high speed and fluent line quality",
-      "Never affects small letter proportions"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "89. In handwriting analysis, an unintentional gap in a continuous stroke caused by a brief pen lift or momentary failure of ink flow is called a:",
-    "options": [
       "Hiatus",
       "Retouching",
-      "Patching",
-      "Habit"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "90. Carefully going back over a letter stroke to correct, reinforce, or mend its appearance is termed:",
-    "options": [
-      "Shading",
-      "Patching or Retouching",
-      "Diacritic placement",
-      "Alignment adjustment"
+      "Embellishment"
     ],
     "answer": 1
   },
   {
-    "q": "91. Under Sections 39 and 52 of the Bharatiya Sakshya Adhiniyam, 2023, who is legally competent to compare questioned writings with admitted standards?",
+    "q": "88. The total length of continuous writing produced without re-positioning or moving the writing arm/wrist is known as:",
     "options": [
-      "Forensic Document Experts and the Court",
-      "Only investigating police officers",
-      "Only the defense counsel",
-      "A lay jury panel"
+      "Pen scope",
+      "Line speed",
+      "Rhythmic span",
+      "Movement index"
     ],
     "answer": 0
   },
   {
-    "q": "92. On genuine Indian currency banknotes, the covert feature where the numeral value of the note becomes visible when held horizontally at eye level is called the:",
+    "q": "89. Patching or retouching in a questioned signature, when executed carefully to mask hesitation rather than correct letter structure, is strong evidence of:",
     "options": [
-      "Micro-lettering",
-      "Latent Image",
-      "Bleed line",
-      "Intaglio mark"
+      "Genuine speed and fluency",
+      "Fraudulent execution or forgery",
+      "Habitual literacy tremor",
+      "Normal pen failure"
     ],
     "answer": 1
   },
   {
-    "q": "93. The security feature on genuine banknotes where partial print designs on the front and back register perfectly when held up to light to form a complete numeral is called the:",
+    "q": "90. A signature executed by an individual who deliberately distorts their own normal writing habits with the intention of later denying authorship is called:",
     "options": [
-      "Watermark window",
-      "See-through register",
-      "Security thread",
-      "Optically Variable Ink mark"
+      "Simulated forgery",
+      "Auto-forgery or self-forgery",
+      "Blind forgery",
+      "Traced forgery"
     ],
     "answer": 1
   },
   {
-    "q": "94. Optically Variable Ink (OVI) printed on high-denomination banknotes changes its visual color based on changes in the:",
+    "q": "91. A forgery where the perpetrator signs a document using a fictitious name without copying any genuine signature format is known as:",
     "options": [
-      "Ambient temperature",
-      "Angle of observation and light incidence",
-      "Atmospheric humidity",
-      "Elevation above sea level"
+      "Blind or simple forgery",
+      "Transmitted traced forgery",
+      "Simulated forgery",
+      "Auto-forgery"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "92. A Video Spectral Comparator (VSC) differentiates visually identical inks primarily on the basis of their distinct properties in:",
+    "options": [
+      "Reflectance, absorption, fluorescence, and luminescence across UV, visible, and IR light spectra",
+      "Chemical molecular mass distribution",
+      "Viscosity and surface tension values",
+      "Atomic radius of filler pigments"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "93. When examining an intersection between a ballpoint pen line and a fold in paper, if the ink bleeds along the fold fibers, it indicates:",
+    "options": [
+      "The line was drawn before the paper was folded",
+      "The paper was folded before the line was drawn",
+      "The line and fold were created simultaneously",
+      "No inference can be drawn regarding sequence"
     ],
     "answer": 1
   },
   {
-    "q": "95. Which set of evidence is most crucial to prove page substitution in a questioned multi-page legal contract?",
+    "q": "94. The degree of hardness in pencil leads is governed by varying the ratio of which two main ingredients during manufacturing?",
     "options": [
-      "Inconsistencies in staple mark alignments, paper wire marks, fiber composition, edge cuts, and text continuity",
-      "Minor variation in font size in title text",
-      "Presence of different witness signatures",
-      "Differences in margin spacing only"
+      "Graphite and Clay",
+      "Carbon black and Paraffin wax",
+      "Charcoal and Resin",
+      "Chalk and Gum arabic"
     ],
     "answer": 0
   },
   {
-    "q": "96. Gel pen ink strokes under microscopic examination characteristically exhibit:",
+    "q": "95. Which chemical agent is commonly employed as a bleaching agent in ink erasers to eliminate iron gallotannate or dye-based inks?",
     "options": [
-      "Smooth, heavy pigment distribution along stroke margins without striations",
-      "Prominent striations throughout the stroke center",
-      "Complete feathering into paper fibers on coated paper",
-      "Total lack of pigment particles"
+      "Sodium Hypochlorite or Oxalic Acid",
+      "Sodium Chloride",
+      "Glacial Acetic Acid",
+      "Ethanol"
     ],
     "answer": 0
   },
   {
-    "q": "97. Small auxiliary marks in handwriting, such as dots over i or j and cross-strokes on t, are technically called:",
+    "q": "96. Standard Machine Readable Passports (MRP) utilize which standardized optical font for the two-line Machine Readable Zone (MRZ)?",
     "options": [
-      "Terminals",
-      "Diacritics",
-      "Baselines",
-      "Loops"
+      "OCR-A",
+      "OCR-B",
+      "Courier New",
+      "Arial Universal"
     ],
     "answer": 1
   },
   {
-    "q": "98. Counterfeit credit cards frequently substitute genuine optical holograms with:",
+    "q": "97. What technology embedded in modern smart payment cards generates a unique dynamic cryptogram for every transaction to prevent card cloning?",
     "options": [
-      "2D flat metallic foil stickers lacking true depth and dynamic color shift",
-      "High-relief intaglio prints",
-      "Polymer plastic laminates",
-      "Chemical watermarks"
+      "EMV Chip technology",
+      "Magnetic Stripe Encoding",
+      "Static Hologram Strip",
+      "CVV2 Embossment"
     ],
     "answer": 0
   },
   {
-    "q": "99. Under Section 335 of the Bharatiya Nyaya Sanhita (BNS), 2023, making a false document includes:",
+    "q": "98. Alignment in handwriting analysis refers to:",
     "options": [
-      "Dishonestly or fraudulently making, signing, or executing a document with the intention of causing it to be believed that it was made by another person",
-      "Translating a legal contract into another language",
-      "Printing a plain blank sheet of paper",
-      "Reading an official document in public"
+      "The angle of individual letters relative to vertical axes",
+      "The relation of the baseline of writing to an actual or imaginary baseline",
+      "The distance between successive words in a sentence",
+      "The pressure applied during initial stroke movement"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
-    "q": "100. Which lighting condition is best suited for highlighting faint surface indentations and embossing on questioned paper documents?",
+    "q": "99. Under Section 41 of Bharatiya Sakshya Adhiniyam 2023, an opinion regarding the handwriting of a person is relevant when given by:",
     "options": [
-      "Oblique or side lighting",
-      "Transmitted light",
-      "Direct overhead vertical light",
-      "Diffuse light"
+      "Any stranger who has seen the document once",
+      "A person who is acquainted with the handwriting of the person whose handwriting is in question",
+      "Only a certified government handwriting expert",
+      "A police officer investigating the crime scene"
     ],
-    "answer": 0
+    "answer": 1
+  },
+  {
+    "q": "100. Gel pen inks differ fundamentally from traditional ballpoint pen inks in that gel inks consist of:",
+    "options": [
+      "Oil-based high viscosity dyes dispersed in fatty acids",
+      "Pigments suspended in a water-based polyacrylate polymer gel matrix",
+      "Iron salts dissolved in concentrated hydrochloric acid",
+      "Pure organic dyes dissolved in alcohol solvent"
+    ],
+    "answer": 1
   }
 ];
 

@@ -3,1375 +3,1298 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CBT Answer Sheet Portal</title>
+    <title>UGC NET Forensic Science CBT Mock Test</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
-        body { background-color: #f4f6f9; padding: 15px; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        .header {
+            max-width: 900px;
+            margin: 0 auto 20px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #ffffff;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        #timer {
+            font-size: 20px;
+            font-weight: bold;
+            color: #d9534f;
+            background: #ffebee;
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: 1px solid #ffcdd2;
+        }
+        .main-layout {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 260px;
+            gap: 20px;
+        }
+        @media (max-width: 768px) {
+            .main-layout { grid-template-columns: 1fr; }
+        }
+        .card {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .q-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+        .opt-label {
+            display: block;
+            padding: 12px 15px;
+            margin: 8px 0;
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .opt-label:hover {
+            background: #e2e6ea;
+        }
+        .opt-label.selected {
+            border-color: #0275d8;
+            background: #e7f1ff;
+        }
+        .opt-label input { margin-right: 12px; }
         
-        .quiz-container { max-width: 900px; margin: 0 auto; background: #fff; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); padding: 20px; }
-        .header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 15px; border-bottom: 2px solid #e0e0e0; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
-        .timer { font-size: 1.2rem; font-weight: bold; color: #d9534f; }
-        
-        .quiz-body { display: flex; gap: 20px; flex-direction: row; }
-        .question-area { flex: 3; }
-        .palette-area { flex: 1; border-left: 1px solid #e0e0e0; padding-left: 15px; }
-        
-        .q-number-header { font-size: 1.4rem; font-weight: bold; margin-bottom: 15px; color: #0d6efd; border-bottom: 1px solid #eee; padding-bottom: 8px; }
-        .opt-label { display: flex; align-items: center; background: #f9f9f9; padding: 14px 15px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 6px; cursor: pointer; transition: 0.2s; font-size: 1rem; }
-        .opt-label:hover { background: #eef5ff; }
-        .opt-label.selected { background: #d0e1fd; border-color: #3b82f6; font-weight: bold; }
-        .opt-label input { margin-right: 12px; transform: scale(1.2); }
-        
-        .controls { display: flex; justify-content: space-between; margin-top: 20px; gap: 10px; }
-        .btn { padding: 12px 20px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 0.95rem; }
+        /* Navigation Controls */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 15px;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
         .btn-prev { background: #6c757d; color: white; }
-        .btn-next { background: #0d6efd; color: white; }
-        .btn-submit { background: #198754; color: white; }
-        .btn:disabled { opacity: 0.5; cursor: not-allowed; }
-        
-        .palette-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-top: 10px; }
-        .p-btn { padding: 10px 0; text-align: center; border: 1px solid #ccc; background: #e9ecef; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 0.9rem; }
-        .p-btn.active { border: 2px solid #0d6efd; background: #eef5ff; }
-        .p-btn.answered { background: #198754; color: white; border-color: #198754; }
-        
-        .modal { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; padding: 15px; z-index: 1000; }
-        .modal-content { background: white; padding: 25px; border-radius: 8px; max-width: 500px; width: 100%; }
-        .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 15px 0 25px 0; }
-        .stat-card { background: #f8f9fa; padding: 15px; border-radius: 6px; text-align: center; font-weight: bold; }
-        .stat-value { font-size: 1.5rem; margin-bottom: 5px; }
-        .stat-score { color: #0d6efd; }
-        .stat-correct { color: #198754; }
+        .btn-next { background: #0275d8; color: white; }
+        .btn-review { background: #ffc107; color: #212529; }
+        .btn-submit { background: #28a745; color: white; }
+        .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+        /* Question Palette Side Bar */
+        .palette-card {
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .palette-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 6px;
+            margin-top: 15px;
+            max-height: 380px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding-right: 5px;
+        }
+        .q-box {
+            width: 100%;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 13px;
+            cursor: pointer;
+            background: #e9ecef;
+            color: #495057;
+            box-sizing: border-box;
+        }
+        .q-box.active { border: 2px solid #0275d8; }
+        .q-box.answered { background: #28a745; color: white; }
+
+        /* Stats & Modal Styling */
+        #result-box, #preview-modal {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 25px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            display: none;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .stat-card {
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+        }
+        .stat-value { font-size: 24px; font-weight: bold; margin-top: 5px; }
+        .stat-correct { color: #28a745; }
         .stat-wrong { color: #dc3545; }
         .stat-unattempted { color: #6c757d; }
-
-        .review-section { margin-top: 25px; border-top: 2px solid #e0e0e0; padding-top: 20px; }
-        .review-card { background: #fdfdfd; border: 1px solid #e0e0e0; border-radius: 6px; padding: 15px; margin-bottom: 15px; }
-        .review-card.correct-card { border-left: 5px solid #198754; }
-        .review-card.wrong-card { border-left: 5px solid #dc3545; }
-        .review-card.unattempted-card { border-left: 5px solid #6c757d; }
-        .review-q-title { font-weight: bold; margin-bottom: 10px; }
-        .review-opt { padding: 8px 12px; margin: 4px 0; border-radius: 4px; background: #f1f1f1; font-size: 0.95rem; }
-        .review-opt.user-correct { background: #d1e7dd; color: #0f5132; font-weight: bold; border: 1px solid #badbcc; }
-        .review-opt.user-wrong { background: #f8d7da; color: #842029; font-weight: bold; border: 1px solid #f5c2c7; }
-        .review-opt.is-actual-correct { background: #d1e7dd; color: #0f5132; font-weight: bold; }
-        .badge { display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold; color: white; margin-left: 10px; }
-        .badge-correct { background-color: #198754; }
-        .badge-wrong { background-color: #dc3545; }
-        .badge-unattempted { background-color: #6c757d; }
-
-        @media (max-width: 768px) {
-            body { padding: 10px; }
-            .quiz-container { padding: 15px; }
-            .quiz-body { flex-direction: column; gap: 20px; }
-            .palette-area { border-left: none; border-top: 2px solid #e0e0e0; padding-left: 0; padding-top: 15px; }
-            .palette-grid { grid-template-columns: repeat(6, 1fr); }
-            .btn { flex: 1; text-align: center; }
+        .stat-score { color: #0275d8; }
+        .stat-time { color: #fd7e14; }
+        
+        /* Modal Question Status Tags */
+        .q-tag {
+            display: inline-block;
+            padding: 6px 12px;
+            margin: 4px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 13px;
+            cursor: pointer;
+            transition: transform 0.1s ease;
         }
+        .q-tag:hover {
+            transform: scale(1.05);
+        }
+        .q-tag-answered {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .q-tag-unanswered {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* End Solutions Review Section */
+        .review-section {
+            margin-top: 30px;
+            text-align: left;
+        }
+        .review-card {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 18px;
+            margin-bottom: 15px;
+        }
+        .review-card.correct-border { border-left: 6px solid #28a745; }
+        .review-card.wrong-border { border-left: 6px solid #dc3545; }
+        .review-card.skipped-border { border-left: 6px solid #6c757d; }
+
+        .review-opt {
+            padding: 8px 12px;
+            margin: 4px 0;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .review-correct { background: #d4edda; color: #155724; font-weight: bold; }
+        .review-wrong { background: #f8d7da; color: #721c24; font-weight: bold; }
+        .review-neutral { background: #ffffff; border: 1px solid #dee2e6; }
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .badge-correct { background: #28a745; color: white; }
+        .badge-wrong { background: #dc3545; color: white; }
+        .badge-skipped { background: #6c757d; color: white; }
     </style>
 </head>
 <body>
 
-<div class="quiz-container" id="quiz-portal">
     <div class="header">
-        <h2>Answer Portal</h2>
-        <div class="timer">Time Left: <span id="time-display">60:00</span></div>
+        <h2>UGC NET Forensic Science Mock Portal</h2>
+        <div id="timer">60:00</div>
     </div>
-    
-    <div class="quiz-body">
-        <div class="question-area">
+
+    <!-- Test Summary & Solutions Output -->
+    <div id="result-box"></div>
+
+    <!-- Preview / Unanswered Review Modal -->
+    <div id="preview-modal">
+        <h2>📋 Exam Preview & Question Overview</h2>
+        <p id="preview-summary"></p>
+        
+        <div style="margin-bottom: 15px; font-size: 14px;">
+            <span class="q-tag q-tag-answered">Green = Answered</span>
+            <span class="q-tag q-tag-unanswered">Red = Unanswered</span>
+            <span style="color: #6c757d; font-size: 13px; margin-left: 8px;">(Click any question to jump to it)</span>
+        </div>
+
+        <div id="all-questions-list" style="margin: 15px 0; max-height: 250px; overflow-y: auto;"></div>
+        
+        <div style="display: flex; gap: 10px; margin-top: 20px;">
+            <button class="btn btn-prev" onclick="closePreview()">← Back to Questions</button>
+            <button class="btn btn-submit" onclick="submitQuiz()">Confirm & Final Submit</button>
+        </div>
+    </div>
+
+    <!-- Main Question View -->
+    <div id="quiz-portal" class="main-layout">
+        <div class="card">
             <div id="question-container"></div>
             <div class="controls">
-                <button class="btn btn-prev" id="btn-prev" onclick="changeQuestion(-1)">Previous</button>
-                <button class="btn btn-next" id="btn-next" onclick="changeQuestion(1)">Next</button>
+                <button id="btn-prev" class="btn btn-prev" onclick="changeQuestion(-1)">Previous</button>
+                <button class="btn btn-review" onclick="openPreview()">Preview & Summary</button>
+                <button id="btn-next" class="btn btn-next" onclick="changeQuestion(1)">Next</button>
             </div>
         </div>
-        
-        <div class="palette-area">
-            <h4>Question Palette</h4>
-            <div class="palette-grid" id="palette-grid"></div>
+
+        <!-- Question Navigation Palette -->
+        <div class="palette-card">
+            <h3 style="margin-top:0;">Question Palette</h3>
+            <div id="palette-grid" class="palette-grid"></div>
         </div>
     </div>
-</div>
-
-<div class="modal" id="preview-modal">
-    <div class="modal-content">
-        <h3>Submit Exam?</h3>
-        <p style="margin-top:10px;">Are you sure you want to finalize your exam?</p>
-        <div class="controls" style="margin-top:20px;">
-            <button class="btn btn-prev" onclick="closePreview()">Back to Test</button>
-            <button class="btn btn-submit" onclick="submitQuiz()">Confirm & Submit</button>
-        </div>
-    </div>
-</div>
-
-<div class="quiz-container" id="result-box" style="display: none;"></div>
 
 <script>
-// PASTE YOUR JSON ARRAY HERE
-const rawQuestions = [
-{
-    "id": 1,
-    "question": "The first treatise describing the application of scientific disciplines to the field of criminal investigations was written by:",
-    "options": {
-      "1": "Paul Leland Kirk",
-      "2": "Calvin Goddard",
-      "3": "Walter C. Mccrone",
-      "4": "Hans Gross"
-    },
-    "answer": "4",
-    "explanation": ""
-  },
-  {
-    "id": 2,
-    "question": "Evidence deemed true and sufficient unless discreated by other evidence is known as:",
-    "options": {
-      "1": "Probative Evidence",
-      "2": "Presumptive Evidence",
-      "3": "Tainted Evidence",
-      "4": "Rebuttal Evidence"
-    },
-    "answer": "2",
-    "explanation": ""
-  },
-  {
-    "id": 3,
-    "question": "The death of person on road accident is termed as death by negligence, a punishable offence under section:",
-    "options": {
-      "1": "304 (B) of IPC",
-      "2": "435 of IPC",
-      "3": "436 of IPC",
-      "4": "304 (A) of IPC"
-    },
-    "answer": "4",
-    "explanation": ""
-  },
-  {
-    "id": 4,
-    "question": "If an investigator suspects that a particular surface has been exposed to gasoline or some other accelerant, the investigator need to collect a piece of the same surface material that is believed not to have been exposed to the accelerant. This type of evidence collection is called as:",
-    "options": {
-      "1": "Substrate Control",
-      "2": "Blank Control",
-      "3": "Negative Control",
-      "4": "Standard"
-    },
-    "answer": "1",
-    "explanation": ""
-  },
-  {
-    "id": 5,
-    "question": "Cheiloscopy\nA. deals with identification of human based on lips traces\nB. can revealed point of direct physical contact of the perpetrator's lips with objects\nC. was described by Leone Lattes in 1915\nD. was described first time by R. Fisher 1902\nE. can be useful evidence for reconstruction of the event\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "B, C, D and A only",
-      "2": "A, B, D and E only",
-      "3": "C, D and E only",
-      "4": "A, C, D and E only"
-    },
-    "answer": "2",
-    "explanation": ""
-  },
-  {
-    "id": 6,
-    "question": "Characteristics of animal hair includes:\nA. Less developed cortex\nB. Small flattened and irregular margin of cuticle\nC. Continuous and often patterned medulla\nD. More than 0.5 medullary index\nE. Shaft diameter between 50-150 microns\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A, C and D only",
-      "2": "C, D and E only",
-      "3": "A, B and C only",
-      "4": "B, D and C only"
-    },
-    "answer": "1",
-    "explanation": ""
-  },
-  {
-    "id": 7,
-    "question": "Match the LIST-I with LIST-II:\nDefine Postmortem Changes\nLIST-I:\nA. Liver Mortis\nB. Cadaveric Spasm\nC. Algor Mortis\nD. Rigor Mortis\n\nLIST-II:\nI. Postmortem Cooling\nII. Postmortem Hypostasis\nIII. Postmortem Stiffening\nIV. Instantaneous Rigor\n\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A-IV, B-III, C-I, D-II",
-      "2": "A-II, B-III, C-IV, D-I",
-      "3": "A-III, B-IV, C-II, D-I",
-      "4": "A-II, B-IV, C-I, D-III"
-    },
-    "answer": "4",
-    "explanation": ""
-  },
-  {
-    "id": 8,
-    "question": "In crime scene photography, to demonstrate the actual size of any object, ________ is used.",
-    "options": {
-      "1": "Marker ink",
-      "2": "Navigation Sign",
-      "3": "Linear Scale",
-      "4": "Sign Board"
-    },
-    "answer": "3",
-    "explanation": ""
-  },
-  {
-    "id": 9,
-    "question": "The technique in which different materials always have distinctively different spectra, which is unique for that substance and for no other is known as:",
-    "options": {
-      "1": "IR Spectrometry",
-      "2": "Mass Spectrometry",
-      "3": "Atomic Absorption Spectroscopy",
-      "4": "UV Visible Spectroscopy"
-    },
-    "answer": "1",
-    "explanation": ""
-  },
-  {
-    "id": 10,
-    "question": "The interaction between a non-polar compound and a non-polar stationary phase are mainly governed by:",
-    "options": {
-      "1": "Vander waals forces",
-      "2": "Henry's Law",
-      "3": "Regression Equation",
-      "4": "Correlation coefficient"
-    },
-    "answer": "1",
-    "explanation": ""
-  },
-  {
-    "id": 11,
-    "question": "Technique based on recognition of specific molecules on the basis of antigen-antibody binding interaction to detect and quantify substance that are present in minute amount in complex biological materials is known as:",
-    "options": {
-      "1": "Electrophoresis",
-      "2": "Immunoassays",
-      "3": "Neutron Activation Analysis",
-      "4": "Nuclear Magnetic Resonance Spectroscopy"
-    },
-    "answer": "2",
-    "explanation": ""
-  },
-  {
-    "id": 12,
-    "question": "In terms of the frequencies of electromagnetic radiation in decreasing order, the spectrum is arranged as:\nA. UV-Visible Region\nB. Microwave Region\nC. Gamma Rays Region\nD. X-Rays Region\nE. IR Region\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A, D, E, B, C",
-      "2": "C, E, D, B, A",
-      "3": "C, D, A, E, B",
-      "4": "D, E, B, C, A"
-    },
-    "answer": "3",
-    "explanation": ""
-  },
-  {
-    "id": 13,
-    "question": "Which of the following are blood grouping system?\nA. Duffy\nB. ABO\nC. SNP\nD. RFLP\nE. RTPCR\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A, D only",
-      "2": "C, D only",
-      "3": "B, C only",
-      "4": "A, B only"
-    },
-    "answer": "4",
-    "explanation": ""
-  },
-  {
-    "id": 14,
-    "question": "Which of the following are the examples of synthetic opiates?\nA. Fentanyl\nB. Morphine\nC. Codeine\nD. Tramadol\nE. Diphenoxylate\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A, B & C only",
-      "2": "A, B & E only",
-      "3": "A, D & E only",
-      "4": "B, C, D & E only"
-    },
-    "answer": "3",
-    "explanation": ""
-  },
-  {
-    "id": 15,
-    "question": "Match the LIST-I with LIST-II.\nLIST-I (Features):\nA. Side by side comparison is done by\nB. a specific wavelength of light is used to excite a fluorophore in specimen, then the technique is known as\nC. an upright or an inverted microscopes are two basic types of\nD. For 3D information of the sample, is used\n\nLIST-II (Name of Microscope):\nI. Compound Microscope\nII. Comparison Microscope\nIII. Stereo-microscope\nIV. Fluorescence Microscope\n\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A-I, B-II, C-III, D-IV",
-      "2": "A-II, B-III, C-IV, D-I",
-      "3": "A-II, B-IV, C-I, D-III",
-      "4": "A-IV, B-III, C-II, D-I"
-    },
-    "answer": "3",
-    "explanation": ""
-  },
-  {
-    "id": 16,
-    "question": "Match the LIST-I with LIST-II.\nLIST-I (Detectors for GC):\nA. Mass Spectrometry (MS)\nB. Electron Capture Detector (ECD)\nC. Flame Ionization Detector (FID)\nD. Nitrogen Phosphorus Detector (NPD)\n\nLIST-II (General types of compounds):\nI. Ethanol and other volatile compounds\nII. Drug containing Nitrogen and Phosphorus\nIII. Electrophilic Compounds\nIV. Numerous drugs and metabolites\n\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A-III, B-IV, C-II, D-I",
-      "2": "A-II, B-III, C-IV, D-I",
-      "3": "A-I, B-II, C-IV, D-III",
-      "4": "A-IV, B-III, C-I, D-II"
-    },
-    "answer": "4",
-    "explanation": ""
-  },
-  {
-    "id": 17,
-    "question": "Arrange the sequence of Poison analysis in correct order:\nA. Detection\nB. Identification\nC. Interpretation\nD. Extraction\nE. Quantification\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "D, B, E, A, C",
-      "2": "D, A, B, C, E",
-      "3": "D, C, A, B, E",
-      "4": "D, A, B, E, C"
-    },
-    "answer": "4",
-    "explanation": ""
-  },
-  {
-    "id": 18,
-    "question": "Which of the serological tests can be used for identification of an animal species?",
-    "options": {
-      "1": "ELISA",
-      "2": "Kastle Mayor Test",
-      "3": "Takayama Test",
-      "4": "Bradford Method"
-    },
-    "answer": "1",
-    "explanation": ""
-  },
-  {
-    "id": 19,
-    "question": "A person having the 'A' antigen on his/her red blood cells will have serum antibodies that will agglutinate cells from:",
-    "options": {
-      "1": "blood group \"A\" person",
-      "2": "blood group \"B\" person",
-      "3": "blood group \"O\" person",
-      "4": "blood group \"AB\" person"
-    },
-    "answer": "2, 4",
-    "explanation": ""
-  },
-  {
-    "id": 20,
-    "question": "In case of rape, a DNA profiling laboratory (Fully accredited with all the applicable standards for DNA Analysis Methods) followed the procedure/standard protocol as per the guidelines. The DNA profile of evidence is matching with that of the suspect at all the STR markers except one STR marker. What could be conclusion?",
-    "options": {
-      "1": "Inclusion",
-      "2": "Failed to exclude",
-      "3": "Exclusion",
-      "4": "Inconclusive"
-    },
-    "answer": "3",
-    "explanation": ""
-  },
-  {
-    "id": 21,
-    "question": "Match the LIST-I with LIST-II.\nLIST-I (Test):\nA. Teichman test\nB. Precipitin test\nC. Kastle Mayer test\nD. Bluestar based test\n\nLIST-II (Component/Process):\nI. Peroxidase\nII. Alternative Light Source\nIII. Pyridine\nIV. Diffusion between two liquids\n\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A-I, B-III, C-IV, D-II",
-      "2": "A-II, B-III, C-I, D-IV",
-      "3": "A-III, B-IV, C-II, D-I",
-      "4": "A-III, B-IV, C-I, D-II"
-    },
-    "answer": "*",
-    "explanation": ""
-  },
-  {
-    "id": 22,
-    "question": "Match the LIST-I with LIST-II.\nLIST-I (Condition):\nA. To find out the maternal lineage\nB. To differentiate two cousin sisters\nC. To differentiate two cousin brothers\nD. To distinguished between the unrelated individuals\n\nLIST-II (DNA marker to be used):\nI. Rapidly mutating Y-chromosome STRS\nII. Autosomal STRS\nIII. HV-I and HV-II regions\nIV. X-Chromosome STRS\n\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A-II, B-I, C-III, D-IV",
-      "2": "A-III, B-IV, C-I, D-II",
-      "3": "A-IV, B-II, C-III, D-I",
-      "4": "A-I, B-II, C-III, D-IV"
-    },
-    "answer": "2",
-    "explanation": ""
-  },
-  {
-    "id": 23,
-    "question": "Arrange the following key developments in chronological order.\nA. Invention of PCR\nB. Discovery of DNA structure\nC. Blood grouping system\nD. Development of VNTR based DNA fingerprinting\nE. DNA sequencing technique by Sanger\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A, C, B, D, E",
-      "2": "B, C, A, D, E",
-      "3": "C, B, E, A, D",
-      "4": "C, B, A, D, E"
-    },
-    "answer": "3",
-    "explanation": ""
-  },
-  {
-    "id": 24,
-    "question": "Arrange the following molecules from low to high molecular weight.\nA. Taq DNA Polymerase\nB. Glucose\nC. NaCl\nD. 100 base pairs long double stranded DNA\nE. A protein made up of 100 amino acids\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "C, B, E, A, D",
-      "2": "C, E, B, A, D",
-      "3": "E, C, B, D, A",
-      "4": "E, C, D, A, B"
-    },
-    "answer": "1",
-    "explanation": ""
-  },
-  {
-    "id": 25,
-    "question": "Which of the following is/are the major PCR inhibitors?\nA. Heme\nB. Glucose\nC. Indigo Blue Dye\nD. Magnesium Ions\nE. EDTA (0.5 M)\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A, C and E only",
-      "2": "B, E and D only",
-      "3": "C, D and E only",
-      "4": "A, D and E only"
-    },
-    "answer": "1",
-    "explanation": ""
-  },
-  {
-    "id": 26,
-    "question": "Which of the following organizations are involved in wildlife protection directly?\nA. IUCN\nB. WWF\nC. ISGF\nD. WII\nE. TIGS\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A and C only",
-      "2": "A, B and D only",
-      "3": "C, D only",
-      "4": "A, D only"
-    },
-    "answer": "2",
-    "explanation": ""
-  },
-  {
-    "id": 27,
-    "question": "In poisoned patients RBC cholinesterase level below 50% Indicates:",
-    "options": {
-      "1": "Salicylates poisoning",
-      "2": "Organo chloride poisoning",
-      "3": "Organo phosphate poisoning",
-      "4": "Pyrethroid poisoning"
-    },
-    "answer": "3",
-    "explanation": ""
-  },
-  {
-    "id": 28,
-    "question": "Stab wound produces:",
-    "options": {
-      "1": "Linear Sear",
-      "2": "Oval/Elliptical Sear",
-      "3": "Circular depressed Sear",
-      "4": "Irregular Sear"
-    },
-    "answer": "2",
-    "explanation": ""
-  },
-  {
-    "id": 29,
-    "question": "A patient is admitted with comatose stage and clinical manifestation of pin point pupil, cyanosis and hypotension. These symptoms are associated with which acute poisoning?",
-    "options": {
-      "1": "Acute Barbiturate Poisoning",
-      "2": "Acute Nicotine Poisoning",
-      "3": "Acute Opiate Poisoning",
-      "4": "Acute Alcohol Poisoning"
-    },
-    "answer": "3",
-    "explanation": ""
-  },
-  {
-    "id": 30,
-    "question": "Modern Breath testers for alcohol use which of the following detectors?",
-    "options": {
-      "1": "Flame Ionization detector",
-      "2": "Fuel Cell detector",
-      "3": "Thermal Capture detector",
-      "4": "Electron Capture detector"
-    },
-    "answer": "2",
-    "explanation": ""
-  },
-  {
-    "id": 31,
-    "question": "\"Intoxilyzer\" is used to determine:",
-    "options": {
-      "1": "drug of abuse",
-      "2": "alcohol consumption",
-      "3": "heavy metal concentration from hair sample",
-      "4": "pesticide poisoning"
-    },
-    "answer": "2",
-    "explanation": ""
-  },
-  {
-    "id": 32,
-    "question": "Which of the following are the correct combination of poison type and poison?\nA. Spinal poison - Gelsemine\nB. Peripheral Nerve poison - Nicotine\nC. Cardiac Poison - Cerbera Odollam\nD. Corrosive poison - Methanol\nE. Asphyxiant poison - Cyanide\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A, B and C only",
-      "2": "B, C and D only",
-      "3": "A, C and E only",
-      "4": "A, C and D only"
-    },
-    "answer": "3",
-    "explanation": ""
-  },
-  {
-    "id": 33,
-    "question": "Which of the following are the metabolites of Arsenic?\nA. Monomethylarsonic acid\nB. Monomethylarsonous acid\nC. Etylmethylarsinic acid\nD. Dimethylarsonous acid\nE. Dimethylarsinic acid\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A, B and C only",
-      "2": "C and D only",
-      "3": "B, C and E only",
-      "4": "A, B and E Only"
-    },
-    "answer": "4",
-    "explanation": ""
-  },
-  {
-    "id": 34,
-    "question": "Match the LIST-I with LIST-II.\nLIST-I (Chemical Test):\nA. Trinder's Test\nB. Fuziwara Test\nC. Melzer's Test\nD. Forrest Test\n\nLIST-II (Poison):\nI. Amanita Phalloides\nII. Salicylates\nIII. Chloral Hydrate\nIV. Imipramine\n\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A-I, B-II, C-III, D-IV",
-      "2": "A-IV, B-I, C-II, D-III",
-      "3": "A-III, B-II, C-I, D-IV",
-      "4": "A-II, B-III, C-I, D-IV"
-    },
-    "answer": "4",
-    "explanation": ""
-  },
-  {
-    "id": 35,
-    "question": "Match the LIST-I with LIST-II.\nLIST-I (Alcoholic Beverage):\nA. Sake\nB. RUM\nC. Tequila\nD. Beer\n\nLIST-II (Alcohol Content in % (v/v)):\nI. 37-80%\nII. 14-16%\nIII. 4-6%\nIV. 32-60%\n\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A-II, B-IV, C-I, D-III",
-      "2": "A-II, B-I, C-IV, D-III",
-      "3": "A-II, B-I, C-III, D-IV",
-      "4": "A-II, B-III, C-I, D-IV"
-    },
-    "answer": "2",
-    "explanation": ""
-  },
-  {
-    "id": 36,
-    "question": "Which of the following are correct?\nA. The numbers of lands and grooves and their direction and degree of twist can be determined by Helixometer.\nB. Size and shape of the firing pin are individual characteristic of a firearm used for individualization.\nC. The Deterrents are coating on the propellant powders that reduce their initial burning rate.\nD. The distance between two opposite lands is called as Calibre.\nE. The comparison microscope helps in examining striations in questioned and specimen bullets.\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A, B, C, D only",
-      "2": "B, C, D, E only",
-      "3": "A, C, D, E only",
-      "4": "C, B, D Only"
-    },
-    "answer": "3",
-    "explanation": ""
-  },
-  {
-    "id": 37,
-    "question": "Which of the following are the objectives of Forensic Photography?\nA. Assist in mental reconstruction of the structure\nB. Identify witness\nC. Creating Series of Events\nD. Clarify and aid Interviews\nE. Prove suspect presence of scene\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A, B, C & E only",
-      "2": "A, B, C & D only",
-      "3": "A, B, D & E only",
-      "4": "A, C, D & E only"
-    },
-    "answer": "2",
-    "explanation": ""
-  },
-  {
-    "id": 38,
-    "question": "Match the LIST-I with LIST-II.\nLIST-I (Stabilizers):\nA. Diphenylamine\nB. Ethyl Centralite\nC. Opacifiers (carbon black)\nD. Plasticizers (triacetin)\n\nLIST-II (Propellant powders):\nI. double-base powder\nII. Softens the propellant granules\nIII. Single-base powder\nIV. Prevents radiant energy from penetrating the surface of powder graining\n\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A-III, B-I, C-IV, D-II",
-      "2": "A-I, B-II, C-III, D-IV",
-      "3": "A-II, B-IV, C-I, D-III",
-      "4": "A-IV, B-I, C-II, D-III"
-    },
-    "answer": "1",
-    "explanation": ""
-  },
-  {
-    "id": 39,
-    "question": "Match the LIST-I with LIST-II.\nFactor affecting Firearm injuries\nLIST-I (Factors):\nA. Bullet with irregular shape\nB. High velocity projectile/bullet\nC. Range of fire, Contact shot\nD. Distance shot, more than 18 inches\n\nLIST-II (Injury/Pattern):\nI. Concentrated gun-shot residue patterns are developed such as blackening and tattooing\nII. Abrasion collar, stitches and tear skin\nIII. Produces lacerated, irregular wounds with variable size\nIV. Perforated wound\n\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A-II, B-III, C-IV, D-I",
-      "2": "A-IV, B-III, C-II, D-I",
-      "3": "A-I, B-III, C-II, D-IV",
-      "4": "A-III, B-IV, C-I, D-II"
-    },
-    "answer": "4",
-    "explanation": ""
-  },
-  {
-    "id": 40,
-    "question": "Arrange the following steps in their correct order of sequence for a semi-automatic pistol.\nA. A cartridge is chambered in the pistol, usually by manually moving the breechblock to the rear, the firing mechanism is cocked.\nB. Some of the energy produced by the fired cartridge is used to move the breechblock to the rear, extracting the spent cartridge from the chamber, ejecting it from the weapon.\nC. A spring compressed by the rear ward travel of the breechblock pushes it forward, stripping an unfired cartridge from the magazine and loading it into the firing chamber.\nD. At the end of the cycle, the pistol is left loaded and cocked, it requires only the pull of the trigger to fire another shot.\nE. The shooter pulls the trigger, firing the cartridge with first shot.\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A, E, B, C, D",
-      "2": "E, D, C, B, A",
-      "3": "A, E, C, B, D",
-      "4": "E, A, C, B, D"
-    },
-    "answer": "1",
-    "explanation": ""
-  },
-  {
-    "id": 41,
-    "question": "Arrange the following in order to the basic component of Spectrophotometer.\nA. a sample holder\nB. a radiation source\nC. a recorder\nD. a monochromator\nE. a detector\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "E, A, B, C, D",
-      "2": "A, D, E, C, B",
-      "3": "B, C, A, D, E",
-      "4": "B, D, A, E, C"
-    },
-    "answer": "4",
-    "explanation": ""
-  },
-  {
-    "id": 42,
-    "question": "Choose the correct order of evidence collection in above crime scene according to evidentiary value.\nA. Fingerprint\nB. Blood spots\nC. Bite mark\nD. Saliva\nE. Fallen hair\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A, B, D, C, E",
-      "2": "B, C, A, D, E",
-      "3": "D, A, B, C, E",
-      "4": "D, C, A, B, E"
-    },
-    "answer": "1",
-    "explanation": ""
-  },
-  {
-    "id": 43,
-    "question": "The knurled grooves engraved around the circumference of the bullet is called",
-    "options": {
-      "1": "Wad cutter",
-      "2": "Frangible",
-      "3": "Cannelures",
-      "4": "Rimfire"
-    },
-    "answer": "3",
-    "explanation": ""
-  },
-  {
-    "id": 44,
-    "question": "The diameter of the shotgun barrel is called",
-    "options": {
-      "1": "Calibre",
-      "2": "Bore",
-      "3": "Gauge",
-      "4": "Slug"
-    },
-    "answer": "3",
-    "explanation": ""
-  },
-  {
-    "id": 45,
-    "question": "Which of the following information may not assist in subsequent investigation of a firing case?",
-    "options": {
-      "1": "Terminal velocity of the bullet at the target point",
-      "2": "Direction of travel of bullet fired on glass",
-      "3": "Type of firearm used in the offence",
-      "4": "Linkage of the shooter to the Firearm"
-    },
-    "answer": "1",
-    "explanation": ""
-  },
-  {
-    "id": 46,
-    "question": "Rifling produced by ________ tends to leave more forensically useful marking inside the rifled barrel than do the other rifling methods.",
-    "options": {
-      "1": "Broaching",
-      "2": "Swaging",
-      "3": "Hammer forging",
-      "4": "Electrochemical etching"
-    },
-    "answer": "1",
-    "explanation": ""
-  },
-  {
-    "id": 47,
-    "question": "Which of the following explosive is mixed with fuel oil?",
-    "options": {
-      "1": "Nitroglycerin",
-      "2": "Nitrocellulose",
-      "3": "Ammonium Nitrate",
-      "4": "Dynamite"
-    },
-    "answer": "3",
-    "explanation": ""
-  },
-  {
-    "id": 48,
-    "question": "Nitroglycerine was mixed with which of the absorbent clay to make \"Ghur Dynamite\"?",
-    "options": {
-      "1": "Zeolite",
-      "2": "Bentonite",
-      "3": "Kieselguhr",
-      "4": "Acquaguhr"
-    },
-    "answer": "3",
-    "explanation": ""
-  },
-  {
-    "id": 49,
-    "question": "Which of the following is NOT the storage media?",
-    "options": {
-      "1": "HDD",
-      "2": "SSD",
-      "3": "CPU",
-      "4": "Pen Drive"
-    },
-    "answer": "3",
-    "explanation": ""
-  },
-  {
-    "id": 50,
-    "question": "Which of the following is a key difference between questioned documents fingerprints and tools marks?",
-    "options": {
-      "1": "Tool marks rely on visual inspection only, while questioned documents & fingerprints involve chemical analysis.",
-      "2": "Questioned documents deal with ink analysis, while fingerprints and tool marks focus on physical impressions.",
-      "3": "Fingerprint are unique to an individual whereas questioned documents & toolmark are often unique but not always definite.",
-      "4": "Toolmarks are always left unintentionally like questioned documents & fingerprints which are typically left intentionally."
-    },
-    "answer": "3",
-    "explanation": ""
-  },
-  {
-    "id": 51,
-    "question": "Arrange the components of explosive train in the correct order.\nA. Detonating\nB. Primer\nC. Flash\nD. Booster\nE. Base Charge\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "B, D, A, C, E",
-      "2": "B, A, C, D, E",
-      "3": "C, D, A, B, E",
-      "4": "D, C, B, A, E"
-    },
-    "answer": "2",
-    "explanation": ""
-  },
-  {
-    "id": 52,
-    "question": "Which of the following are true statements of explosion chemistry?\nA. Deflagration is when explosion speed is less than the speed of sound.\nB. Detonation is when explosion speed is greater than the speed of sound.\nC. Condensed explosives are gaseous in nature.\nD. Dispersed explosives are solid in nature.\nE. Thermal explosion is produced when a liquid meets to another hot liquid and rapidly reaches to boiling point.\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A, C, D, E",
-      "2": "A, B, E",
-      "3": "A, C, E",
-      "4": "A, B, D, E"
-    },
-    "answer": "2",
-    "explanation": ""
-  },
-  {
-    "id": 53,
-    "question": "Important features for thin layer chromatography includes:\nA. Adsorption chromatography.\nB. Gypsum is used to bind the stationary phase.\nC. Results are in terms of retention time.\nD. N2 is used for migration of the analyte of internet.\nE. Solvent front is used for the calculation of the results.\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A, C and E only",
-      "2": "B, C, D and E only",
-      "3": "A, B and E only",
-      "4": "A, C, D and E only"
-    },
-    "answer": "3",
-    "explanation": ""
-  },
-  {
-    "id": 54,
-    "question": "What information about a paint sample can be obtained by use of Infrared Micro Spectrophotometry?\nA. Colour of the paint\nB. Chemical component of the paint\nC. Thickness of the paint\nD. Functional group present in paint\nE. No. of coating of the paint\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "B, D only",
-      "2": "C, A only",
-      "3": "B, C only",
-      "4": "D, A only"
-    },
-    "answer": "1",
-    "explanation": ""
-  },
-  {
-    "id": 55,
-    "question": "Molotov Cocktail is made with following components:\nA. Glass bottle\nB. Ignitable liquid\nC. Cloth soaked in accelerant\nD. Primer\nE. Nitroglycerine\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A, D and E only",
-      "2": "B, C, D and E only",
-      "3": "A, B and C only",
-      "4": "A, C and D only"
-    },
-    "answer": "3",
-    "explanation": ""
-  },
-  {
-    "id": 56,
-    "question": "Match the LIST-I with LIST-II.\nLIST-I (Explosives):\nA. RDX\nB. HMX\nC. Dynamite\nD. Nitrocellulose\n\nLIST-II (Common name):\nI. Cordite\nII. Gun cotton\nIII. Hexogen\nIV. Octagen\n\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A-III, B-IV, C-I, D-II",
-      "2": "A-III, B-I, C-II, D-IV",
-      "3": "A-II, B-III, C-I, D-IV",
-      "4": "A-II, B-I, C-III, D-IV"
-    },
-    "answer": "1",
-    "explanation": ""
-  },
-  {
-    "id": 57,
-    "question": "Which element in the diatoms make them resistant against the acids?",
-    "options": {
-      "1": "Iron",
-      "2": "Silica",
-      "3": "Quartz",
-      "4": "Cadmium"
-    },
-    "answer": "2",
-    "explanation": ""
-  },
-  {
-    "id": 58,
-    "question": "The outer most area of the hair is known as:",
-    "options": {
-      "1": "Cortex Fusi",
-      "2": "Medulla",
-      "3": "Cortex",
-      "4": "Cuticle"
-    },
-    "answer": "4",
-    "explanation": ""
-  },
-  {
-    "id": 59,
-    "question": "Which of the following methods is never used for the paint analysis?",
-    "options": {
-      "1": "Fluorescence microscopy",
-      "2": "SEM-EDS",
-      "3": "TEM",
-      "4": "ESDA"
-    },
-    "answer": "4",
-    "explanation": ""
-  },
-  {
-    "id": 60,
-    "question": "The automative finishing system for steel usually consists of at least four organic coating. Which is the first coat to be applied?",
-    "options": {
-      "1": "Base Coat",
-      "2": "Primer surface",
-      "3": "Electrocoat primer",
-      "4": "Clear Coat"
-    },
-    "answer": "3",
-    "explanation": ""
-  },
-  {
-    "id": 61,
-    "question": "Arrange the following data storage from high to low.\nA. Bit\nB. TB\nC. Byte\nD. KB\nE. PB\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "E, B, D, C, A",
-      "2": "E, D, B, C, A",
-      "3": "C, D, B, A, E",
-      "4": "E, C, B, D, A"
-    },
-    "answer": "1",
-    "explanation": ""
-  },
-  {
-    "id": 62,
-    "question": "Sequentially arrange (from starting point) the process of digital forensic investigation.\nA. Preservation\nB. Acquisition\nC. Investigative Analysis\nD. Forensic Examination\nE. Presentation\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A, B, C, D, E",
-      "2": "B, A, D, C, E",
-      "3": "C, A, B, D, E",
-      "4": "D, C, A, B, E"
-    },
-    "answer": "2",
-    "explanation": ""
-  },
-  {
-    "id": 63,
-    "question": "Which of the following will be termed as class characteristic of the respective evidences.\nA. Gait pattern - Foot length\nB. Paint - Colour coat\nC. Hair - Presence of Keratenine protein\nD. Hand writing - terminal strokes\nE. Cartridge case - firing pin marks\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "B, C, D only",
-      "2": "A, B, D only",
-      "3": "A, C, D only",
-      "4": "C, D, E only"
-    },
-    "answer": "1",
-    "explanation": ""
-  },
-  {
-    "id": 64,
-    "question": "As a first step, which softwares can be used to start the investigation on the HDD?\nA. En case\nB. FTK\nC. Forensic Autopsy\nD. Photoshop\nE. Partition Manager\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "B, C, D only",
-      "2": "A, C, D only",
-      "3": "A, B, C only",
-      "4": "B, C, E only"
-    },
-    "answer": "3",
-    "explanation": ""
-  },
-  {
-    "id": 65,
-    "question": "Match the LIST-I with LIST-II.\nLIST-I (Item Name):\nA. RAM\nB. ROM\nC. CDMA\nD. GPS\n\nLIST-II (Description):\nI. Helps in finding location\nII. Volatile Memory\nIII. Non-volatile Memory\nIV. A type of Digital network\n\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A-I, B-II, C-IV, D-III",
-      "2": "A-III, B-II, C-I, D-IV",
-      "3": "A-I, B-III, C-II, D-IV",
-      "4": "A-II, B-III, C-IV, D-I"
-    },
-    "answer": "4",
-    "explanation": ""
-  },
-  {
-    "id": 66,
-    "question": "Match the LIST-I with LIST-II.\nLIST-I (Characteristic of hair):\nA. Anagen\nB. Catagen\nC. Telogen\nD. Plucked Hair\n\nLIST-II (Description):\nI. The root typically take on an elongated appearance\nII. First phase of hair growth\nIII. The root takes on a club shaped appearance\nIV. Can have follicular tag which can be used for DNA analysis\n\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A-IV, B-III, C-II, D-I",
-      "2": "A-II, B-I, C-III, D-IV",
-      "3": "A-I, B-III, C-II, D-IV",
-      "4": "A-III, B-II, C-I, D-IV"
-    },
-    "answer": "2",
-    "explanation": ""
-  },
-  {
-    "id": 67,
-    "question": "Following impressions prove that a suspect was present at a crime scene.\nA. Fingermarks impressions at the scene\nB. Tool marks present at crime scene\nC. Footwear impressions at the crime scene\nD. Tread marks or Tyre marks leading to crime scene\nE. Palm impressions at crime scene\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A and B only",
-      "2": "A and E only",
-      "3": "C and D only",
-      "4": "D and E only"
-    },
-    "answer": "2",
-    "explanation": ""
-  },
-  {
-    "id": 68,
-    "question": "Which of the following are the probable causes of Road Accidents?\nA. The roads have sharp turns and narrow curves.\nB. The driver has impaired judgement of speed and direction.\nC. The driver may be drunken or intoxicated.\nD. The traffic lights and head-lights of vehicle working in order.\nE. The dippers and other indicators are not applied properly.\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A, B, D only",
-      "2": "B, C, D only",
-      "3": "C, D, E, A only",
-      "4": "A, B, C, E only"
-    },
-    "answer": "4",
-    "explanation": ""
-  },
-  {
-    "id": 69,
-    "question": "Give the correct sequence for the process of Restoration of chassis number:\nA. Take the photograph of the cleaned surface\nB. Make the surface smooth by grinding and polishing\nC. Obliterated surface must be thoroughly cleaned from dirt, grease, oil etc. with suitable solvent\nD. The number becomes visible, photograph immediately\nE. Etching solution is applied on the surface with cotton\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A, B, C, E, D",
-      "2": "A, B, C, D, E",
-      "3": "D, E, A, B, C",
-      "4": "C, A, B, E, D"
-    },
-    "answer": "4",
-    "explanation": ""
-  },
-  {
-    "id": 70,
-    "question": "Give the correct sequence for voice analysis:\nA. Preparation of copies of recorded audio tapes\nB. Transcript the recorded audio tape\nC. Speaker Identification using voice spectrographic analysis\nD. Examination of the length of the audio tape\nE. Physical examination of any damage to the reel/audio tape\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A, B, D, C, E",
-      "2": "E, D, B, A, C",
-      "3": "E, D, A, B, C",
-      "4": "E, D, C, B, A"
-    },
-    "answer": "3",
-    "explanation": ""
-  },
-  {
-    "id": 71,
-    "question": "Match the LIST-I with LIST-II.\nLIST-I (History of fingerprints):\nA. Skin ridges never duplicated in two individuals\nB. Use of fingerprints in criminal investigations\nC. Fingerprints\nD. Life on Mississippi\n\nLIST-II (Contributors):\nI. Henry Faulds\nII. JCA Mayer\nIII. Mark Twain\nIV. Francis Galton\n\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A-IV, B-III, C-II, D-I",
-      "2": "A-II, B-I, C-IV, D-III",
-      "3": "A-I, B-II, C-III, D-IV",
-      "4": "A-I, B-III, C-II, D-IV"
-    },
-    "answer": "2",
-    "explanation": ""
-  },
-  {
-    "id": 72,
-    "question": "Which of the following condition does not effect the fingerprints?",
-    "options": {
-      "1": "Humidity",
-      "2": "Developing technique",
-      "3": "Perspiration",
-      "4": "Surface type"
-    },
-    "answer": "2",
-    "explanation": ""
-  },
-  {
-    "id": 73,
-    "question": "Which of the following international standards is commonly applied in Forensic laboratories to ensure quality control in forensic analysis?",
-    "options": {
-      "1": "ISO/IEC 17025",
-      "2": "ISO 9001",
-      "3": "ISO 14001",
-      "4": "ISO 22000"
-    },
-    "answer": "1",
-    "explanation": ""
-  },
-  {
-    "id": 74,
-    "question": "Which one of the following is not a correct combination for developing latent prints?",
-    "options": {
-      "1": "Aluminium powder on electronic devices",
-      "2": "Ninhydrin on paper cups",
-      "3": "Iodine fuming on an old will",
-      "4": "Small particle reagent based dye on submerged tile"
-    },
-    "answer": "1",
-    "explanation": ""
-  },
-  {
-    "id": 75,
-    "question": "Which of the following is not a method for identification of voice?",
-    "options": {
-      "1": "Automatic Speaker Recognition (ASR)",
-      "2": "Articulation Speed Detector (ASD)",
-      "3": "Speaker Recognition through Spectrogram (SRS)",
-      "4": "Speaker Recognition through Listening (SRL)"
-    },
-    "answer": "2",
-    "explanation": ""
-  },
-  {
-    "id": 76,
-    "question": "While turning of vehicle at a curve, the rear tyre will follow:",
-    "options": {
-      "1": "Outside of the front tyre tread",
-      "2": "Inside of the front tyre tread",
-      "3": "Same Path of the front tyre tread",
-      "4": "Insufficient information"
-    },
-    "answer": "2",
-    "explanation": ""
-  },
-  {
-    "id": 77,
-    "question": "Ball-point inks are made up of essentially three main constituents:",
-    "options": {
-      "1": "An organic solvent, an alkaloid and resin",
-      "2": "A resinous thickener, an organic solvent and heavy metal salt",
-      "3": "An inorganic salt, solvent and resin thickner",
-      "4": "An organic colouring pigment, an organic solvent and a resinous thickener"
-    },
-    "answer": "4",
-    "explanation": ""
-  },
-  {
-    "id": 78,
-    "question": "________ is the distance pen covers before the writer moves his or her hand to continue the act of writing.",
-    "options": {
-      "1": "Pen lift",
-      "2": "Pen hiatus",
-      "3": "Pen scope",
-      "4": "Pen pause"
-    },
-    "answer": "3",
-    "explanation": ""
-  },
-  {
-    "id": 79,
-    "question": "The system Palmer, Zaner Bloser, D'Nealian are examples of ________ systems.",
-    "options": {
-      "1": "Fingerprints identification",
-      "2": "Headstamps",
-      "3": "Spectroscopic Detectors",
-      "4": "Penmanship"
-    },
-    "answer": "4",
-    "explanation": ""
-  },
-  {
-    "id": 80,
-    "question": "CEDAR-Fox is a technology development effort in the field of",
-    "options": {
-      "1": "Automated handwriting examination system",
-      "2": "Instrumental method of ink examination",
-      "3": "Spectroscopic method of ink and eraser examination",
-      "4": "Instrumental method of indentation and pencil writing examination"
-    },
-    "answer": "1",
-    "explanation": ""
-  },
-  {
-    "id": 81,
-    "question": "Arrange the following in the correct order of sequence for forensic document examination:\nA. Visualization and examination of document under video spectral comparator\nB. Physical parameters such as: dimensions, opacity, thickness, watermarks examination\nC. Visual examination of document for traces of any possible forgery or misrepresentation\nD. Examination under sterozoom microscope for 3D images\nE. Thin layer chromatography for ink examination of questioned documents\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "C, B, D, E, A",
-      "2": "C, B, E, A, D",
-      "3": "C, E, B, A, D",
-      "4": "C, B, D, A, E"
-    },
-    "answer": "4",
-    "explanation": ""
-  },
-  {
-    "id": 82,
-    "question": "Match the LIST-I with LIST-II.\nLIST-I (Characteristics):\nA. Buckle-knot\nB. Eyelet/eyeloop\nC. Blunt\nD. Knob\n\nLIST-II (Meaning):\nI. It is a part of a stroke characterized by an abrupt beginning or end\nII. It is a horizontal or loop stroke used to complete letters like A, H, F and D\nIII. It refers to a small oblong stroke\nIV. It is a tiny pool of ink at the beginning or ending of a stroke\n\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A-I, B-II, C-III, D-IV",
-      "2": "A-III, B-II, C-IV, D-I",
-      "3": "A-II, B-III, C-I, D-IV",
-      "4": "A-IV, B-I, C-III, D-II"
-    },
-    "answer": "3",
-    "explanation": ""
-  },
-  {
-    "id": 83,
-    "question": "Match the LIST-I with LIST-II.\nLIST-I (Effects/Features):\nA. Herschel effects\nB. Moire effect\nC. Grabber marks\nD. Detailed and clear watermarks\n\nLIST-II (Process):\nI. Anti-counterfeiting process\nII. Cylinder mould process\nIII. Black and white photography\nIV. Photocopied documents\n\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A-III, B-I, C-IV, D-II",
-      "2": "A-II, B-I, C-III, D-IV",
-      "3": "A-IV, B-I, C-II, D-III",
-      "4": "A-II, B-I, C-IV, D-III"
-    },
-    "answer": "1",
-    "explanation": ""
-  },
-  {
-    "id": 84,
-    "question": "The basic principles of handwriting states that:\nA. Writing is a complex and highly developed skill.\nB. No two people write exactly alike in an extended handwriting sample.\nC. Handwriting contains natural variations so that no two writing samples by the same writer will be exactly same.\nD. The use of signature in legal and financial transaction is possible because of unique characteristics.\nE. The document examiner can differentiate between genuine and non-genuine writing with experience.\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A and B only",
-      "2": "B and C only",
-      "3": "C and D only",
-      "4": "D and E only"
-    },
-    "answer": "2",
-    "explanation": ""
-  },
-  {
-    "id": 85,
-    "question": "While taking request writings, which of the following conditions should be ensured?\nA. The suspect should be given proper sitting in well illuminated room.\nB. The suspect should be shown questioned document for better comparison of his writing with same text.\nC. The suspect can write any text using any writing instrument.\nD. The suspect should be dictated similar words, phrases and letters combination as found in questioned document.\nE. The suspect should be given similar or same writing instrument and writing surface as the used in writing questionable sample.\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A, B, C only",
-      "2": "B, C, D only",
-      "3": "C, D, E only",
-      "4": "A, D, E only"
-    },
-    "answer": "4",
-    "explanation": ""
-  },
-  {
-    "id": 86,
-    "question": "For PMI estimation, probably most important isolatable insects are:\nA. Wasp\nB. Flies\nC. Beetle\nD. Ants\nE. Mosquitos\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "B and C only",
-      "2": "A, B and C only",
-      "3": "A, D and E only",
-      "4": "B, C and E only"
-    },
-    "answer": "1",
-    "explanation": ""
-  },
-  {
-    "id": 87,
-    "question": "Arrange the following in the correct order of occurrence:\nA. Hard steel dies strikes the surface of metal with a larger force which disturbs the crystalline micro structure of metal resulting in metal getting compressed.\nB. When a suitable chemical is applied, the unstrain and strained areas will dissolve the metals in different manners and rate.\nC. This would result in appearance of original numbers.\nD. As soon as the number appears, it may be immediately photographed.\nE. The number remains visibly for a short time and disappears. On applications of chemical again the number will reappeared again.\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "A, B, C, D, E",
-      "2": "A, B, C, E, D",
-      "3": "E, D, C, B, A",
-      "4": "C, D, E, B, A"
-    },
-    "answer": "1",
-    "explanation": ""
-  },
-  {
-    "id": 88,
-    "question": "Stages of decomposition of body after death:\nA. Decay stage\nB. Bloated stage\nC. Skeletal stage\nD. Post decay stage\nE. First stage\nChoose the correct answer from the options given below:",
-    "options": {
-      "1": "E, D, B, A, C",
-      "2": "A, C, D, E, B",
-      "3": "E, A, B, D, C",
-      "4": "E, B, A, D, C"
-    },
-    "answer": "4",
-    "explanation": ""
-  },
-  {
-    "id": 89,
-    "question": "Determine of potassium in eye level is important for:",
-    "options": {
-      "1": "Time since death",
-      "2": "Toxicological assessment for blood",
-      "3": "To estimate the age of victim",
-      "4": "Sex determination"
-    },
-    "answer": "1",
-    "explanation": ""
-  },
-  {
-    "id": 90,
-    "question": "Which ethical principle involves ensuring that forensic scientists report all resulted even if the findings contradict initial expectations or desire of the client?",
-    "options": {
-      "1": "Justice",
-      "2": "Impartiality",
-      "3": "Objectivity",
-      "4": "Honesty"
-    },
-    "answer": "3",
-    "explanation": ""
-  },
-  {
-    "id": 91,
-    "question": "Directions (Qs. No. 91-95): Read the passage below carefully and answer the following questions:\nA poisoning case with more than 20 patient was reported after the consumption of country made liquor. With initial examination it was suspected with methanol poisoning. However analytical findings were not in support of a methanol poisoning. Further detailed crime scene investigation revealed the case of accidental pesticide poisoning, which was confirmed further by instrumental analysis. There was no death reported and with proper treatment all patients were recovered.\n\nFollowing instrument can be used for pesticide detection:",
-    "options": {
-      "1": "GC-MS",
-      "2": "SEM",
-      "3": "AAS",
-      "4": "PCR"
-    },
-    "answer": "1",
-    "explanation": ""
-  },
-  {
-    "id": 92,
-    "question": "Directions (Qs. No. 91-95): Read the passage.\n\nFor alcohol detection, ________ is used as internal standard.",
-    "options": {
-      "1": "CH3OH",
-      "2": "C2H5OH",
-      "3": "C3H7OH",
-      "4": "C4H9OH"
-    },
-    "answer": "3",
-    "explanation": ""
-  },
-  {
-    "id": 93,
-    "question": "Directions (Qs. No. 91-95): Read the passage.\n\nFor quantitative analysis, the concentration of internal standard is used as:",
-    "options": {
-      "1": "0.1% w/v",
-      "2": "0.2% w/v",
-      "3": "0.3% w/v",
-      "4": "0.4% w/v"
-    },
-    "answer": "2",
-    "explanation": ""
-  },
-  {
-    "id": 94,
-    "question": "Directions (Qs. No. 91-95): Read the passage.\n\nAntidote for methanol poisoning is",
-    "options": {
-      "1": "BAL",
-      "2": "EDTA",
-      "3": "Active charcoal",
-      "4": "Ethanol"
-    },
-    "answer": "4",
-    "explanation": ""
-  },
-  {
-    "id": 95,
-    "question": "Directions (Qs. No. 91-95): Read the passage.\n\nIn survival case of alcohol poisoning, the available biological sample will be:",
-    "options": {
-      "1": "Blood",
-      "2": "Peritoneal fluid",
-      "3": "Liver",
-      "4": "Kidney"
-    },
-    "answer": "1",
-    "explanation": ""
-  },
-  {
-    "id": 96,
-    "question": "Directions (Qs. No. 96-100): Read the below passage carefully and answer the following questions:\nA semi-naked dead body of a girl with throat slit was found in an abandoned car's trunk near the dumping yard. The body had the signs of external injuries over neck, chest and groin areas. Injuries involved bite marks, bruises over public part and thighs. A blood stained palm print was observed on the trunk panel, footprints were found near dead body leading to a hut where blood spots were observed and other body fluids on the floor. Three empty liquor bottles and one shattered liquor bottle recovered from the hut along with disposable cups. Postmortem examination of a deceased girl reveled multiple sexual assault and presence of semen in the vaginal tract. Throat wound examination indicated uneven tissue with irregularities at the edge. Anthropological examination indicated the age of the girl to be a minor.\n\nWhich is the primary crime scene in the above crime location?",
-    "options": {
-      "1": "Car",
-      "2": "Hut",
-      "3": "Car trunk",
-      "4": "Dumping Yard"
-    },
-    "answer": "2",
-    "explanation": ""
-  },
-  {
-    "id": 97,
-    "question": "Directions (Qs. No. 96-100): Read the passage.\n\nIn anthropological examination which of the following is most suitable for the calculation of biological age?",
-    "options": {
-      "1": "Height",
-      "2": "Femur length",
-      "3": "Tibia length",
-      "4": "Dentition"
-    },
-    "answer": "4",
-    "explanation": ""
-  },
-  {
-    "id": 98,
-    "question": "Directions (Qs. No. 96-100): Read the passage.\n\nWhich of the following evidence have the higher evidently value?",
-    "options": {
-      "1": "Palm print",
-      "2": "Blood spots",
-      "3": "Bite mark",
-      "4": "Foot print"
-    },
-    "answer": "2",
-    "explanation": ""
-  },
-  {
-    "id": 99,
-    "question": "Directions (Qs. No. 96-100): Read the passage.\n\nAs per the postmortem report about throat wound examination, which of the following could be the murder weapon?",
-    "options": {
-      "1": "Knife",
-      "2": "Blade",
-      "3": "Glass",
-      "4": "Khukri"
-    },
-    "answer": "3",
-    "explanation": ""
-  },
-  {
-    "id": 100,
-    "question": "Directions (Qs. No. 96-100): Read the passage.\n\nTo identify the multiple assailants involved in the gang rape, which of the following technique is used?",
-    "options": {
-      "1": "X-STR",
-      "2": "Y-STR",
-      "3": "RFLP",
-      "4": "AFLP"
-    },
-    "answer": "2",
-    "explanation": ""
+// ==========================================
+// 1. QUESTION DATABASE
+// ==========================================
+const questions = [
+  {
+    "q": "1. Under Section 176(3) of the Bharatiya Nagarik Suraksha Sanhita (BNSS), 2023, forensic expert involvement and scene of crime visit are mandatory for offences punishable with imprisonment of how many years or more?",
+    "options": [
+      "3 years",
+      "5 years",
+      "7 years",
+      "10 years"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "2. In capillary electrophoresis for DNA typing, an electropherogram peak appearing precisely one base pair smaller than the main allele peak due to incomplete non-template nucleotide addition (+A) by Taq polymerase is classified as:",
+    "options": [
+      "Pull-up artifact",
+      "Stutter peak",
+      "Split peak (-A peak)",
+      "Dye blob"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "3. In a population obeying Hardy-Weinberg equilibrium, if the frequency of an STR allele A is calculated to be 0.7, what is the expected frequency of heterozygous individuals carrying allele A alongside a alternative allele a (frequency 0.3)?",
+    "options": [
+      "0.21",
+      "0.42",
+      "0.49",
+      "0.09"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "4. During Gas Chromatography-Mass Spectrometry (GC-MS) analysis of basic drug samples, severe peak tailing and loss of analyte response are primarily caused by un-silanized active sites on column walls. What chemical group causes this activity?",
+    "options": [
+      "Free silanol groups",
+      "Polysiloxane backbones",
+      "Methyl substituents",
+      "Phenyl rings"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "5. A corpse is discovered in a room held at a constant 20 degrees Celsius. Rectal temperature is recorded at 29 degrees Celsius. Applying standard algor mortis cooling rates (average loss of 0.75 to 1.0 degree Celsius per hour under temperate conditions), approximately how many hours have elapsed since death?",
+    "options": [
+      "1 to 3 hours",
+      "8 to 11 hours",
+      "18 to 24 hours",
+      "30 to 36 hours"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "6. Which type of smokeless propellant grain geometry exhibits an increasing surface area as combustion proceeds, leading to higher gas generation rates and peak barrel pressure?",
+    "options": [
+      "Degressive burning powder",
+      "Neutral burning powder",
+      "Progressive burning powder",
+      "Deactivating powder"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "7. In Electrostatic Detection Apparatus (ESDA) examinations of questioned documents, why must relative humidity in the processing environment be maintained strictly between 50 percent and 70 percent?",
+    "options": [
+      "Lower humidity destroys paper fibers completely",
+      "Higher humidity renders paper non-conductive, ruining charge differential",
+      "Proper humidity ensures controlled paper conductivity to hold differential charge",
+      "Toner particles fail to adhere to polymer films at any other humidity"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "8. Which high explosive compound possesses a detonation velocity of approximately 8,400 meters per second and produces a deep blue color reaction when tested with diphenylamine in concentrated sulfuric acid?",
+    "options": [
+      "Trinitrotoluene (TNT)",
+      "Pentaerythritol Tetranitrate (PETN)",
+      "Ammonium Nitrate",
+      "Triacetone Triperoxide (TATP)"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "9. Forensic post-mortem findings reveal bright cherry-red discoloration of blood and livor mortis. Histological investigation shows inhibition of Cytochrome c oxidase in cellular mitochondria. Which toxic agent is responsible?",
+    "options": [
+      "Carbon Monoxide",
+      "Hydrogen Cyanide",
+      "Hydrogen Sulfide",
+      "Arsenic Trioxide"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "10. Under Section 63 of the Bharatiya Sakshya Adhiniyam (BSA), 2023, what legal requirement is mandatory for admitting electronic evidence without producing the original physical media device?",
+    "options": [
+      "Oral testimony of the crime scene investigator only",
+      "Certificate signed by a person occupying a responsible official position managing the device",
+      "Affidavit signed by a judicial magistrate",
+      "Written permission from the service provider"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "11. In bloodstain pattern analysis, a blood drop strikes a smooth non-porous floor, forming an elliptical stain measuring 10 millimeters in width and 20 millimeters in length. What is the calculated angle of impact?",
+    "options": [
+      "15 degrees",
+      "30 degrees",
+      "45 degrees",
+      "60 degrees"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "12. Microscopic examination of a hair specimen reveals a continuous, dark medullary cavity with a medullary index calculated at 0.58. What is the correct forensic interpretation?",
+    "options": [
+      "The hair is definitely of human origin",
+      "The hair is of animal origin",
+      "The hair belongs to a infant human",
+      "The hair is synthetic or artificial"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "13. In Gustafson's method for adult dental age estimation, which parameter exhibits the highest positive correlation with chronological age?",
+    "options": [
+      "Attrition of enamel",
+      "Secondary dentin deposition",
+      "Root transparency (dentinal translucency)",
+      "Cementum apposition"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "14. Severe localized spalling on concrete flooring accompanied by dark downward irregular pour patterns with downward burn marks strongly indicates:",
+    "options": [
+      "Flashover phenomenon",
+      "Use of liquid accelerants pooled on the surface",
+      "Electrical short circuit arc mapping",
+      "Natural backdraft explosion"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "15. Spectrophotometric blood analysis indicates Carboxyhemoglobin (COHb) saturation. What concentration of COHb is generally considered fatal in a healthy non-smoking individual?",
+    "options": [
+      "10 to 15 percent",
+      "20 to 25 percent",
+      "30 to 35 percent",
+      "Above 50 percent"
+    ],
+    "answer": 3
+  },
+  {
+    "q": "16. In multi-color fluorescence capillary electrophoresis DNA analysis, pull-up peaks occurring in one color channel directly beneath strong true peaks in another channel are caused by:",
+    "options": [
+      "Incomplete PCR primer binding",
+      "Spectral overlap failure or incorrect calibration matrix",
+      "Off-ladder allele microvariants",
+      "Excessive capillary temperature fluctuations"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "17. Which section of the Bharatiya Nyaya Sanhita (BNS), 2023 defines the offense corresponding to forgery (making a false document or electronic record)?",
+    "options": [
+      "Section 316",
+      "Section 336",
+      "Section 340",
+      "Section 351"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "18. Which morphological parameter of the human adult pelvis is most diagnostic for establishing female biological sex?",
+    "options": [
+      "Narrow heart-shaped pelvic inlet",
+      "Subpubic angle greater than 90 degrees and broad greater sciatic notch",
+      "V-shaped subpubic angle less than 70 degrees",
+      "Inwardly curved sacral morphology"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "19. In forensic acoustic analysis, fundamental frequency (F0) represents which physiological acoustic property?",
+    "options": [
+      "Resonance frequencies of the vocal tract filter",
+      "Rate of vibration of the vocal folds during phonation",
+      "Acoustic reflections from the nasal cavity",
+      "Turbulent air friction generated at alveolar ridge"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "20. In High-Performance Liquid Chromatography (HPLC), peak fronting (an asymmetric leading edge) is primarily caused by:",
+    "options": [
+      "Mass overload of the chromatographic column",
+      "Excessive column void volume",
+      "Degradation of internal stationary phase",
+      "Air bubbles trapped inside detector cell"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "21. When comparing microscopic toolmarks using silicone rubber casting materials (e.g., Mikrosil), individual characteristics are distinguished from class characteristics by identifying:",
+    "options": [
+      "Overall width and shape of blade edge",
+      "Random microscopic striations caused by manufacturing defects or wear",
+      "Composition of elemental metal alloys",
+      "Standard factory bevel angle"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "22. In lateral flow rapid immunochromatographic cassette assays for human blood identification (like ABAcard HemaTrace), extremely high concentrations of hemoglobin can cause false-negative results due to:",
+    "options": [
+      "Prozone effect (High-dose Hook effect)",
+      "Cross-reaction with animal blood",
+      "Substrate depletion phenomenon",
+      "Enzymatic inhibition of monoclonal antibodies"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "23. In drowning cases, detection of diatoms confirms active antemortem drowning only if recovered diatoms are recovered from:",
+    "options": [
+      "Stomach content and upper respiratory tract",
+      "Closed organs like intact bone marrow, kidney, or liver",
+      "External skin surface and nasal mucosa",
+      "Pleural fluid collections"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "24. In polygraph examination, Galvanic Skin Response (GSR) sensors capture physiological changes by measuring:",
+    "options": [
+      "Subcutaneous peripheral blood flow volume",
+      "Electrodermal activity resulting from eccrine sweat gland secretion",
+      "Thoracic cavity volume expansion",
+      "Systolic blood pressure peaks"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "25. A single-locus STR profile derived from a non-visibly contaminated single-source sample displays three distinct peaks at locus D18S51 with equal peak height ratios (around 3000 RFU each). This genetic pattern represents:",
+    "options": [
+      "Allelic dropout",
+      "Tri-allelic pattern",
+      "Primer binding site mutation",
+      "Stutter artifact"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "26. Scanning Electron Microscopy with Energy Dispersive X-ray Spectroscopy (SEM-EDX) identifies characteristic Gunshot Residue (GSR) particles based on the combined presence of which three elements?",
+    "options": [
+      "Iron, Carbon, Silicon",
+      "Lead, Barium, Antimony",
+      "Copper, Zinc, Nickel",
+      "Aluminum, Potassium, Sulfur"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "27. Transverse white lines running across fingernails (Mees lines) alongside hyperpigmentation of skin are classical clinical markers of chronic poisoning by:",
+    "options": [
+      "Mercury",
+      "Arsenic",
+      "Lead",
+      "Thallium"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "28. Liquid-liquid extraction of basic organic drugs (such as amphetamines or codeine) from biological matrix fluids requires adjusting the aqueous sample pH to:",
+    "options": [
+      "Strongly acidic (pH 1 to 2)",
+      "Neutral (pH 7)",
+      "Alkaline (pH 9 to 11)",
+      "Slightly acidic (pH 5)"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "29. Measuring the distance between adjacent land impressions on a fired bullet allows the forensic firearm examiner to determine:",
+    "options": [
+      "Muzzle velocity of projectile",
+      "Land width and bullet caliber characteristics",
+      "Chamber pressure during firing",
+      "Twist rate of rifling per inch"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "30. Which section of the Bharatiya Sakshya Adhiniyam (BSA), 2023 replaces Section 45 of the Indian Evidence Act regarding the relevancy of expert opinion?",
+    "options": [
+      "Section 22",
+      "Section 39",
+      "Section 45",
+      "Section 65"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "31. In human mitochondrial DNA forensic testing, sequence analysis focuses primarily on which region of the mitochondrial genome?",
+    "options": [
+      "Cytochrome b gene region",
+      "Hypervariable Regions 1 and 2 (HV1 and HV2) in the control region",
+      "16S ribosomal RNA gene",
+      "ND5 coding region"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "32. Passive headspace sampling with activated charcoal strips is preferred over direct solvent extraction for fire debris accelerant recovery because it:",
+    "options": [
+      "Destroys non-volatile soil compounds completely",
+      "Selectively concentrates volatile hydrocarbons while eliminating heavy matrix interference",
+      "Works without heating fire debris containers",
+      "Converts aromatic compounds to aliphatic structures"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "33. In skeletal age estimation, complete epiphyseal fusion of the medial clavicle indicates that the individual has attained a minimum age of approximately:",
+    "options": [
+      "12 to 14 years",
+      "16 to 18 years",
+      "21 to 25 years",
+      "35 to 40 years"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "34. When inspecting evidence under forensic light sources, photoluminescence occurs when a molecule absorbs photon energy at a shorter wavelength and re-emits it at a longer wavelength. This wavelength difference is termed:",
+    "options": [
+      "Raman shift",
+      "Stokes shift",
+      "Compton shift",
+      "Doppler shift"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "35. Birefringence values measured during synthetic fiber analysis using Polarizing Light Microscopy (PLM) represent the numerical difference between:",
+    "options": [
+      "Fiber length and fiber diameter",
+      "Refractive index parallel to fiber axis and refractive index perpendicular to fiber axis",
+      "Absorbance at 254 nanometers and 365 nanometers",
+      "Transmission angle and reflection angle"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "36. The presumptive Acid Phosphatase test for seminal stains can cross-react with acid phosphatase from vaginal secretions. How can prostatic acid phosphatase be chemically differentiated?",
+    "options": [
+      "Inhibition by L-tartrate",
+      "Resistance to heat denaturation at 100 degrees Celsius",
+      "Precipitation by ethanol",
+      "Reaction with Marquis reagent"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "37. Organophosphate pesticide toxicity results from irreversible inhibition of acetylcholinesterase. Which therapeutic drug acts specifically as a chemical reactivator of the acetylcholinesterase enzyme?",
+    "options": [
+      "Atropine sulfate",
+      "Pralidoxime (2-PAM)",
+      "Naloxone",
+      "Physostigmine"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "38. In Low Template DNA profiling (sample quantities below 100 picograms), severe PCR stochastic effects typically cause:",
+    "options": [
+      "Increased enzymatic polymerization speed",
+      "Allele dropout, peak imbalance, and stutter exaggeration",
+      "Complete inhibition of fluorescent dye binding",
+      "Spontaneous elongation of STR repeats"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "39. When a high-velocity bullet strikes a flat hard metal target at a shallow angle of impact and ricochets, the angle of departure is generally:",
+    "options": [
+      "Greater than impact angle",
+      "Smaller than impact angle due to plastic deformation and energy loss",
+      "Exactly 90 degrees",
+      "Uninfluenced by impact velocity"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "40. In digital image steganalysis, detecting subtle hidden payload data embedded within bitmap image files using Least Significant Bit (LSB) replacement relies on:",
+    "options": [
+      "Chi-square statistical analysis of pixel frequency distribution",
+      "Fourier transform smoothing filter",
+      "MD5 hash calculation of image headers",
+      "EXIF metadata analysis"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "41. During forensic glass refractive index (RI) determination using the Becke Line Immersion method, the bright halo (Becke Line) moves into the medium with higher refractive index when the microscope stage is:",
+    "options": [
+      "Lowered (increasing working distance)",
+      "Raised (decreasing working distance)",
+      "Rotated by 90 degrees",
+      "Shifted horizontally"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "42. In forensic pathology, Amussat sign found during post-mortem dissection refers specifically to:",
+    "options": [
+      "Fracture of the greater horn of hyoid bone",
+      "Transverse lacerations of the intima of common carotid arteries in hanging cases",
+      "Petechial hemorrhages on epicardium",
+      "Subendocardial hemorrhages in left ventricle"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "43. Upon adding Marquis Reagent (formalin in concentrated sulfuric acid) to suspected illicit heroin samples, what characteristic color reaction confirms presence of opiates?",
+    "options": [
+      "Orange to brown",
+      "Purple to violet-red",
+      "Bright blue",
+      "Emerald green"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "44. In High-Performance Thin-Layer Chromatography (HPTLC), Retention Factor (Rf) is defined as:",
+    "options": [
+      "Distance traveled by solvent front divided by distance traveled by solute spot",
+      "Distance traveled by solute spot divided by distance traveled by solvent front",
+      "Total migration time of mobile phase",
+      "Peak area divided by baseline width"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "45. Which fingerprint pattern category is defined by complete absence of true deltas, cores, or ridge recurves?",
+    "options": [
+      "Loop",
+      "Plain Arch",
+      "Accidental Whorl",
+      "Central Pocket Loop"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "46. Nysten's Law outlines the predictable chronological order of onset and progression of which post-mortem physical change?",
+    "options": [
+      "Livor mortis",
+      "Rigor mortis",
+      "Putrefaction",
+      "Adipocere formation"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "47. Brain Electrical Interference Signature (BEIS) profiling measures neuro-cognitive responses (electroencephalographic P300 waves) to detect:",
+    "options": [
+      "Involuntary motor muscular twitches",
+      "Experiential knowledge stored in the brain when exposed to crime-relevant probes",
+      "Autonomic heart rate changes",
+      "Micro-expressions on facial muscles"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "48. In the Henry Primary Classification system for fingerprint identification, numerical values are assigned to fingers only when they display which pattern type?",
+    "options": [
+      "Ulnar Loops",
+      "Radial Loops",
+      "Whorls",
+      "Arches"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "49. In electron ionization (EI) GC-MS standard forensic drug screening, the standard electron impact energy maintained to allow spectral database comparison is:",
+    "options": [
+      "20 electron Volts",
+      "70 electron Volts",
+      "120 electron Volts",
+      "200 electron Volts"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "50. High-velocity impact blood spatter (HVIS), typically associated with gunshot trauma, produces blood droplet stains predominantly measuring:",
+    "options": [
+      "Less than 1 millimeter in diameter",
+      "1 to 4 millimeters in diameter",
+      "4 to 8 millimeters in diameter",
+      "Greater than 10 millimeters in diameter"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "51. An analyst observing a Short Tandem Repeat electropherogram notices a secondary peak that is four base pairs shorter than the true allele peak, exhibiting a peak height percentage of approximately 8 percent of the parent peak. This artifact is primarily caused by which process during PCR amplification?",
+    "options": [
+      "Non-templated nucleotide addition by Taq DNA polymerase",
+      "Slipped-strand mispairing during primer extension",
+      "Incomplete spectral deconvolution of overlapping dye spectra",
+      "Thermal degradation of the fluorescent dye conjugate"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "52. Under the Bharatiya Sakshya Adhiniyam, 2023, which section governs the opinion of scientific experts in court proceedings, replacing Section 45 of the Indian Evidence Act, 1872?",
+    "options": [
+      "Section 39",
+      "Section 45",
+      "Section 63",
+      "Section 116"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "53. During liquid-liquid extraction of an unknown acid-neutral drug fraction from postmortem liver tissue, an emulsion forms at the organic-aqueous interface. Which of the following procedural modifications is most effective at breaking this emulsion without compromising drug recovery?",
+    "options": [
+      "Adding concentrated hydrochloric acid to lower the pH below 1",
+      "Centrifuging the mixture at high speed or adding a few drops of ethanol or saturated sodium chloride solution",
+      "Boiling the mixture on a hot plate until the solvent evaporates",
+      "Filtering the mixture through a high-porosity paper filter"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "54. In internal ballistics, piezoelectric pressure transducers are preferred over crusher gauges for measuring peak chamber pressure because piezoelectric transducers:",
+    "options": [
+      "Provide a continuous time-resolved pressure curve of the entire propellant burn cycle",
+      "Measure only the static structural strain of the barrel wall",
+      "Are completely immune to thermal effects generated by burning propellant gases",
+      "Require no calibration standard prior to firing test rounds"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "55. When performing a rapid immunochromatographic assay for Prostate-Specific Antigen (PSA) on a highly concentrated semen sample, a false-negative result is observed. What phenomenon causes this artifact, and how can it be resolved?",
+    "options": [
+      "Prozone / High-dose hook effect; resolved by diluting the sample",
+      "Cross-reactivity with vaginal acid phosphatase; resolved by heating the sample to 60 degrees Celsius",
+      "Enzymatic degradation of the capture antibody; resolved by adding a protease inhibitor",
+      "Substrate depletion; resolved by extending the incubation time"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "56. An examiner using an Electrostatic Detection Apparatus (ESDA) fails to visualize latent indented writings on a document recovered from a high-humidity environment. What is the primary physical reason for this failure?",
+    "options": [
+      "High humidity reduces paper paper resistivity, allowing static charge to dissipate rapidly across the paper surface",
+      "Water molecules destroy the paper cellulose fibers required for electrostatic toner binding",
+      "Excess moisture causes the polymer film to dissolve upon contact with the document",
+      "Indented lines automatically spring back to their original position in humid conditions"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "57. In digital forensics, when investigating an NTFS volume, an analyst finds data in the unallocated space that corresponds to deleted records. Which metadata structure in NTFS tracks the allocation status of every cluster on the volume?",
+    "options": [
+      "Master File Table (MFT) Record 0 ($MFT)",
+      "Bitmap File ($Bitmap)",
+      "Log File ($LogFile)",
+      "Volume File ($Volume)"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "58. In postmortem chemistry, vitreous humor potassium concentration increases in a predictable, linear fashion after death. If a vitreous potassium level is measured at 10.5 milliequivalents per liter, what is the estimated postmortem interval based on Sturner's equation (PMI in hours = 7.14 times potassium concentration minus 39.1)?",
+    "options": [
+      "Approximately 12 hours",
+      "Approximately 24 hours",
+      "Approximately 35.8 hours",
+      "Approximately 48 hours"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "59. In a paternity testing scenario at a specific STR locus, the Mother has genotype (11, 12), the Child has genotype (12, 14), and the Alleged Father has genotype (14, 15). The frequency of allele 14 in the relevant population is 0.05. Assuming no mutation, what is the Paternity Index (PI) for this single locus?",
+    "options": [
+      "0.05",
+      "2.0",
+      "10.0",
+      "20.0"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "60. Latent fingerprint development using 1,2-indanedione produces fluorescent impressions when reacted with amino acids in eccrine sweat. Which reagent additive or condition dramatically enhances its fluorescence and stability?",
+    "options": [
+      "Addition of zinc chloride and illumination with green light (515 to 555 nanometers)",
+      "Addition of silver nitrate and illumination with ultraviolet light",
+      "Addition of ninhydrin in acidic methanol",
+      "Treatment with sodium hydroxide solution at 100 degrees Celsius"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "61. Which section of the Bharatiya Nagarik Suraksha Sanhita (BNSS), 2023 mandates that the process of conducting a search and seizure, including the preparation of the list of items seized, must be recorded through audio-video electronic means?",
+    "options": [
+      "Section 105",
+      "Section 165",
+      "Section 176",
+      "Section 91"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "62. Prior to Gas Chromatography-Mass Spectrometry analysis, polar drugs containing hydroxyl, carboxyl, or amino groups are often treated with N,O-Bis(trimethylsilyl)trifluoroacetamide (BSTFA). What is the primary chemical objective of this derivatization step?",
+    "options": [
+      "To increase thermal stability and volatility by replacing active hydrogen atoms with trimethylsilyl groups",
+      "To cleave the drug molecule into smaller fragment ions before injection into the column",
+      "To convert basic drugs into water-soluble salts for liquid injection",
+      "To shift the retention time of all compounds to the start of the chromatogram"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "63. In fire debris analysis, Headspace Solid-Phase Microextraction (HS-SPME) is utilized to extract ignitable liquid residues. Which fiber coating is most widely recommended for recovering medium to heavy petroleum distillates?",
+    "options": [
+      "100 micrometer Polydimethylsiloxane (PDMS)",
+      "Polyacrylate (PA)",
+      "Carboxen / Polydimethylsiloxane",
+      "Bare fused silica"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "64. When a bullet strikes a smooth glass pane at an oblique angle and ricochets, the critical angle of impact below which ricochet occurs depends primarily on:",
+    "options": [
+      "The density and velocity of the bullet and the structural resistance of the target material",
+      "The exact temperature of the firearm barrel during discharge",
+      "The atmospheric pressure and ambient relative humidity",
+      "The length of the firearm firing pin"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "65. Under a comparison microscope, when examining bullet striations, what type of illumination technique is essential to clearly reveal fine vertical striae along the land and groove impressions?",
+    "options": [
+      "Oblique / Side grazing lighting",
+      "Coaxial diffuse lighting",
+      "Transmitted backlight illumination",
+      "Polarized backlight with darkfield illumination"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "66. Spectrophotometric determination of Carboxyhemoglobin (COHb) in blood relies on measuring absorbance at specific isosbestic points. What happens to blood samples containing high COHb levels when treated with dilute sodium hydroxide solution compared to normal blood?",
+    "options": [
+      "COHb blood remains bright red-pink, whereas normal blood rapidly turns brownish-green",
+      "COHb blood immediately turns black, whereas normal blood remains bright red",
+      "COHb blood forms a white precipitate, while normal blood turns clear",
+      "COHb blood undergoes rapid hemolysis while normal blood stays intact"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "67. In forensic serology, a precipitin ring test fails to form a visible precipitate line when an exceptionally high concentration of target antigen is reacted with a fixed concentration of antibody. This phenomenon is known as:",
+    "options": [
+      "Prozone / Antigen excess phenomenon",
+      "Postzone phenomenon",
+      "Ouchterlony boundary extinction",
+      "Zone of equivalence transition"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "68. An examiner uses Infrared Luminescence on a Questioned Document to differentiate two visually identical black gel pen inks. Ink A luminesces brightly under infrared light when excited by blue-green light, while Ink B does not. This difference occurs because Ink A contains:",
+    "options": [
+      "Colorants or dyes that absorb visible light energy and re-emit it at longer infrared wavelengths",
+      "Heavy metals that absorb all infrared radiation completely",
+      "Carbon black pigment that reflects all wavelengths of light",
+      "Bleaching agents that suppress fluorescein activity"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "69. In live digital forensics memory analysis, an examiner uses the Volatility framework to detect process hollowing. Which indicator strongly suggests that a legitimate system process (e.g., svchost.exe) has been subjected to process hollowing?",
+    "options": [
+      "The Virtual Address Space memory protection flags show executable memory regions (PAGE_EXECUTE_READWRITE) lacking backing on-disk PE files",
+      "The process ID is an odd number greater than 10000",
+      "The process is running under a standard user account instead of SYSTEM",
+      "The process has opened network socket connections on port 80"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "70. Which anatomical morphological feature of the human pelvis provides the highest statistical accuracy for sex determination in forensic anthropology?",
+    "options": [
+      "Greater sciatic notch angle and subpubic concavity / ventral arc",
+      "Height of the iliac crest",
+      "Thickness of the obturator membrane",
+      "Diameter of the sacral foramina"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "71. In forensic entomology, to calculate Accumulated Degree Days (ADD) for estimating Minimum Post-Mortem Interval (mPMI), what is the correct mathematical formula for a single 24-hour period?",
+    "options": [
+      "ADD = (Average daily temperature minus Lower developmental threshold temperature) multiplied by Time (1 day)",
+      "ADD = Maximum daily temperature divided by Minimum daily temperature",
+      "ADD = Average daily temperature multiplied by relative humidity",
+      "ADD = (Maximum daily temperature plus Lower threshold temperature) divided by 24"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "72. Which section of the Bharatiya Nyaya Sanhita (BNS), 2023 corresponds to the legal concept of 'Common Intention', which was previously governed by Section 34 of the Indian Penal Code (IPC)?",
+    "options": [
+      "Section 3(5)",
+      "Section 103",
+      "Section 61",
+      "Section 190"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "73. A tri-allelic pattern observed at an STR locus on an electropherogram exhibits three distinct peaks of approximately equal height (1:1:1 ratio). This specific electropherogram profile is classified as:",
+    "options": [
+      "Type I tri-allelic pattern resulting from locus duplication on the same chromosome or translocations",
+      "Type II tri-allelic pattern resulting from somatic mosaicism",
+      "A stutter artifact resulting from strand slippage",
+      "A pull-up artifact from an intense adjacent dye channel"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "74. While operating High-Performance Liquid Chromatography (HPLC) with a UV-Vis detector, the analyst notices a severe cyclic baseline drift. What is the most common technical cause of this issue?",
+    "options": [
+      "Ambient temperature fluctuations affecting the column/detector or incomplete degasification of the mobile phase",
+      "Column stationary phase degradation due to high silica content",
+      "Using an injection volume that exceeds 1 microliter",
+      "Setting the UV wavelength exactly at the isosbestic point"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "75. When using the Becke Line Method for refractive index determination of glass fragments, as the microscope stage is lowered (focus distance increased), the Becke line moves:",
+    "options": [
+      "Towards the medium with the higher refractive index",
+      "Towards the medium with the lower refractive index",
+      "Towards the center of the glass fragment regardless of refractive index",
+      "Disappears completely regardless of matching status"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "76. Scanning Electron Microscopy with Energy Dispersive X-ray Spectroscopy (SEM-EDX) identifies primer Gunshot Residue (pGSR) particles based on specific elemental combinations. Which three elements present together in a single spherical particle are uniquely characteristic of conventional primer residue?",
+    "options": [
+      "Lead, Barium, and Antimony",
+      "Copper, Zinc, and Nickel",
+      "Iron, Titanium, and Aluminum",
+      "Potassium, Sulfur, and Charcoal"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "77. To establish the order of writing of intersecting lines involving a ballpoint pen line and an inkjet printed line, which advanced analytical technique provides three-dimensional topographical non-destructive confirmation of line sequence?",
+    "options": [
+      "Laser Scanning Confocal Microscopy / Profilometry",
+      "Thin Layer Chromatography",
+      "Fourier Transform Infrared Spectroscopy in transmission mode",
+      "UV-Vis Spectrophotometry"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "78. Why is the MD5 cryptographic hashing algorithm currently considered insufficient as a sole validation standard in digital forensic disk acquisitions?",
+    "options": [
+      "Demonstrated vulnerability to deliberate hash collision attacks where two different datasets yield the identical MD5 digest",
+      "Inability to hash storage media larger than 32 gigabytes",
+      "Incompatibility with 64-bit operating systems",
+      "Dynamic changes in the hash value based on system timestamp"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "79. Histological examination of skin tissue recovered from a burn victim reveals marked capillary dilation, dermal edema, and dense infiltration of polymorphonuclear leukocytes at the margin of the lesion. This finding indicates:",
+    "options": [
+      "Antemortem burn reaction",
+      "Postmortem thermal artifact",
+      "Heat rigor effect",
+      "Pugilistic posture manifestation"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "80. When a population exhibits significant internal structure or subpopulation isolation, calculating locus frequency assuming random mating causes an apparent excess of homozygotes and deficiency of heterozygotes relative to Hardy-Weinberg expectations. This genetic phenomenon is termed:",
+    "options": [
+      "Wahlund effect",
+      "Founder effect",
+      "Genetic drift",
+      "Linkage disequilibrium"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "81. Under Section 63 of the Bharatiya Sakshya Adhiniyam (BSA), 2023, what crucial requirement must be fulfilled for the admissibility of electronic records in court?",
+    "options": [
+      "Submission of a formal certificate signed by a person in charge of the relevant device or management of the relevant activity",
+      "Oral testimony of the system software developer",
+      "Hardcopy printing on stamp paper attested by a notary public",
+      "Physical seizure of the primary central processing unit by the judge"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "82. In suspected acute cyanide poisoning, the toxic mechanism involves inhibition of which cellular enzyme, halting aerobic ATP synthesis?",
+    "options": [
+      "Cytochrome c oxidase (Complex IV of the electron transport chain)",
+      "Acetylcholinesterase",
+      "Lactate dehydrogenase",
+      "Alcohol dehydrogenase"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "83. In soil forensic analysis, heavy mineral fractions isolated by density gradient separation using bromoform (density approximately 2.89 grams per cubic centimeter) typically consist of:",
+    "options": [
+      "Minerals like garnet, tourmaline, zircon, and magnetite",
+      "Light minerals like quartz and feldspar",
+      "Organic humus and plant debris",
+      "Soluble sodium chloride crystals"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "84. In acoustic phonetics and forensic speaker identification, formant frequencies F1 and F2 are predominantly governed by which vocal tract articulations during vowel production?",
+    "options": [
+      "F1 by tongue height / jaw opening; F2 by tongue advancement / frontness-backness",
+      "F1 by vocal cord tension; F2 by nasal cavity volume",
+      "F1 by lip rounding; F2 by subglottal pressure",
+      "F1 by tracheal length; F2 by pharyngeal constriction"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "85. When staining suspected seminal smears using the Christmas Tree Stain (Picroindigocarmine-Nuclear Fast Red), how do the distinct anatomical regions of a human spermatozoon appear under brightfield microscopy?",
+    "options": [
+      "Acrosomal cap is pink/light red, posterior head is dark red, and tail is green/blue-green",
+      "Entire head is dark blue, tail is bright red",
+      "Acrosomal cap is bright green, tail is bright red",
+      "Head is clear, tail is deep violet"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "86. To detect high explosives like RDX and HMX on a Thin Layer Chromatography plate, which visualization chemical sequence is used following plate development?",
+    "options": [
+      "Irradiation with shortwave UV light to induce photolysis followed by spraying with Griess reagent",
+      "Spraying with acidic ninhydrin solution followed by heating to 110 degrees Celsius",
+      "Spraying with potassium permanganate solution in sodium hydroxide",
+      "Exposure to iodine vapors followed by starch spray"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "87. According to ASTM E1618 standards for fire debris analysis, light petroleum distillates (such as pocket lighter fluids) are characterized in Gas Chromatography-Mass Spectrometry by an unassigned group of hydrocarbons spanning which carbon number range?",
+    "options": [
+      "C4 to C9",
+      "C8 to C12",
+      "C10 to C15",
+      "C15 to C25"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "88. In questioned document examination, tremor observed in a questioned signature characterized by uneven writing pressure, blunt initial and terminal strokes, and hesitations at non-critical points is indicative of:",
+    "options": [
+      "Fraudulent / Forged tremor of simulation",
+      "Pathological tremor due to Parkinson's disease",
+      "Senile tremor due to advanced age",
+      "Physiological tremor due to extreme cold"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "89. During a network forensic examination of packet capture files (PCAP), an investigator observes frequent, high-volume UDP requests on port 53 containing long, randomized alphanumeric subdomains. What malicious activity is typically indicated by this pattern?",
+    "options": [
+      "DNS Tunneling for data exfiltration or Command and Control (C2) communication",
+      "SYN Flood Denial of Service attack",
+      "Address Resolution Protocol (ARP) spoofing",
+      "Encrypted Secure Shell (SSH) brute force attack"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "90. In the diatom test for drowning, finding diatoms in which body tissue provides the most conclusive proof that drowning occurred while the victim was alive?",
+    "options": [
+      "Closed femoral bone marrow",
+      "Pleural fluid",
+      "Mainstem bronchi",
+      "Stomach content"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "91. In mitochondrial DNA (mtDNA) sequencing analysis, when an individual possesses two distinct mtDNA nucleotide populations at a single nucleotide position within a tissue sample, this condition is known as:",
+    "options": [
+      "Point heteroplasmy",
+      "Length heteroplasmy",
+      "Somatic mosaicism",
+      "Polyploidy"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "92. Which section of the Bharatiya Nagarik Suraksha Sanhita (BNSS), 2023 replaces Section 293 of the Code of Criminal Procedure (CrPC), dealing with reports of certain Government scientific experts as evidence in inquiries and trials?",
+    "options": [
+      "Section 329",
+      "Section 293",
+      "Section 176",
+      "Section 356"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "93. In terminal ballistics, when a high-velocity rifle projectile enters soft tissue simulant (10 percent ordnance gelatin), it travels a short distance before yawing, tumbling, and fragmenting. The peak temporary cavity diameter occurs at the point of maximum:",
+    "options": [
+      "Yaw angle (90 degrees angle of attack) and kinetic energy transfer rate",
+      "Bullet spin rate from rifling twist",
+      "Sectional density before impact",
+      "Air resistance drag coefficient"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "94. Microscopic identification of hair evidence shows a continuous medulla with a medullary index of 0.60. Based on standard forensic trichology criteria, this hair sample is classified as:",
+    "options": [
+      "Animal origin",
+      "Human origin",
+      "Synthetic fiber",
+      "Inconclusive origin"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "95. Postmortem Redistribution (PMR) refers to the changes in drug concentrations in blood after death. Lipophilic basic drugs with large volumes of distribution (such as tricyclic antidepressants) typically show central blood to peripheral blood (C/P) concentration ratios that are:",
+    "options": [
+      "Greater than 1.0",
+      "Equal to 1.0",
+      "Less than 0.1",
+      "Zero"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "96. In Automated Fingerprint Identification Systems (AFIS), binarization and thinning algorithms convert grayscale ridge images into single-pixel wide skeletal images. Improper thresholding during binarization often introduces which artifact that must be eliminated during post-processing?",
+    "options": [
+      "Spurious minutiae such as false ridge breaks and false bridges",
+      "Permanent alteration of primary Henry classification patterns",
+      "Transformation of loops into whorls",
+      "Deletion of friction ridge skin pores"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "97. In Attenuated Total Reflectance Fourier Transform Infrared (ATR-FTIR) spectroscopy, the depth of penetration (dp) of the evanescent wave into the sample depends on:",
+    "options": [
+      "Wavelength of light, angle of incidence, and refractive indices of the crystal and sample",
+      "Sample thickness and mass density only",
+      "Intensity of the infrared source voltage",
+      "Detector cooling temperature"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "98. In forensic toxicology, poisoning caused by consuming Amanita phalloides (Death Cap mushroom) causes severe hepatotoxicity and renal failure primarily due to alpha-amanitin inhibiting which crucial cellular enzyme?",
+    "options": [
+      "RNA Polymerase II",
+      "DNA Polymerase Alpha",
+      "Cytochrome P450 3A4",
+      "Na+/K+ ATPase"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "99. Using a Video Spectral Comparator (VSC), an examiner differentiates two inks based on Infrared Fluorescence. This process requires selecting an excitation light band in the visible spectrum and observing the document through a barrier filter that cuts off all light below what wavelength region?",
+    "options": [
+      "Infrared region (700 nanometers and above)",
+      "Ultraviolet region (254 to 365 nanometers)",
+      "Blue-green region (400 to 500 nanometers)",
+      "X-ray region"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "100. Section 176(3) of the Bharatiya Nagarik Suraksha Sanhita (BNSS), 2023 introduces a mandatory procedural requirement for forensic science in criminal investigations. What is this requirement?",
+    "options": [
+      "Mandatory visit of a forensic expert to the scene of crime and collection of forensic evidence for offenses punishable by 7 years or more",
+      "Mandatory polygraph examination of all accused persons within 24 hours of arrest",
+      "Mandatory submission of DNA profiles to a international database for minor offenses",
+      "Mandatory video conferencing testimony for all private expert witnesses"
+    ],
+    "answer": 0
   }
 ];
 
-let questions = [];
-let currentQIdx = 0;
-let userAnswers = [];
-let timeLeft = 3600;
-let timerInterval;
+let currentIndex = 0;
+let userAnswers = new Array(questions.length).fill(null);
 
-function normalizeOptions(optionsData) {
-    if (Array.isArray(optionsData)) return optionsData;
-    if (typeof optionsData === 'object' && optionsData !== null) return Object.values(optionsData);
-    return [];
-}
-
-function initPortal() {
-    if (!Array.isArray(rawQuestions) || rawQuestions.length === 0) {
-        document.getElementById("question-container").innerHTML = "<p style='color:red;'><b>Error:</b> JSON dataset is empty or formatted incorrectly.</p>";
-        return;
-    }
-
-    questions = rawQuestions.map(q => ({
-        id: q.id,
-        options: normalizeOptions(q.options),
-        answer: String(q.answer)
-    }));
-
-    userAnswers = new Array(questions.length).fill(null);
-
-    startTimer();
-    renderQuestion(0);
-}
-
-function startTimer() {
-    timerInterval = setInterval(() => {
-        timeLeft--;
-        const mins = Math.floor(timeLeft / 60);
-        const secs = timeLeft % 60;
-        const timeElement = document.getElementById("time-display");
-        if (timeElement) {
-            timeElement.innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-        }
-        
-        if (timeLeft <= 0) {
-            clearInterval(timerInterval);
-            submitQuiz();
-        }
-    }, 1000);
-}
-
+// ==========================================
+// 2. RENDER SINGLE QUESTION & PALETTE
+// ==========================================
 function renderQuestion(index) {
     const container = document.getElementById("question-container");
     const item = questions[index];
     
-    let html = `<div class="q-number-header">Question No. ${index + 1}</div>`;
-    
-    item.options.forEach((optText, optIdx) => {
-        const optionKey = (optIdx + 1).toString();
-        const isChecked = userAnswers[index] === optionKey ? "checked" : "";
-        const selectedClass = userAnswers[index] === optionKey ? "selected" : "";
-        
+    let html = `<div class="q-title">${item.q}</div>`;
+    item.options.forEach((opt, optIdx) => {
+        const isChecked = userAnswers[index] === optIdx ? "checked" : "";
+        const selectedClass = userAnswers[index] === optIdx ? "selected" : "";
         html += `<label class="opt-label ${selectedClass}">
-            <input type="radio" name="current_q" value="${optionKey}" ${isChecked} onchange="selectOption(${index}, '${optionKey}')">
-            ${optIdx + 1}. ${optText}
+            <input type="radio" name="current_q" value="${optIdx}" ${isChecked} onchange="selectOption(${index}, ${optIdx})">
+            ${opt}
         </label>`;
     });
 
@@ -1393,122 +1316,208 @@ function renderQuestion(index) {
     renderPalette();
 }
 
-function selectOption(qIdx, optKey) {
-    userAnswers[qIdx] = optKey;
+function selectOption(qIdx, optIdx) {
+    userAnswers[qIdx] = optIdx;
     renderQuestion(qIdx);
 }
 
 function changeQuestion(step) {
-    currentQIdx += step;
-    if (currentQIdx < 0) currentQIdx = 0;
-    if (currentQIdx >= questions.length) currentQIdx = questions.length - 1;
-    renderQuestion(currentQIdx);
+    currentIndex += step;
+    if (currentIndex < 0) currentIndex = 0;
+    if (currentIndex >= questions.length) currentIndex = questions.length - 1;
+    renderQuestion(currentIndex);
+}
+
+function jumpToQuestion(idx) {
+    currentIndex = idx;
+    closePreview();
+    renderQuestion(currentIndex);
 }
 
 function renderPalette() {
-    const paletteGrid = document.getElementById("palette-grid");
-    paletteGrid.innerHTML = "";
+    const grid = document.getElementById("palette-grid");
+    grid.innerHTML = "";
     
     questions.forEach((_, idx) => {
-        const btn = document.createElement("div");
-        btn.className = `p-btn ${idx === currentQIdx ? 'active' : ''} ${userAnswers[idx] !== null ? 'answered' : ''}`;
-        btn.innerText = idx + 1;
-        btn.onclick = () => {
-            currentQIdx = idx;
-            renderQuestion(currentQIdx);
-        };
-        paletteGrid.appendChild(btn);
+        let box = document.createElement("div");
+        box.className = "q-box";
+        if (idx === currentIndex) box.classList.add("active");
+        if (userAnswers[idx] !== null) box.classList.add("answered");
+        
+        box.innerText = idx + 1;
+        box.onclick = () => jumpToQuestion(idx);
+        grid.appendChild(box);
     });
 }
 
+// ==========================================
+// 3. PREVIEW DRAWER (SHOWS ALL QUESTIONS GREEN/RED)
+// ==========================================
 function openPreview() {
-    document.getElementById("preview-modal").style.display = "flex";
+    document.getElementById("quiz-portal").style.display = "none";
+    document.getElementById("preview-modal").style.display = "block";
+    
+    let answeredCount = userAnswers.filter(a => a !== null).length;
+    let unattemptedCount = questions.length - answeredCount;
+    
+    document.getElementById("preview-summary").innerHTML = 
+        `You have answered <strong>${answeredCount}</strong> out of <strong>${questions.length}</strong> questions. (${unattemptedCount} remaining)`;
+    
+    const listDiv = document.getElementById("all-questions-list");
+    let tagsHtml = "";
+
+    userAnswers.forEach((ans, idx) => {
+        if (ans !== null) {
+            tagsHtml += `<span class="q-tag q-tag-answered" onclick="jumpToQuestion(${idx})">Q${idx + 1} ✓</span>`;
+        } else {
+            tagsHtml += `<span class="q-tag q-tag-unanswered" onclick="jumpToQuestion(${idx})">Q${idx + 1}</span>`;
+        }
+    });
+
+    listDiv.innerHTML = tagsHtml;
 }
 
 function closePreview() {
     document.getElementById("preview-modal").style.display = "none";
+    document.getElementById("quiz-portal").style.display = "grid";
 }
 
+// ==========================================
+// 4. TIMER LOGIC
+// ==========================================
+const TOTAL_TIME = 3600; // 60 minutes
+let timeLeft = TOTAL_TIME;
+const timerDisplay = document.getElementById("timer");
+
+const timerInterval = setInterval(() => {
+    let mins = Math.floor(timeLeft / 60);
+    let secs = timeLeft % 60;
+    timerDisplay.innerText = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+    
+    if (timeLeft <= 0) {
+        clearInterval(timerInterval);
+        alert("Time is up! Submitting test automatically.");
+        submitQuiz();
+    }
+    timeLeft--;
+}, 1000);
+
+// ==========================================
+// 5. AUTO-GRADING & SOLUTIONS REVIEW GENERATION
+// ==========================================
 function submitQuiz() {
     clearInterval(timerInterval);
+    
     document.getElementById("quiz-portal").style.display = "none";
     document.getElementById("preview-modal").style.display = "none";
     
-    let score = 0;
+    let timeTakenSeconds = TOTAL_TIME - timeLeft;
+    let timeMins = Math.floor(timeTakenSeconds / 60);
+    let timeSecs = timeTakenSeconds % 60;
+    let formattedTime = `${timeMins} min ${timeSecs < 10 ? '0' : ''}${timeSecs} sec`;
+
+    let attempted = 0;
     let correct = 0;
     let wrong = 0;
-    let unattempted = 0;
 
-    let reviewHtml = `<div class="review-section"><h3>Answer Key & Performance Breakdown</h3>`;
-
-    questions.forEach((q, idx) => {
-        const userAns = userAnswers[idx];
-        const correctAns = q.answer;
-        let cardClass = "";
-        let badgeHtml = "";
-
-        if (userAns === null) {
-            unattempted++;
-            cardClass = "unattempted-card";
-            badgeHtml = `<span class="badge badge-unattempted">Unattempted</span>`;
-        } else if (userAns === correctAns) {
-            correct++;
-            score += 2;
-            cardClass = "correct-card";
-            badgeHtml = `<span class="badge badge-correct">Correct (+2)</span>`;
-        } else {
-            wrong++;
-            cardClass = "wrong-card";
-            badgeHtml = `<span class="badge badge-wrong">Incorrect</span>`;
+    questions.forEach((item, idx) => {
+        if (userAnswers[idx] !== null) {
+            attempted++;
+            if (userAnswers[idx] === item.answer) {
+                correct++;
+            } else {
+                wrong++;
+            }
         }
+    });
 
-        reviewHtml += `<div class="review-card ${cardClass}">
-            <div class="review-q-title">Question No. ${idx + 1} ${badgeHtml}</div>`;
+    let unattempted = questions.length - attempted;
+    let scorePercentage = Math.round((correct / questions.length) * 100);
 
-        q.options.forEach((optText, optIdx) => {
-            const optionKey = (optIdx + 1).toString();
-            let optClass = "review-opt";
+    // Build Solutions Review Section
+    let reviewHtml = `<div class="review-section"><h2>🔍 Detailed Question & Answer Review</h2>`;
+    
+    questions.forEach((item, idx) => {
+        let userAns = userAnswers[idx];
+        let isCorrect = userAns === item.answer;
+        let isSkipped = userAns === null;
 
-            if (userAns === optionKey && userAns === correctAns) {
-                optClass += " user-correct";
-            } else if (userAns === optionKey && userAns !== correctAns) {
-                optClass += " user-wrong";
-            } else if (optionKey === correctAns) {
-                optClass += " is-actual-correct";
+        let cardClass = isSkipped ? "skipped-border" : (isCorrect ? "correct-border" : "wrong-border");
+        let badgeHtml = isSkipped 
+            ? `<span class="badge badge-skipped">Skipped</span>`
+            : (isCorrect ? `<span class="badge badge-correct">✓ Correct</span>` : `<span class="badge badge-wrong">✗ Incorrect</span>`);
+
+        reviewHtml += `
+            <div class="review-card ${cardClass}">
+                ${badgeHtml}
+                <div style="font-weight:600; margin-bottom:10px;">${item.q}</div>
+        `;
+
+        item.options.forEach((opt, optIdx) => {
+            let optClass = "review-neutral";
+            let labelText = opt;
+
+            if (optIdx === item.answer) {
+                optClass = "review-correct";
+                labelText += " (Correct Answer)";
+            }
+            if (userAns === optIdx && !isCorrect) {
+                optClass = "review-wrong";
+                labelText += " (Your Selection)";
             }
 
-            let appendLabel = "";
-            if (userAns === optionKey && userAns === correctAns) {
-                appendLabel = " <b>— Your Answer (Correct)</b>";
-            } else if (userAns === optionKey && userAns !== correctAns) {
-                appendLabel = " <b>— Your Answer (Wrong)</b>";
-            } else if (optionKey === correctAns) {
-                appendLabel = " <b>— Correct Answer</b>";
-            }
-
-            reviewHtml += `<div class="${optClass}">${optIdx + 1}. ${optText}${appendLabel}</div>`;
+            reviewHtml += `<div class="review-opt ${optClass}">${labelText}</div>`;
         });
 
         reviewHtml += `</div>`;
     });
-
+    
     reviewHtml += `</div>`;
 
+    // Render Stats + Review
     const resultBox = document.getElementById("result-box");
     resultBox.style.display = "block";
     resultBox.innerHTML = `
-        <h2>Exam Results</h2>
+        <h2 style="margin-top:0;">📊 Test Summary Report</h2>
         <div class="stats-grid">
-            <div class="stat-card"><div class="stat-value stat-score">${score} / ${questions.length * 2}</div>Total Marks</div>
-            <div class="stat-card"><div class="stat-value stat-correct">${correct}</div>Correct</div>
-            <div class="stat-card"><div class="stat-value stat-wrong">${wrong}</div>Incorrect</div>
-            <div class="stat-card"><div class="stat-value stat-unattempted">${unattempted}</div>Unattempted</div>
+            <div class="stat-card">
+                <div>Total Questions</div>
+                <div class="stat-value">${questions.length}</div>
+            </div>
+            <div class="stat-card">
+                <div>Time Taken</div>
+                <div class="stat-value stat-time">${formattedTime}</div>
+            </div>
+            <div class="stat-card">
+                <div>Attempted</div>
+                <div class="stat-value">${attempted} / ${questions.length}</div>
+            </div>
+            <div class="stat-card">
+                <div>Unattempted</div>
+                <div class="stat-value stat-unattempted">${unattempted}</div>
+            </div>
+            <div class="stat-card">
+                <div>Correct Answers</div>
+                <div class="stat-value stat-correct">${correct}</div>
+            </div>
+            <div class="stat-card">
+                <div>Wrong Answers</div>
+                <div class="stat-value stat-wrong">${wrong}</div>
+            </div>
+        </div>
+        <div style="margin-top: 20px; padding: 15px; background: #e9ecef; border-radius: 8px; text-align: center;">
+            <span style="font-size: 18px;">Final Score: </span>
+            <span class="stat-value stat-score">${correct} / ${questions.length} (${scorePercentage}%)</span>
         </div>
         ${reviewHtml}
     `;
+    
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-document.addEventListener("DOMContentLoaded", initPortal);
+// Initial Launch
+renderQuestion(0);
 </script>
+
 </body>
 </html>

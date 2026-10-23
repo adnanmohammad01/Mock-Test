@@ -277,879 +277,779 @@
 // ==========================================
 const questions = [
   {
-    "q": "1. Which fundamental principle of forensic science states that whenever two objects come into contact, there is always a mutual transfer of material?",
+    "q": "1. Under Section 105 of the Bharatiya Nagarik Suraksha Sanhita (BNSS), 2023, what is the mandatory procedural requirement during a search and seizure operation conducted by a police officer or forensic team?",
     "options": [
-      "Law of Individualization",
-      "Locard Exchange Principle",
-      "Law of Progressive Change",
-      "Principle of Comparison"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "2. In the hierarchy of forensic laboratory setup in India, what is the primary mandate of a District Crime Scene Mobile Forensic Unit?",
-    "options": [
-      "To perform final confirmatory chemical analysis of unknown poisons",
-      "To assist investigating officers in crime scene search, evidence detection, packaging, and preservation",
-      "To handle DNA sequencing and automated STR profiling of all collected exhibits",
-      "To draft final judicial sentencing reports for criminal trials"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "3. What is the main objective of securing the perimeter with an inner and outer cordoned zone during initial crime scene management?",
-    "options": [
-      "To provide space for media vehicles and public viewing",
-      "To prevent physical contamination, destruction, or movement of physical evidence",
-      "To eliminate the need for taking crime scene photographs",
-      "To store all forensic kits inside the inner scene"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "4. What is the primary purpose of maintaining a strict Chain of Custody document for every item of physical evidence?",
-    "options": [
-      "To track the monetary value of evidence collected from the scene",
-      "To establish a continuous, unbroken, written record accounting for the collection, transfer, and analysis of evidence",
-      "To expedite the destruction of evidence after preliminary field testing",
-      "To assign legal guilt directly to the investigating officer"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "5. An Alternate Light Source (ALS) tuned to a wavelength range of 450 nanometers (blue light) combined with orange barrier goggles is primarily used at a crime scene to detect which evidence?",
-    "options": [
-      "Latent bloodstains under paint",
-      "Biological fluids like semen, saliva, and sweat through fluorescence",
-      "Microscopic glass fractures on windows",
-      "Unburned propellants inside firearm barrels"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "6. The Kastle-Meyer field test kit used at a crime scene produces a characteristic color change to confirm the presumptive presence of blood. What color is produced?",
-    "options": [
-      "Dark Blue",
-      "Bright Pink",
-      "Canary Yellow",
-      "Emerald Green"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "7. Why is an ABFO Number 2 standard scale placed next to a latent impression before photographing it for forensic analysis?",
-    "options": [
-      "To adjust the light intensity of the camera flash",
-      "To provide accurate 1:1 dimensional scaling and correct perspective distortion during photographic reconstruction",
-      "To indicate the chemical composition of the impression material",
-      "To identify the make and model of the camera used"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "8. Which specialized photographic technique involves positioning the light source at a low, sharp angle relative to the surface to highlight three-dimensional tire or footwear impressions?",
-    "options": [
-      "Transmitted lighting",
-      "Oblique lighting",
-      "Diffused lighting",
-      "Reflected ultraviolet lighting"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "9. Which human bone provides the highest accuracy for biological sex determination during skeletal analysis at a crime scene involving skeletal remains?",
-    "options": [
-      "Femur",
-      "Pelvis",
-      "Clavicle",
-      "Scapula"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "10. Which confirmatory test relies on identifying the specific protein prostate-specific antigen (p30) to confirm the presence of seminal fluid in sexual assault cases?",
-    "options": [
-      "Takayama test",
-      "ABAcard p30 chromatographic immunoassay",
-      "Teichmann test",
-      "Luminol test"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "11. In a suspected case of drowning, micro-algae known as diatoms extracted from bone marrow are compared with water samples collected from the recovery site. Which organ's marrow is most commonly analyzed?",
-    "options": [
-      "Sternum",
-      "Femur",
-      "Ribs",
-      "Mandible"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "12. How are cotton fibers classified under forensic fiber analysis?",
-    "options": [
-      "Synthetic polymer fiber",
-      "Natural seed-hair cellulose fiber",
-      "Regenerated protein fiber",
-      "Inorganic mineral fiber"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "13. When Marquis reagent is applied during field chemical testing of an unknown opium powder, what color reaction typically indicates the presence of morphine or heroin?",
-    "options": [
-      "Bright Orange to Brown",
-      "Purple to Violet",
-      "Deep Blue to Pink",
-      "Light Green to Yellow"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "14. Tool marks made when a hard steel screwdriver is dragged across a soft metal surface leave parallel microscopic scratch marks. How are these marks classified?",
-    "options": [
-      "Compression impressions",
-      "Striated tool marks",
-      "Cast impressions",
-      "Deformation marks"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "15. The Sodium Rhodizonate chemical test is utilized on the hands of a suspect or around bullet entrance holes on clothing to detect the presence of which element from gunshot residue?",
-    "options": [
-      "Nitrate",
-      "Lead",
-      "Copper",
-      "Iron"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "16. In forensic microbiology, what term refers to the unique, time-dependent microbial community changes occurring inside and on a decomposing body post-mortem?",
-    "options": [
-      "Soil metagenome",
-      "Thanatomicrobiome",
-      "Biofilm matrix",
-      "Infectious vector load"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "17. During the putrefaction stage of death, green discoloration in the lower right quadrant of the abdomen is primarily caused by microbial breakdown of hemoglobin into which compound?",
-    "options": [
-      "Oxyhemoglobin",
-      "Sulfhemoglobin",
-      "Carboxyhemoglobin",
-      "Methemoglobin"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "18. Under the Bharatiya Sakshya Adhiniyam, 2023 (BSA), which section governs the relevancy of expert opinions in a court of law?",
-    "options": [
-      "Section 45",
-      "Section 39",
-      "Section 65B",
-      "Section 103"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "19. Under Section 176(3) of the Bharatiya Nagarik Suraksha Sanhita, 2023 (BNSS), forensic expert visits to crime scenes and evidence collection are made mandatory for offenses punishable by imprisonment of how many years or more?",
-    "options": [
-      "3 years",
-      "7 years",
-      "5 years",
-      "10 years"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "20. According to the Criminal Procedure (Identification) Act, 2022, which lowest rank of police officer is authorized to direct the collection of measurements or biological samples from a person?",
-    "options": [
-      "Constable",
-      "Head Constable",
-      "Sub-Inspector",
-      "Deputy Superintendent of Police"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "21. Under Section 229 of the Bharatiya Nyaya Sanhita, 2023 (BNS), intentionally giving or fabricating false evidence in a judicial proceeding carries severe penal consequences. This section corresponds to which provision of the former Indian Penal Code?",
-    "options": [
-      "Section 302",
-      "Section 193",
-      "Section 201",
-      "Section 420"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "22. How should damp or wet biological evidence, such as bloodstained clothing collected at a crime scene, be packaged to prevent mold formation and DNA degradation?",
-    "options": [
-      "Sealed tightly in an airtight plastic zip-lock bag",
-      "Air-dried thoroughly at room temperature away from direct sunlight, then packed in a breathable paper bag",
-      "Packed immediately in a metal container and stored in a heat chamber",
-      "Submerged in a liquid disinfectant solution inside a glass container"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "23. When documenting a crime scene photographically, what sequence of camera shots must be systematically recorded?",
-    "options": [
-      "Extreme close-up, Close-up, Wide angle",
-      "Overall establishing shot, Mid-range shot, Close-up shot with and without scale",
-      "Aerial shot, Panoramic shot, Infrared shot",
-      "Macro shot, Microscopic shot, Ultraviolet shot"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "24. The presumptive phenolphthalein test for blood detection relies on which enzymatic property of hemoglobin?",
-    "options": [
-      "Amylase activity",
-      "Peroxidase-like activity",
-      "Protease activity",
-      "Lipase activity"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "25. In field forensic testing for ethyl alcohol using an acidic potassium dichromate solution, what color change indicates a positive oxidation reaction?",
-    "options": [
-      "Yellow to Green",
-      "Clear to Red",
-      "Pink to Purple",
-      "Blue to Yellow"
+      "Audio-video recording of the search and seizure process through mobile or electronic device",
+      "Compulsory physical presence of a Judicial Magistrate of First Class",
+      "Prior written authorization from the High Court",
+      "Presence of at least three Gazetted Officers from non-police departments"
     ],
     "answer": 0
   },
   {
-    "q": "26. Which fundamental principle of forensic science asserts that whenever two objects come into contact, there is a mutual exchange of trace materials between them?",
+    "q": "2. An investigator collects a wet bloodstained garment from a indoor homicide scene. To prevent DNA degradation and safeguard against defense challenges regarding loss of evidence integrity, what is the correct sequence of handling?",
     "options": [
-      "Galton's Law of Comparison",
-      "Locard's Exchange Principle",
-      "Kirk's Principle of Individuality",
-      "Frye Standard of Admissibility"
+      "Seal directly in a ziplock plastic bag while wet to prevent fluid evaporation",
+      "Air dry thoroughly at room temperature away from direct sunlight, pack in a breathable paper bag, label, and document in the chain of custody log",
+      "Use a high-temperature heat blower immediately to dry the stain and seal in a glass container",
+      "Freeze the wet garment immediately inside an airtight plastic box without drying"
     ],
     "answer": 1
   },
   {
-    "q": "27. In the context of police organizational setup in India, which specialized unit is primarily responsible for providing immediate technical assistance and scientific aid to the Investigating Officer directly at a crime scene?",
+    "q": "3. While photographing an obliterated serial number on a metallic firearm frame using macro photography, high specular reflection obscures detail. Which photographic setup best resolves this artifact?",
     "options": [
-      "Fingerprint Bureau",
-      "District Mobile Forensic Unit",
-      "State Crime Records Bureau",
-      "Special Crime Branch"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "28. During crime scene management, which search pattern is most effectively utilized for open land or large outdoor terrain where searchers move parallel to each other at a constant pace?",
-    "options": [
-      "Zone Search Pattern",
-      "Spiral Search Pattern",
-      "Strip or Line Search Pattern",
-      "Wheel or Ray Search Pattern"
+      "Direct axial illumination with maximum flash intensity",
+      "Increasing camera ISO to 12800 without flash",
+      "Cross-polarization illumination using polarizing filters on both light source and camera lens",
+      "Ring flash positioned directly parallel to the metallic surface without diffusers"
     ],
     "answer": 2
   },
   {
-    "q": "29. What is the primary objective of establishing an inner and outer boundary perimeter at a major crime scene?",
+    "q": "4. In a mass disaster investigation, a severely burned and decomposed body exhibits extensive nuclear DNA fragmentation. Which genetic marker target is most appropriate for establishing maternal lineage?",
     "options": [
-      "To allow public media access inside the outer boundary",
-      "To prevent scene contamination and isolate the core area of evidence",
-      "To store physical evidence collected before packaging",
-      "To provide a resting area for police personnel"
+      "Autosomal Short Tandem Repeat (STR) locus D16S539",
+      "Y-chromosome Short Tandem Repeats (Y-STR)",
+      "Single Nucleotide Polymorphisms on X-chromosome only",
+      "Hypervariable Regions I and II (HV1 and HV2) of Mitochondrial DNA"
+    ],
+    "answer": 3
+  },
+  {
+    "q": "5. During Gas Chromatography-Mass Spectrometry (GC-MS) analysis of arson accelerants collected via passive headspace extraction, a recurring chromatographic peak appears at early retention time. Troubleshooting reveals the same peak present in the carbon strip blank. What is the most probable diagnostic cause?",
+    "options": [
+      "Contamination of the desorption solvent or dirty active charcoal sampling medium",
+      "Column stationary phase bleeding due to high oven temperature",
+      "Presence of heavy gas oil accelerant residues",
+      "Carrier gas leak at the mass spectrometer interface"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "6. Under the Criminal Procedure (Identification) Act, 2022, who is legally empowered to direct any person to give measurements, including biological samples, even if that person has not been previously arrested for an offence?",
+    "options": [
+      "Station House Officer of any rank",
+      "Magistrate of First Class",
+      "Head Constable in charge of a Beat",
+      "Junior Scientific Assistant of Crime Unit"
     ],
     "answer": 1
   },
   {
-    "q": "30. Maintaining the Chain of Custody requires detailed documentation. What is the main purpose of an evidence log label placed on a sealed exhibit?",
+    "q": "7. A Mobile Forensic Unit uses an Alternate Light Source (ALS) to locate latent biological stains on a multicolored patterned fabric. If fluorescence is quenched by background dyes under 450 nanometer blue light, which spectral combination should be selected next?",
     "options": [
-      "To prove the guilt of the accused person in court",
-      "To track every individual who collected, handled, or transferred the item",
-      "To describe the market value of the seized item",
-      "To classify the exhibit for chemical analysis only"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "31. An Alternate Light Source (ALS) tuned to the ultraviolet spectrum around 365 nanometers is commonly used at crime scenes to detect which type of evidence?",
-    "options": [
-      "Skeletal fractures",
-      "Latent biological fluids and latent fingerprints treated with fluorescent dyes",
-      "Gunshot residue inside a gun barrel",
-      "Soil density differences"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "32. Which presumptive color test is widely used at crime scenes for the preliminary detection of blood, utilizing phenolphthalein and hydrogen peroxide?",
-    "options": [
-      "Takayama Test",
-      "Kastle-Meyer Test",
-      "Teichmann Test",
-      "Lobert Test"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "33. In forensic photography, what is the main purpose of placing an L-shaped photogrammetric scale, such as an ABFO Number 2 scale, next to a bite mark or footwear impression?",
-    "options": [
-      "To correct lighting balance automatically",
-      "To provide accurate dimensional measurements and perspective correction during comparison",
-      "To reflect ultraviolet light onto the impression",
-      "To indicate the temperature of the crime scene"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "34. Which camera lighting technique involves directing light at a low, sharp angle across a surface to highlight three-dimensional texture in impression evidence like footprints or tire tracks?",
-    "options": [
-      "Direct front lighting",
-      "Bounce flash lighting",
-      "Oblique lighting",
-      "Transmitted lighting"
+      "White light with green barrier goggles",
+      "Infrared light at 850 nanometers with clear filter",
+      "Ultraviolet light at 365 nanometers with yellow or clear barrier goggles",
+      "Red light at 650 nanometers with orange filter"
     ],
     "answer": 2
   },
   {
-    "q": "35. Acid Phosphatase test is a common presumptive screening method used at crime scenes for the detection of which biological fluid?",
+    "q": "8. Under polarized light microscopy, an unknown synthetic fiber recovered from a hit-and-run victim exhibits low birefringence, dynamic extinction, and a lobed cross-section. The fiber completely dissolves when treated with hot dimethylformamide. What fiber type is identified?",
     "options": [
-      "Saliva",
-      "Sperm/Seminal fluid",
-      "Vaginal secretions",
-      "Sweat"
+      "Cotton fiber",
+      "Wool fiber",
+      "Asbestos fiber",
+      "Acrylic fiber"
+    ],
+    "answer": 3
+  },
+  {
+    "q": "9. In suspected ante-mortem drowning cases, diatom analysis is conducted on closed organs like bone marrow. Which condition would invalidate the diagnostic reliability of finding diatoms in the victim tissue?",
+    "options": [
+      "Reagent or laboratory water contamination during acid digestion yielding matching diatom species in non-drowning negative controls",
+      "Identification of silica frustules in the femoral bone marrow matching the water body",
+      "Presence of intact diatoms in both left and right heart chambers",
+      "Absence of diatoms in decomposed blood samples"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "10. A projectile recovered from a victim's body displays non-uniform bullet wipe, deep gouges, and irregular pitch slippage marks without distinct land and groove transfers. Microscopic evaluation suggests a specific firearm type. Which firearm was used?",
+    "options": [
+      "Standard factory-made 9mm semi-automatic pistol",
+      "Improvised smoothbore pipe firearm (Desi Katta)",
+      "Polygonal rifled barrel firearm",
+      "Caliber 0.22 target rifle"
     ],
     "answer": 1
   },
   {
-    "q": "36. When collecting biological evidence for touch DNA analysis from a smooth door handle, which swab technique is standard practice?",
+    "q": "11. In a suspected acute organophosphorus pesticide toxicity case, toxicological analysis of post-mortem liver tissue shows negative results for the parent compound, but blood cholinesterase assay confirms severe enzyme depression. What explains this analytical discrepancy?",
     "options": [
-      "Dry swab followed by alcohol swab",
-      "Double swab technique using a sterile wet swab followed by a sterile dry swab",
-      "Soaking the handle in distilled water",
-      "Single dry cotton swab soaked in formalin"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "37. In forensic anthropology, which skeletal bone features the greater sciatic notch and pubic symphysis, making it the most reliable indicator for sex determination?",
-    "options": [
-      "Skull",
-      "Femur",
-      "Pelvis",
-      "Scapula"
+      "Complete volatilization of cholinesterase during sample storage",
+      "Inherent interference caused by endogenous post-mortem ethanol formation",
+      "Rapid biotransformation of the parent organophosphate into metabolites or extensive tissue hydrolysis",
+      "Failure to acidify the sample with concentrated hydrochloric acid prior to extraction"
     ],
     "answer": 2
   },
   {
-    "q": "38. In cases of suspected drowning, the presence of microscopic, siliceous single-celled algae in the bone marrow of the victim is indicative of active inhalation of water. What are these organisms called?",
+    "q": "12. As per Section 63 of the Bharatiya Sakshya Adhiniyam (BSA), 2023, what specific requirement governs the admissibility of electronic records in judicial proceedings?",
     "options": [
-      "Pollen grains",
-      "Diatoms",
-      "Spores",
-      "Dinoflagellates"
+      "Mandatory oral testimony of the computer manufacturer",
+      "Submission of the original physical server in all cases",
+      "Affidavit signed exclusively by a High Court Judge",
+      "Submission of a certificate authenticating electronic record handling and system operation"
+    ],
+    "answer": 3
+  },
+  {
+    "q": "13. Which presumptive chemical reagent kit utilizes the catalytic oxidation of phenolphthalin in the presence of peroxidase-like activity of heme, yielding a pink color, but can produce false positives with plant peroxidases?",
+    "options": [
+      "Kastle-Meyer test",
+      "Leucomalachite Green test",
+      "Tetramethylbenzidine test",
+      "Luminol chemiluminescence test"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "14. A commingled skeletal mass is retrieved from a clandestine site. To determine the Minimum Number of Individuals (MNI), which anatomical evaluation strategy yields the baseline result?",
+    "options": [
+      "Dividing the total weight of recovered bones by the weight of an average skeleton",
+      "Counting the most frequent unique osteological element of the same side and age group",
+      "Summing the total number of long bones and dividing by twelve",
+      "Counting total cranial fragments regardless of anatomical overlap"
     ],
     "answer": 1
   },
   {
-    "q": "39. Which synthetic fiber exhibits a melting reaction followed by a chemical odor of plastic when subjected to a flame burning test?",
+    "q": "15. In oblique light photography of three-dimensional footwear impressions present in loose sand, at what angle relative to the ground surface should the off-camera light source ideally be held?",
+    "options": [
+      "90 degrees directly overhead",
+      "75 to 85 degrees high angle",
+      "15 to 45 degrees low angle",
+      "0 degrees flush with the surface causing total shadow coverage"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "16. Under Section 176(3) of the Bharatiya Nagarik Suraksha Sanhita (BNSS), 2023, what requirement is instituted regarding forensic support during investigation of offences punishable for seven years or more?",
+    "options": [
+      "Forensic investigation is optional at the discretion of the Sub-Inspector",
+      "Case records must be transferred directly to a Central Forensic Science Laboratory within 12 hours",
+      "Medical officers must take charge of crime scene photography",
+      "Forensic experts must visit the crime scene to collect evidence and cause videography of the process"
+    ],
+    "answer": 3
+  },
+  {
+    "q": "17. A fatal plant poisoning case reveals ingestion of seeds containing the potent ribosome-inactivating toxalbumin Abrin. Which plant source contains this toxin?",
+    "options": [
+      "Abrus precatorius",
+      "Ricinus communis",
+      "Strychnos nux-vomica",
+      "Datura stramonium"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "18. A mobile unit team detects raw triacetone triperoxide (TATP) crystals at an illegal laboratory. Why is direct injection into a standard GC-MS heated inlet port inappropriate for primary analysis of raw TATP?",
+    "options": [
+      "TATP does not dissolve in any organic solvent",
+      "TATP is thermally labile and subject to explosive thermal decomposition inside heated injectors",
+      "TATP lacks nitrogen atoms necessary for GC column retention",
+      "TATP instantly corrodes the electron ionization filament"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "19. During judicial cross-examination, a defense counsel proves that the cryptographic hash value of a seized hard drive changed between crime scene collection and laboratory acquisition. Which forensic error caused this discrepancy?",
+    "options": [
+      "Storing the drive in an anti-static Faraday bag during transport",
+      "Creating a bit-stream disk image on a forensic workstation",
+      "Booting the suspect drive directly without a hardware write-blocker, altering system metadata and timestamps",
+      "Computing dual SHA-256 and MD5 hash values simultaneously"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "20. In thanatomicrobiome studies for post-mortem interval estimation, which internal organ, typically sterile during life, undergoes predictable bacterial transmigration dominated by Clostridium species post-death?",
+    "options": [
+      "Small intestine",
+      "Oral mucosa",
+      "Colon lumen",
+      "Liver"
+    ],
+    "answer": 3
+  },
+  {
+    "q": "21. Which section of the Bharatiya Nyaya Sanhita (BNS), 2023, specifically defines and penalizes Organized Crime?",
+    "options": [
+      "Section 111",
+      "Section 103",
+      "Section 304",
+      "Section 69"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "22. At a shooting crime scene, two bullet entry holes are observed on a double-pane glass window. Which physical principle enables the analyst to sequence the shots by observing where radial cracks terminate?",
+    "options": [
+      "Beer-Lambert Absorption Principle",
+      "Fracture sequence principle where subsequent radial fractures terminate at pre-existing fractures",
+      "Snell's Refraction Law",
+      "Locard Exchange Correlation"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "23. When calculating the Minimum Post-Mortem Interval (PMI-min) using larval development of Calliphoridae recovered from a corpse, which metric must be determined along with ambient temperature logs?",
+    "options": [
+      "Soil moisture percentage",
+      "Maggot mass volume in milliliters",
+      "Accumulated Degree-Hours or Accumulated Degree-Days",
+      "Pupal casing thickness"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "24. When comparing microscopic glass fragments from a hit-and-run crime scene against reference headlight glass, which method measures precise Refractive Index matching by varying oil temperature until the Becke Line disappears?",
+    "options": [
+      "X-ray Fluorescence Spectrometry",
+      "Energy Dispersive X-Ray Spectroscopy",
+      "Scanning Electron Microscopy",
+      "Becke Line Method using a Hot Stage apparatus"
+    ],
+    "answer": 3
+  },
+  {
+    "q": "25. Latent fingerprints developed on porous paper using Ninhydrin yield Ruhemann's purple prints. What post-treatment enhancement enables fluorescent visualization under Alternate Light Sources?",
+    "options": [
+      "Treatment with zinc chloride or cadmium chloride metal salt solutions",
+      "Spraying with concentrated sulfuric acid solution",
+      "Fuming with elemental iodine crystals",
+      "Washing with acidified silver nitrate solution"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "26. Under Section 176(3) of the Bharatiya Nagarik Suraksha Sanhita (BNSS), 2023, what is the mandatory requirement for the forensic expert during the investigation of an offence punishable by imprisonment for seven years or more?",
+    "options": [
+      "Must collect forensic evidence from the scene of crime and cause the process to be audio-video recorded",
+      "Must issue an immediate arrest warrant for the primary suspect",
+      "Must submit the final analytical report within 24 hours directly to the Magistrate",
+      "Must conduct an on-site post-mortem examination before moving the deceased"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "27. While managing a fire scene, an investigator collects accelerant debris suspected of containing light petroleum distillates. Which packaging method prevents loss of volatile hydrocarbons and maintains chain of custody integrity?",
+    "options": [
+      "Clean polyethylene zip-lock bag sealed at ambient temperature",
+      "Clean unused metal paint can with a tight-fitting friction lid",
+      "Paper envelope secured with standard adhesive tape",
+      "Sterile glass jar closed with a rubber stopper"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "28. A crime scene photographer needs to photograph a bloodstain pattern along a long hallway wall from an oblique angle while maintaining maximum depth of field from foreground to background. Which lens setting adjustment should be prioritized?",
+    "options": [
+      "Widening the aperture to f/1.8",
+      "Narrowing the aperture to f/16 or f/22",
+      "Increasing the ISO sensitivity to 6400",
+      "Using a shorter shutter speed of 1/2000 second"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "29. A suspected bloodstain recovered from a vehicle bumper gives a positive reaction with the Kastle-Meyer test but a negative result with the Takayama test. What is the most accurate scientific interpretation?",
+    "options": [
+      "The stain is definitively human blood with degraded hemoglobin",
+      "The stain produced a false positive on the Kastle-Meyer test, potentially caused by chemical oxidants or plant peroxidases",
+      "The Takayama test failed due to excessive blood concentration",
+      "The sample is avian blood which does not react with hemochromogen reagents"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "30. During toxicological screening for heavy metal poisoning using the Reinsch test, a dark shiny deposit forms on the copper foil in an acidic medium. Which group of elemental poisons produces this positive reaction?",
+    "options": [
+      "Arsenic, Mercury, Antimony, and Bismuth",
+      "Lead, Cadmium, Zinc, and Copper",
+      "Sodium, Potassium, Calcium, and Magnesium",
+      "Iron, Cobalt, Nickel, and Manganese"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "31. Under the Bharatiya Sakshya Adhiniyam (BSA), 2023, which section governs the admissibility and certification requirements of electronic records, replacing Section 65B of the repealed Indian Evidence Act?",
+    "options": [
+      "Section 63",
+      "Section 45",
+      "Section 105",
+      "Section 79"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "32. Under the Criminal Procedure (Identification) Act, 2022, authorized officers may direct the collection of biological samples. Under which condition can an arrested person legally refuse to provide biological samples like blood or saliva?",
+    "options": [
+      "If accused of an offence committed against a woman or child",
+      "If accused of an offence punishable with imprisonment for seven years or more",
+      "If accused of an offence not committed against a woman or child and punishable with imprisonment for less than seven years",
+      "An arrested person cannot refuse sample collection under any circumstances under this Act"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "33. An investigator uses an Alternate Light Source (ALS) tuned to 450 nanometers (blue wavelength) to locate latent biological fluids on fabric. Which barrier filter must be used on protective goggles or camera lenses to visualize fluorescent emissions?",
+    "options": [
+      "Red filter",
+      "Orange filter",
+      "Green filter",
+      "Clear UV-blocking filter"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "34. While examining skeletonized human remains, an anthropology expert observes a subpubic angle greater than 90 degrees, a broad greater sciatic notch, and a wide oval pelvic inlet. These anatomical traits indicate:",
+    "options": [
+      "Male biological sex",
+      "Female biological sex",
+      "Indeterminate sex from a juvenile under 10 years",
+      "Pathological bone deformation due to osteoporosis"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "35. A synthetic textile fiber recovered from a hit-and-run vehicle shows a tri-lobal cross-section under microscopy and dissolves completely in concentrated formic acid. What is the identity of this fiber?",
     "options": [
       "Cotton",
-      "Nylon",
+      "Nylon 6,6",
+      "Acrylic",
+      "Wool"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "36. A gunshot entrance wound exhibits a central defect surrounded by a grease ring, visible unburnt gunpowder particles embedded over an eight-inch diameter, but no heat singeing or cherry-red tissue discoloration. This firing distance is classified as:",
+    "options": [
+      "Contact range",
+      "Near-contact range",
+      "Intermediate range",
+      "Distant range"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "37. In forensic microbiology, the shift from aerobic microbial communities to strictly anaerobic bacteria (such as Clostridiales) inside internal organs post-cardiac arrest is referred to as:",
+    "options": [
+      "Thanatomicrobiome succession during putrefaction",
+      "Exogenous environmental contamination",
+      "Antemortem bacteremia",
+      "Terrestrial soil infiltration"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "38. For an outdoor crime scene involving a large debris field scattered across uneven, heavily wooded terrain, which search pattern ensures the highest search efficiency and coverage integrity?",
+    "options": [
+      "Wheel or Ray search pattern",
+      "Grid search pattern",
+      "Zone or sector search combined with line search",
+      "Inward spiral search pattern"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "39. Toxicological analysis of gastric contents yields a Prussian blue precipitate upon treatment with ferrous sulfate, sodium hydroxide, and hot dilute hydrochloric acid. This reaction confirms the presence of:",
+    "options": [
+      "Arsenic ions",
+      "Cyanide ions",
+      "Organophosphate pesticides",
+      "Barbiturates"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "40. Which national body under the Ministry of Home Affairs formulates standardized operating procedure manuals and quality assurance guidelines for State Forensic Science Laboratories and Crime Scene Units in India?",
+    "options": [
+      "National Crime Records Bureau (NCRB)",
+      "Directorate of Forensic Science Services (DFSS)",
+      "Central Bureau of Investigation (CBI)",
+      "Bureau of Police Research and Development (BPRD)"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "41. Under Section 111 of the Bharatiya Nyaya Sanhita (BNS), 2023, which category of offense was distinctly codified requiring enhanced financial, digital, and trace evidence gathering?",
+    "options": [
+      "Organized Crime",
+      "Acts of Sedition",
+      "Medical Negligence",
+      "Attempted Suicide"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "42. In an electropherogram generated during short tandem repeat (STR) DNA analysis, a small peak appears exactly one repeat unit smaller than the true allele peak, exhibiting roughly 5 percent to 10 percent of the true peak height. This artifact is known as:",
+    "options": [
+      "Pull-up peak",
+      "Stutter peak",
+      "Minus-A non-templated addition",
+      "Dye blob"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "43. Why is chemical derivatization using reagents like BSTFA (bis-trimethylsilyl-trifluoroacetamide) commonly performed on polar functional groups before analysis by Gas Chromatography-Mass Spectrometry (GC-MS)?",
+    "options": [
+      "To increase molecular weight beyond standard limits",
+      "To decrease volatility and raise boiling points",
+      "To increase thermal stability and volatility by replacing active hydrogen atoms",
+      "To impart a positive charge for atmospheric pressure ionization"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "44. Gustafson's dental method estimates adult age at death by evaluating micro-anatomical dental traits. Which of the following parameters is NOT included in Gustafson's method?",
+    "options": [
+      "Attrition degree",
+      "Secondary dentin deposition",
+      "Root dentin translucency",
+      "Cusp morphology eruption timing"
+    ],
+    "answer": 3
+  },
+  {
+    "q": "45. To confirm drowning by detecting diatoms in closed organs such as the femoral bone marrow, which digestion technique dissolves organic soft tissues without destroying silica diatom frustules?",
+    "options": [
+      "Strong sodium hydroxide digestion",
+      "Hot concentrated nitric acid digestion",
+      "Dilute hydrochloric acid with ethanol",
+      "Neutral buffered formal-saline extraction"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "46. When recovering a footwear impression in loose dry sand, what step must precede pouring Dental Stone casting plaster to prevent distortion of fine tread features?",
+    "options": [
+      "Pouring water directly into the impression",
+      "Applying a fine mist of hairspray or specialized fixative spray",
+      "Heating the sand with a handheld flame",
+      "Pouring molten paraffin wax directly over the sand"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "47. During digital crime scene evidence processing, an investigator calculates an SHA-256 cryptographic hash value for a CCTV video file. If a single bit in the original video file is altered during storage, what occurs to the hash value?",
+    "options": [
+      "The hash value remains identical unless a large file segment is deleted",
+      "The hash value changes completely and unpredictably due to the avalanche effect",
+      "The hash value increments linearly by one numerical digit",
+      "The hash value automatically resets to zero"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "48. A post-blast residue extract yields a vibrant pink coloration after treatment with Griess reagent following zinc reduction. This test indicates the presence of:",
+    "options": [
+      "Chlorates and perchlorates",
+      "Nitrates or nitramines such as RDX or PETN",
+      "Unreacted sulfur and charcoal",
+      "Ammonium cations"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "49. Blood-stained clothing recovered from a crime scene was packaged in an airtight plastic bag while still damp and stored at room temperature for several days. What is the impact on biological evidence testing?",
+    "options": [
+      "No impact, because DNA is completely immune to bacterial activity",
+      "Severe DNA degradation and loss of profile quality due to microbial proliferation and enzymatic hydrolysis",
+      "Enhanced DNA preservation caused by anaerobic stabilization",
+      "Automatic admissibility as secondary digital evidence under BSA Section 63"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "50. Soil evidence attached to a suspect's footwear is analyzed against crime scene control soil using bacterial 16S rRNA gene high-throughput sequencing. What property makes soil microbial community profiling suitable for forensic comparison?",
+    "options": [
+      "Soil bacterial profiles are uniform across entire geographic regions",
+      "Microbial community compositions show significant variation across short physical distances due to micro-environmental factors",
+      "Microbial DNA remains static regardless of soil moisture, pH, or vegetation changes",
+      "Soil microbes do not contain DNA capable of PCR amplification"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "51. Under Section 105 of Bharatiya Nagarik Suraksha Sanhita (BNSS), 2023, what is the mandatory procedural requirement during the conduct of a search and seizure by a police officer at a crime scene regarding videography?",
+    "options": [
+      "Videography must be recorded on a mobile device and uploaded within 24 hours to the magistrate.",
+      "The process of search, seizure, and preparation of seizure list must be recorded through audio-video electronic means and forwarded without delay to the Magistrate.",
+      "Videography is optional if two independent witnesses sign the panchnama on site.",
+      "Videography is required only for offences punishable with death."
+    ],
+    "answer": 1
+  },
+  {
+    "q": "52. A crime scene investigator recovers a charred blood-stained fabric from an arson scene. Which of the following packaging and preservation protocol errors will lead to severe loss of biological evidence or secondary contamination?",
+    "options": [
+      "Air-drying the fabric before sealing in a breathable paper bag.",
+      "Packaging the moist charred fabric immediately into an airtight plastic container while still warm.",
+      "Collecting pristine control samples from unburned areas of the same substrate.",
+      "Labeling the outer container with evidence log details before sealing."
+    ],
+    "answer": 1
+  },
+  {
+    "q": "53. While photographing latent fingerprints on a highly reflective curved metallic cylinder using visible light, which optical technique is most effective to eliminate hot-spot glare and ensure maximum ridge contrast?",
+    "options": [
+      "Direct specular lighting aligned at 90 degrees to the lens axis.",
+      "Diffused lighting using a light tent paired with a linear polarizing filter over the light source and lens at cross-polarization.",
+      "Oblique side-lighting at 5 degrees without any filters.",
+      "Axial photo-beam splitter illumination without polarizing filters."
+    ],
+    "answer": 1
+  },
+  {
+    "q": "54. When using an Alternate Light Source (ALS) at 450 nanometer wavelength to visualize faint seminal stains on a patterned fabric, which filter bandpass and fluorescence mechanism are involved?",
+    "options": [
+      "Ultraviolet filter; absorption of visible light by hemoglobin.",
+      "Orange barrier filter; Stokes shift causing emission at longer wavelengths from flavins present in seminal fluid.",
+      "Clear ultraviolet filter; Rayleigh scattering from spermatozoa heads.",
+      "Yellow filter; quenching of substrate fluorescence by acid phosphatase."
+    ],
+    "answer": 1
+  },
+  {
+    "q": "55. In a suspected fatal poisoning case involving organophosphorus compounds, a forensic team collects viscera samples. Which preservative is strictly contra-indicated for preserving viscera in organophosphate poisoning because it accelerates hydrolysis?",
+    "options": [
+      "Saturated Sodium Chloride solution",
+      "Rectified spirit",
+      "Formalin solution",
+      "Sodium Fluoride"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "56. During osteological evaluation of a commingled skeletal display, the presence of a deep, narrow sciatic notch, a triangular pubis, and an absent or ill-defined preauricular sulcus primarily indicates which biological profile?",
+    "options": [
+      "Female pelvis",
+      "Male pelvis",
+      "Subadult indeterminate pelvis",
+      "Senile osteoporotic female pelvis"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "57. Under the Criminal Procedure (Identification) Act, 2022, which entity is authorized to collect, store, preserve, and destroy records of measurements for up to 75 years?",
+    "options": [
+      "District Crime Records Bureau",
+      "State Forensic Science Laboratory",
+      "National Crime Records Bureau",
+      "Central Bureau of Investigation"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "58. Under microscopic examination, a textile fiber exhibits a tri-lobal cross-section, smooth longitudinal surface with no lumen, high tensile strength, and dissolves readily in cold concentrated formic acid. This fiber is identified as:",
+    "options": [
+      "Cotton",
+      "Nylon 6,6",
       "Silk",
       "Wool"
     ],
     "answer": 1
   },
   {
-    "q": "40. At an arson scene, where are volatile liquid accelerant residues most likely to be recovered preserved for laboratory analysis?",
+    "q": "59. In a post-mortem submersion case, the necrobiome shift is analyzed to estimate Post-Mortem Submersion Interval. Which bacteriological phenomenon is associated with the formation of a Thanatomicrobiome dominated by anaerobic Clostridiales during the bloat stage?",
     "options": [
-      "Unburnt porous materials like carpet padding and wood located near the origin",
-      "Smooth glass windows near the exits",
-      "Fully ash-burnt central floor tiles",
-      "Open metal surfaces exposed to high heat"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "41. What standard preservative is routinely added to visceral organs collected during autopsy for routine toxicological examination in suspected poisoning cases, unless metallic poisoning is suspected?",
-    "options": [
-      "Formalin 10 percent solution",
-      "Saturated solution of common salt (Sodium Chloride)",
-      "Concentrated Nitric Acid",
-      "Ethyl Alcohol 70 percent"
+      "Aerobic degradation of epidermal lipids by Staphylococcus aureus",
+      "Translocation of gut microbiota into internal tissues due to loss of mucosal barrier integrity and hypoxia",
+      "External colonization by marine cyanobacteria",
+      "Algal bloom interference on epithelial surfaces"
     ],
     "answer": 1
   },
   {
-    "q": "42. According to the 3R Rule in glass fracture analysis, radial fractures form cracks at right angles on which side of the glass?",
+    "q": "60. Analysis of target distance from a gunshot wound reveals a circular pattern of soot with a dense ring of gunpowder stippling around an entry wound. This characteristic pattern corresponds to:",
     "options": [
-      "The side where the force was applied (Impact side)",
-      "The side opposite to the force application (Rear side)",
-      "The center core of the glass pane",
-      "The top edge of the frame"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "43. Which material is most recommended for making high-detail three-dimensional casts of footwear impressions in soft mud or soil at a crime scene?",
-    "options": [
-      "Plaster of Paris",
-      "Dental Stone",
-      "Paraffin Wax",
-      "Liquid Silicone Rubber without hardener"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "44. What field of forensic science analyzes post-mortem changes in microbial communities colonizing a body to help estimate the Post-Mortem Interval?",
-    "options": [
-      "Forensic Palynology",
-      "Forensic Thanatomicrobiomics",
-      "Forensic Entomology",
-      "Forensic Serology"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "45. Under the Bharatiya Nagarik Suraksha Sanhita (BNSS), 2023, forensic investigation by a forensic expert and mandatory videography of the crime scene process has been made compulsory for offences punishable with imprisonment of how many years or more?",
-    "options": [
-      "3 years or more",
-      "5 years or more",
-      "7 years or more",
-      "10 years or more"
+      "Contact wound",
+      "Near-contact wound (1 to 2 centimeters)",
+      "Intermediate range wound (15 to 45 centimeters)",
+      "Distant range wound (beyond 1 meter)"
     ],
     "answer": 2
   },
   {
-    "q": "46. Section 39 of the Bharatiya Sakshya Adhiniyam (BSA), 2023 deals with which critical evidentiary aspect corresponding to expert testimony in court?",
+    "q": "61. Under Section 63 of Bharatiya Sakshya Adhiniyam (BSA), 2023, regarding electronic evidence admissibility, which mandatory procedural document must accompany an electronic record to certify its authenticity?",
     "options": [
-      "Admissibility of confession to police",
-      "Opinions of experts",
-      "Primary evidence rules",
-      "Burden of proof in alibi"
+      "Certificate signed by a person in charge of the device or relevant official",
+      "Certificate issued under Section 65B of IPC",
+      "Affidavit under Section 293 of CrPC",
+      "Search memo signed by two independent witnesses"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "62. At a violent crime scene, a linear pattern of blood drops with increasing droplet tail elongation and directional convergence towards an overhead point is observed on a wall. This pattern is best classified as:",
+    "options": [
+      "Cast-off bloodstain pattern",
+      "Arterial spray pattern",
+      "Expirated bloodstain pattern",
+      "Contact transfer wipe pattern"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "63. A preliminary Kastle-Meyer (Phenolphthalein) test at a crime scene yields an immediate pink color change before the addition of Hydrogen Peroxide. What is the correct interpretation of this reaction?",
+    "options": [
+      "Positive confirmation for human blood",
+      "False positive caused by chemical oxidizers or plant peroxidases present on the substrate",
+      "Negative result due to degraded hemoglobin",
+      "Indeterminate result requiring luminol reaction"
     ],
     "answer": 1
   },
   {
-    "q": "47. Under the Bharatiya Nyaya Sanhita (BNS), 2023, causing disappearance of evidence of an offence or giving false information to screen an offender is punishable under which section?",
+    "q": "64. In fatal cyanide poisoning, what pathognomonic post-mortem examination finding is typically observed in the blood and visceral organs?",
     "options": [
-      "Section 238",
-      "Section 103",
+      "Dark chocolate-brown blood due to methemoglobinemia",
+      "Bright cherry-red post-mortem lividity and blood due to high concentration of oxyhemoglobin",
+      "Greenish-black discoloration of liver and kidneys due to sulfhemoglobin",
+      "Severe pulmonary edema with bright blue frothing"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "65. Under the Bharatiya Nyaya Sanhita (BNS), 2023, which specific section introduces defined statutory penalties for Organized Crime?",
+    "options": [
+      "Section 109",
+      "Section 111",
       "Section 304",
-      "Section 111"
+      "Section 69"
     ],
-    "answer": 0
+    "answer": 1
   },
   {
-    "q": "48. Under the Criminal Procedure (Identification) Act, 2022, which central agency is authorized to collect, store, and preserve the record of measurements, biological samples, and behavioral attributes for up to 75 years?",
+    "q": "66. Ninhydrin reaction on porous paper surfaces targets which functional group present in latent sweat residues to produce Ruhemann's purple?",
     "options": [
-      "Central Bureau of Investigation",
-      "National Investigation Agency",
-      "National Crime Records Bureau",
-      "Bureau of Police Research and Development"
+      "Unsaturated fatty acid double bonds",
+      "Free alpha-amino acids",
+      "Sodium chloride ions",
+      "Urea nitrogen compounds"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "67. In the hierarchical organizational setup of a state forensic apparatus in India, which unit is specifically deployed at the district level to ensure immediate scene preservation, evidence collection, and preliminary testing?",
+    "options": [
+      "Central Forensic Science Laboratory",
+      "Regional Forensic Science Laboratory",
+      "District Mobile Forensic Unit",
+      "Fingerprint Bureau State Headquarters"
     ],
     "answer": 2
   },
   {
-    "q": "49. Why should wet biological evidence, such as blood-soaked clothing, never be packaged directly into sealed plastic bags for storage?",
+    "q": "68. Forensic palynology involves analyzing pollen grains. Why are pollen grains exceptionally resistant to physical and chemical decay in soil environments?",
     "options": [
-      "Plastic bags react chemically with hemoglobin",
-      "Moisture trapped in plastic promotes bacterial growth and fungal destruction of DNA",
-      "Plastic bags leach synthetic polymers into the sample",
-      "It causes the blood to change color from red to blue"
+      "Outer wall made of highly durable sporopollenin biopolymer",
+      "Thick cellulosic inner intine layer impregnated with silica",
+      "High concentration of calcium oxalate crystals in the exine",
+      "Dense keratinized chitin envelope"
     ],
-    "answer": 1
+    "answer": 0
   },
   {
-    "q": "50. When a Crime Scene Mobile Forensic Unit officer arrives at a digital crime scene involving an operational, turned-on computer, what is the standard recommended first step for volatile memory preservation?",
+    "q": "69. During trial proceedings, an evidence exhibit is challenged for inadmissibility due to a breach in chain of custody. Which scenario represents a fatal defect in the chain of custody?",
     "options": [
-      "Unplug the power cord immediately from the back of the computer",
-      "Perform a live RAM capture using a validated triage tool before turning off the system",
-      "Restart the computer in safe mode",
-      "Delete temporary files to clear disk space"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "51. According to Locard's Exchange Principle, which of the following is an inevitable consequence when a criminal comes into contact with a crime scene?",
-    "options": [
-      "Complete destruction of physical evidence",
-      "Transfer of trace materials between objects or persons",
-      "Elimination of latent fingerprints",
-      "Instant contamination of biological DNA"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "52. Which central Indian organization oversees the administrative and developmental functions of Central Forensic Science Laboratories (CFSLs) under the Ministry of Home Affairs?",
-    "options": [
-      "National Crime Records Bureau",
-      "Directorate of Forensic Science Services",
-      "Central Bureau of Investigation",
-      "Bureau of Police Research and Development"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "53. A crime scene investigator searching an open, large outdoor field without defined physical boundaries should preferably employ which systematic search pattern?",
-    "options": [
-      "Zone method",
-      "Wheel or Ray method",
-      "Grid search method",
-      "Line or Strip method"
+      "Continuous documentation in evidence log with signatures of each custodian from scene to lab.",
+      "Storing the evidence item in a locked vault with restricted access log entries.",
+      "Unexplained period where the exhibit was kept in an unsealed personal locker of an investigating officer without log records.",
+      "Transporting the sealed package via a designated official courier with a tracking receipt."
     ],
     "answer": 2
   },
   {
-    "q": "54. What is the primary objective of maintaining a Chain of Custody log for physical evidence collected from a crime scene?",
+    "q": "70. When recovering a three-dimensional footwear impression from wet loose soil at an outdoor crime scene, which casting material and preparation step are recommended to prevent distortion?",
     "options": [
-      "To classify the evidence into class or individual characteristics",
-      "To establish a continuous, unbroken record of evidence possession and integrity",
-      "To accelerate chemical analysis processes inside the laboratory",
-      "To allow the evidence to be admitted without calling investigating officers"
+      "Plaster of Paris mixed with hot water, poured directly from a height of 1 meter.",
+      "Dental stone slurry poured gently onto a baffle after spraying the impression with a fixative resin.",
+      "Molten sulfur poured without cooling onto the wet mud surface.",
+      "Silicone rubber without catalyst applied with heavy spatula pressure."
     ],
     "answer": 1
   },
   {
-    "q": "55. Luminol reagent reacts with the iron present in hemoglobin to produce light. What type of reaction mechanism is involved in this latent blood detection technique?",
+    "q": "71. In short tandem repeat (STR) DNA analysis of degraded bone samples, what artifact is commonly observed in the electropherogram characterized by a preferential loss of signal at larger locus sizes?",
     "options": [
-      "Precipitation",
-      "Chemiluminescence",
-      "Fluorescence",
-      "Phosphorescence"
+      "Stutter peak formation",
+      "Allelic drop-out due to degradation slope",
+      "Split peaks caused by non-templated nucleotide addition",
+      "Pull-up artifact across spectral channels"
     ],
     "answer": 1
   },
   {
-    "q": "56. When searching for latent biological stains such as semen using an Alternate Light Source (ALS), which light spectrum and barrier filter combination is standard?",
+    "q": "72. To maximize depth of field when capturing a detailed macro photograph of toolmarks on a metallic lock body, an investigator should select:",
     "options": [
-      "Infrared light with clear filter",
-      "Blue light around 450 nanometers with orange goggles",
-      "Ultraviolet light with green filter",
-      "Red light with yellow goggles"
+      "Largest aperture opening with short exposure time.",
+      "Small aperture opening mounted on a stable tripod with appropriate shutter speed adjustment.",
+      "High ISO speed with wide aperture.",
+      "Maximum focal length zoom with aperture f/4.0 handheld."
     ],
     "answer": 1
   },
   {
-    "q": "57. In forensic photography, to maximize the depth of field when capturing detailed close-up photographs of physical evidence, an examiner should select:",
-    "options": [
-      "A larger lens aperture like f-two point eight",
-      "A smaller lens aperture like f-sixteen or f-twenty-two",
-      "A faster shutter speed like one eight-thousandth of a second",
-      "A high ISO value above sixty-four hundred"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "58. Which photographic lighting technique is specifically used to highlight low-relief three-dimensional impressions, such as footwear or tire marks, by creating contrasting shadows?",
-    "options": [
-      "Direct front lighting",
-      "Oblique lighting",
-      "Diffused bounce lighting",
-      "Transmitted backlighting"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "59. The Kastle-Meyer presumptive test for blood relies on the peroxidase-like activity of hemoglobin. What chemical conversion causes the pink positive color?",
-    "options": [
-      "Phenolphthalin converting to phenolphthalein",
-      "Luminol converting to aminophthalate",
-      "Benzidine converting to blue dye",
-      "Guaiacum converting to blue resin"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "60. Which enzyme present in high concentrations in human seminal fluid is detected during primary presumptive chemical testing for semen?",
-    "options": [
-      "Amylase",
-      "Acid Phosphatase",
-      "Leucine Aminopeptidase",
-      "Creatine Kinase"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "61. In forensic anthropology, which pelvic anatomical features provide the most reliable indication for sex determination?",
-    "options": [
-      "Greater sciatic notch and subpubic angle",
-      "Ischial spine width only",
-      "Length of the sacrum only",
-      "Diameter of the obturator foramen"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "62. The extraction and examination of diatoms from closed organs like the femur bone marrow is primarily evaluated to assist in diagnosing:",
-    "options": [
-      "Manual strangulation",
-      "Ante-mortem drowning in natural water bodies",
-      "Carbon monoxide poisoning",
-      "High-voltage electrocution"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "63. Synthetic fibers such as Nylon and Polyester can be distinguished from natural cellulosic fibers like Cotton during a burn test because synthetic fibers:",
-    "options": [
-      "Burn without melting and smell like burning paper",
-      "Melt while burning and form a hard bead",
-      "Char completely and leave light grey ash",
-      "Do not ignite when exposed to open flame"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "64. Marquis reagent, widely used for preliminary field testing of opiates and amphetamines, consists of a mixture of:",
-    "options": [
-      "Cobalt thiocyanate and hydrochloric acid",
-      "Formaldehyde and concentrated sulfuric acid",
-      "Potassium permanganate and acetic acid",
-      "Sodium nitroprusside and acetaldehyde"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "65. Which routine preservative is recommended for preserving visceral organs collected during autopsy for general chemical toxicology analysis (excluding common salt poisoning)?",
-    "options": [
-      "Ten percent Formalin solution",
-      "Saturated solution of Sodium Chloride",
-      "Absolute Ethyl Alcohol",
-      "Sodium Fluoride with Potassium Oxalate"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "66. According to the 3R Rule in forensic glass fracture analysis, radial fractures form:",
-    "options": [
-      "Right angles on the Reverse side of the force applied",
-      "Right angles on the Radial side of the impact point",
-      "Round angles on the Rear side of the glass panel",
-      "Random fractures on the Front side of force"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "67. Soil evidence collected from a suspect's footwear is traditionally compared with crime scene control soil using density distribution in which laboratory setup?",
-    "options": [
-      "Gas Chromatograph",
-      "Density Gradient Tube",
-      "Comparison Microscope",
-      "Refractometer"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "68. Which spore-forming bacterium is classified as a high-priority biological threat agent evaluated in forensic microbiology due to its high pulmonary lethality?",
-    "options": [
-      "Bacillus anthracis",
-      "Clostridium perfringens",
-      "Escherichia coli",
-      "Staphylococcus aureus"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "69. In post-mortem forensic microbiology, the term necrobiome refers to:",
-    "options": [
-      "The specific exotoxins produced by bacteria during food poisoning",
-      "The ecological community of microorganisms associated with a decaying body",
-      "The viral load present in blood immediately before death",
-      "The structural bacterial cell wall changes during autoclaving"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "70. Under Section 176 sub-section 3 of Bharatiya Nagarik Suraksha Sanhita (BNSS), 2023, forensic experts are mandated to visit crime scenes for offenses punishable by imprisonment of at least:",
-    "options": [
-      "Three years",
-      "Five years",
-      "Seven years",
-      "Ten years"
-    ],
-    "answer": 2
-  },
-  {
-    "q": "71. Under Bharatiya Sakshya Adhiniyam (BSA), 2023, electronic or digital records generated and certified from proper custody are legally categorized as:",
-    "options": [
-      "Inadmissible hearsay",
-      "Documentary evidence",
-      "Secondary oral evidence only",
-      "Corroborative physical evidence only"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "72. Which section of Bharatiya Nyaya Sanhita (BNS), 2023 defines the substantive offense of Murder?",
-    "options": [
-      "Section 101",
-      "Section 103",
-      "Section 300",
-      "Section 105"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "73. Under the Criminal Procedure (Identification) Act, 2022, authorized officers are permitted to collect which range of measurements from convicted or arrested persons?",
-    "options": [
-      "Fingerprints, iris and retina scans, and behavioral traits only",
-      "Fingerprints, palm-prints, foot-prints, iris and retina scans, and biological samples",
-      "Only fingerprints and photographs of convicted persons",
-      "Voice recordings and blood samples exclusively with judicial warrants"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "74. When collecting wet biological evidence such as blood-stained garments from a crime scene, how should it be processed prior to final packaging?",
-    "options": [
-      "Sealed immediately in an airtight plastic container while wet",
-      "Air-dried thoroughly at room temperature away from direct sunlight",
-      "Dried using a high-heat blow dryer to stop bacterial growth",
-      "Frozen immediately inside a sealed polythene bag"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "75. Ninhydrin reagent reacts with which chemical component present in latent fingerprint sweat residue to form the colored product known as Ruhemann's purple?",
-    "options": [
-      "Triglycerides",
-      "Sodium chloride",
-      "Amino acids",
-      "Squalene"
-    ],
-    "answer": 2
-  },
-  {
-    "q": "76. Locard's Exchange Principle forms the fundamental basis of which aspect of forensic science?",
-    "options": [
-      "Physical evidence evaluation and linkage",
-      "Post-mortem interval determination only",
-      "Determining the age of a suspect",
-      "Calculating the speed of a vehicle in a hit-and-run"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "77. Which document serves as the primary record maintaining the continuous accountability and integrity of physical evidence collected from a crime scene?",
-    "options": [
-      "Inquest Report",
-      "Chain of Custody Form",
-      "First Information Report",
-      "Charge Sheet"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "78. Which non-destructive optical detection technique utilizes light of specific wavelengths to locate latent body fluids and trace fibers at a crime scene?",
-    "options": [
-      "Alternate Light Source (ALS)",
-      "Thin Layer Chromatography (TLC)",
-      "X-ray Fluorescence (XRF)",
-      "Gas Chromatography (GC)"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "79. In crime scene photography, what is the primary purpose of including a photomacrographic scale or ruler next to physical evidence?",
-    "options": [
-      "To make the photograph visually appealing",
-      "To provide accurate size and dimensional context of evidence",
-      "To increase the camera exposure time",
-      "To alter the background illumination"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "80. The Kastle-Meyer presumptive test for blood relies on the peroxidase-like activity of hemoglobin to catalyze the oxidation of phenolphthalin into phenolphthalein, producing which characteristic color?",
-    "options": [
-      "Bright Blue",
-      "Deep Pink",
-      "Fluorescent Green",
-      "Dark Red"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "81. Which anatomical feature of the skeletal system is considered the most reliable indicator for biological sex estimation in adult human skeletal remains?",
-    "options": [
-      "Subpubic angle and sciatic notch shape of the pelvis",
-      "Total length of the femur",
-      "Thickness of the iliac crest only",
-      "Number of lumbar vertebrae"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "82. Which of the following is classified as a synthetic regenerated fiber produced from natural cellulose material?",
-    "options": [
-      "Nylon",
-      "Rayon",
-      "Polyester",
-      "Acrylic"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "83. The presence of cherry-red discolored blood during autopsy examination is a classic post-mortem finding associated with fatal exposure to which substance?",
-    "options": [
-      "Carbon Monoxide",
-      "Cyanide",
-      "Arsenic",
-      "Mercury"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "84. What branch of ballistics deals with the flight trajectory, drag, and motion of a projectile between the time it leaves the firearm muzzle and strikes the target?",
-    "options": [
-      "Internal Ballistics",
-      "External Ballistics",
-      "Terminal Ballistics",
-      "Transition Ballistics"
-    ],
-    "answer": 1
-  },
-  {
-    "q": "85. In forensic taphonomy, the study of microbial succession patterns associated with human decomposition to assist in estimating the post-mortem interval is termed:",
-    "options": [
-      "Necrobiome analysis",
-      "Diatom analysis",
-      "Palynology",
-      "Toxicogenomics"
-    ],
-    "answer": 0
-  },
-  {
-    "q": "86. Under the Bharatiya Nagarik Suraksha Sanhita (BNSS), 2023, visit and evidence collection by a forensic expert at a crime scene has been made mandatory for offences punishable with imprisonment of:",
+    "q": "73. Under Section 176(3) of Bharatiya Nagarik Suraksha Sanhita (BNSS), 2023, forensic expert intervention at the scene of crime is made mandatory for offenses punishable with imprisonment for:",
     "options": [
       "3 years or more",
       "5 years or more",
       "7 years or more",
-      "10 years or more"
+      "Life imprisonment only"
     ],
     "answer": 2
   },
   {
-    "q": "87. Under the Bharatiya Sakshya Adhiniyam (BSA), 2023, which provision governs the admissibility and certification of electronic or digital records in court proceedings?",
+    "q": "74. In an investigation of acute food poisoning resulting in rapid onset of severe vomiting within 1 to 6 hours after consumption of re-heated cooked rice, which heat-stable enterotoxin producing microorganism is primarily suspected?",
     "options": [
-      "Section 61",
-      "Section 63",
-      "Section 45",
-      "Section 73"
+      "Clostridium botulinum",
+      "Bacillus cereus emetic strain",
+      "Salmonella enterica",
+      "Listeria monocytogenes"
     ],
     "answer": 1
   },
   {
-    "q": "88. According to the Criminal Procedure (Identification) Act, 2022, what is the mandated period for retaining measurements and biological samples collected in digital or electronic form?",
+    "q": "75. A low explosive residue recovered from a blast site tests positive for potassium nitrate, sulfur, and charcoal. Upon addition of diphenylamine reagent in concentrated sulfuric acid to the water extract, what color reaction confirms the presence of nitrate ions?",
     "options": [
-      "25 years",
+      "Deep Blue color",
+      "Bright Red color",
+      "Canary Yellow color",
+      "Deep Violet-Brown color"
+    ],
+    "answer": 0
+  },
+  {
+    "q": "76. Under Section 105 of the Bharatiya Nagarik Suraksha Sanhita (BNSS), 2023, what is the mandatory legal requirement regarding the process of conducting a search and preparing a list of seized items at a crime scene by a police officer?",
+    "options": [
+      "Audio-video recording through any electronic device is optional at the discretion of the Investigating Officer",
+      "Audio-video recording through an electronic device is mandatory and the process of search and seizure must be recorded and prepared without delay",
+      "Audio-video recording is only required if the offense carries a punishment of capital punishment",
+      "Audio-video recording must be conducted strictly by a certified forensic expert and submitted within 30 days"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "77. Under Section 61 of the Bharatiya Sakshya Adhiniyam (BSA), 2023, electronic or digital records are assigned equal legal status as paper documents. When secondary copies of electronic records are produced, which section of BSA, 2023 specifies the conditions for admissibility accompanied by a formal certificate?",
+    "options": [
+      "Section 57",
+      "Section 63",
+      "Section 65B",
+      "Section 39"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "78. According to the Criminal Procedure (Identification) Act, 2022, for how many years from the date of collection are the physical and biological measurements of a convict or arrested person preserved in digital or electronic form by the National Crime Records Bureau?",
+    "options": [
+      "30 years",
       "50 years",
       "75 years",
       "100 years"
@@ -1157,122 +1057,222 @@ const questions = [
     "answer": 2
   },
   {
-    "q": "89. Which crime scene search pattern is most effective for large outdoor open terrains where multiple searchers move systematically parallel to one another at set intervals?",
+    "q": "79. Under Section 176(3) of the Bharatiya Nagarik Suraksha Sanhita (BNSS), 2023, the visit of a forensic expert to the scene of crime and collection of forensic evidence is mandatory for offenses punishable for how many years of imprisonment or more?",
     "options": [
-      "Spiral Search Pattern",
-      "Line or Strip Search Pattern",
-      "Wheel or Ray Search Pattern",
-      "Zone Search Pattern"
+      "3 years or more",
+      "5 years or more",
+      "7 years or more",
+      "10 years or more"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "80. A crime scene investigator recovers a damp, blood-soaked shirt from a homicide scene. Due to heavy rain, the shirt is completely saturated. Which of the following chain-of-custody packaging protocols must be strictly followed to prevent microbial degradation of DNA evidence?",
+    "options": [
+      "Package immediately in an airtight zip-lock plastic bag and store at room temperature",
+      "Air-dry the shirt completely at room temperature away from direct sunlight and heat before packaging in a breathable paper bag",
+      "Place in a sealed glass container filled with ten percent formalin preservative solution",
+      "Freeze the wet shirt immediately inside an airtight plastic container without drying"
     ],
     "answer": 1
   },
   {
-    "q": "90. Cyanoacrylate ester fuming is a chemical field method primarily used by forensic crime scene units to develop latent fingerprints on which surface type?",
+    "q": "81. While examining a non-porous dark object at a crime scene using an Alternate Light Source (ALS), a forensic investigator applies Rhodamine 6G fluorescent dye after cyanoacrylate ester fuming. Which excitation wavelength range and barrier filter combination should be selected to visualize the latent fingerprints?",
     "options": [
-      "Porous paper documents",
-      "Non-porous surfaces like plastic and glass",
-      "Wet biological tissue",
-      "Untreated raw wood"
+      "Ultraviolet range 254 nanometers with clear barrier filter",
+      "Blue-green range 450 nanometers to 530 nanometers with orange barrier filter",
+      "Infrared range 850 nanometers with green barrier filter",
+      "Red range 630 nanometers with yellow barrier filter"
     ],
     "answer": 1
   },
   {
-    "q": "91. The Acid Phosphatase test is routinely utilized by forensic scientists as a presumptive test for identifying which biological fluid?",
+    "q": "82. In forensic photography of a close-up footwear impression in soil, to maximize depth of field across the entire impression while avoiding image blur and optical diffraction artifacts, which camera aperture setting is most appropriate?",
     "options": [
-      "Saliva",
-      "Semen",
-      "Urine",
-      "Vaginal fluid"
+      "f/1.8",
+      "f/2.8",
+      "f/8 to f/11",
+      "f/32"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "83. When photographing a subtle dust footprint impression on a polished tile floor at a crime scene, which flash lighting technique must be employed to highlight minute three-dimensional topography and maximize photographic contrast?",
+    "options": [
+      "Direct front bounce flash aligned parallel at 90 degrees to camera axis",
+      "Transilluminated background lighting directed from underneath the substrate",
+      "Oblique or side lighting at a low angle between 15 and 45 degrees",
+      "Ring flash unit mounted directly around the camera lens filter ring"
+    ],
+    "answer": 2
+  },
+  {
+    "q": "84. A crime scene officer obtains intense blue chemiluminescence with the Luminol test on a washed kitchen floor. To confirm the presence of human hemoglobin and rule out false positive reactions caused by household bleach or plant peroxidases, which confirmatory assay should be performed?",
+    "options": [
+      "Kastle-Meyer Phenolphthalein color test",
+      "Takayama crystal test or RSID-Blood immunochromatographic assay",
+      "Leucomalachite Green color reaction test",
+      "Benzidine catalytic spot test"
     ],
     "answer": 1
   },
   {
-    "q": "92. RDX (Research Department Explosive), frequently detected in post-blast explosive investigations, belongs to which chemical class of organic compounds?",
+    "q": "85. Skeletonized human remains are discovered in a shallow forest trench. Examination of the pelvis and long bones reveals a broad subpubic angle greater than 90 degrees, a wide greater sciatic notch, and complete epiphyseal fusion of the medial clavicle. What is the correct biological profile assessment?",
     "options": [
-      "Nitrocellulose",
-      "Nitramine",
-      "Organic Peroxide",
-      "Inorganic Nitrate"
+      "Male, age under 18 years",
+      "Female, age over 21 to 25 years",
+      "Male, age over 30 years",
+      "Female, age under 15 years"
     ],
     "answer": 1
   },
   {
-    "q": "93. When examining glass fracture patterns caused by a high-velocity impact, concentric fractures develop:",
+    "q": "86. In a body recovered from a water reservoir, forensic diatom analysis is performed to determine if death occurred due to drowning. Recovery of microscopic silica-walled diatoms matching the water sample from which tissue provides the strongest proof of ante-mortem drowning with active blood circulation?",
     "options": [
-      "First on the side opposite to the impact force",
-      "Later on the same side as the impact force",
-      "Simultaneously on both sides of the glass",
-      "Only along the outer perimeter of the frame"
+      "Stomach content liquid",
+      "Femur bone marrow or closed internal organs like kidney and brain",
+      "Pleural cavity fluid",
+      "External skin surface swab"
     ],
     "answer": 1
   },
   {
-    "q": "94. Forensic palynology involves the detailed microscopic analysis of which biological evidence to establish environmental links between suspects and crime scenes?",
+    "q": "87. Under Polarized Light Microscopy (PLM), a single synthetic fiber recovered from a hit-and-run vehicle bumper exhibits a strong positive sign of elongation, high birefringence, and a distinct trilobal cross-section. This fiber is characteristic of which class of synthetic polymers?",
     "options": [
-      "Plant trichomes and stomata",
-      "Pollen grains and spores",
-      "Xylem vessels and phloem fibers",
-      "Phytoliths and algae"
+      "Cotton",
+      "Nylon or Polyester",
+      "Wool",
+      "Viscose Rayon"
     ],
     "answer": 1
   },
   {
-    "q": "95. Moist biological evidence, such as blood-stained clothes gathered from a crime scene, should NEVER be sealed directly in plastic bags because:",
+    "q": "88. A mobile forensic team is collecting post-blast soil debris from an explosion scene suspected of involving commercial dynamite containing Nitroglycerin and Ethylene Glycol Dinitrate. Which containment packaging must be used to prevent the loss of volatile explosive organic vapors?",
     "options": [
-      "Plastic chemically neutralizes blood proteins",
-      "Trapped moisture promotes bacterial growth and rapid DNA degradation",
-      "Plastic reacts with hemoglobin to form toxic fumes",
-      "It causes immediate evaporation of genetic markers"
+      "Low-density polyethylene plastic bag",
+      "Clean unlined metal paint can or glass jar with a Teflon-lined screw cap",
+      "Paper envelope sealed with adhesive tape",
+      "Cardboard box lined with absorbent cotton wool"
     ],
     "answer": 1
   },
   {
-    "q": "96. In forensic crime scene photography, adjusting the lens aperture setting to a smaller opening (higher f-number like f/16) produces which outcome?",
+    "q": "89. In a case of suspected chronic heavy metal poisoning where a deceased individual exhibits Mees lines across fingernails, the forensic toxicologist performs the Reinsch test on stomach tissue digest. A dark grey to black deposit forms on the copper strip, which upon sublimating in an open glass tube forms octahedral crystals under a microscope. This reaction confirms the presence of:",
     "options": [
-      "Decreased depth of field",
-      "Increased depth of field",
-      "Faster shutter speed automatically",
-      "Complete elimination of motion blur"
+      "Mercury",
+      "Arsenic",
+      "Antimony",
+      "Bismuth"
     ],
     "answer": 1
   },
   {
-    "q": "97. Under the Bharatiya Nyaya Sanhita (BNS), 2023, organized crime and terrorist acts are categorized and penalized under which dedicated provisions?",
+    "q": "90. Examination of gunshot residue patterns around an entry wound on a victim reveals a dense ring of stippling or unburned powder tattooing surrounding the hole, along with soot deposition, but no thermal burning or singeing of fibers. What firing distance range does this morphology indicate for a standard handgun?",
     "options": [
-      "Sections 111 and 113",
-      "Sections 302 and 307",
-      "Sections 375 and 376",
-      "Sections 420 and 468"
+      "Contact or near-contact range under 2 centimeters",
+      "Intermediate range typically between 15 centimeters and 1 meter",
+      "Distant range beyond 2 meters",
+      "Extreme long range beyond 5 meters"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "91. When capturing fine microscopic striations of a pry-bar toolmark on a metallic door jamb at a crime scene, which casting material provides the highest dimensional stability and micro-structural detail without significant volumetric shrinkage?",
+    "options": [
+      "Plaster of Paris",
+      "Polyvinylsiloxane or silicone-based forensic casting putty",
+      "Paraffin wax",
+      "Dental stone"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "92. During post-mortem interval estimation using forensic microbiology, the shift in microbial populations inside human tissue is monitored. Which biological process describes the rapid proliferation of anaerobic gut bacteria like Clostridium species leading to tissue breakdown, gas accumulation, and green abdominal discoloration within 24 to 48 hours?",
+    "options": [
+      "Autolysis",
+      "Putrefaction driven by the internal thanatomicrobiome",
+      "Saponification",
+      "Adipocere formation"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "93. In a bio-forensic investigation involving a suspicious white powder delivered in a sealed envelope, initial field screening for explosives and drugs is negative. If biological threats like Bacillus anthracis endospores are suspected, which field technique enables rapid, highly specific DNA amplification and identification at the scene?",
+    "options": [
+      "Thin Layer Chromatography",
+      "Handheld Real-Time Polymerase Chain Reaction or Isothermal Amplification device",
+      "Gas Chromatography-Flame Ionization Detector",
+      "Fourier Transform Infrared Spectroscopy"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "94. In the organizational structure of forensic institutions in India, administrative control over Central Forensic Science Laboratories (CFSLs) located across various zones falls directly under which apex office of the Ministry of Home Affairs?",
+    "options": [
+      "National Crime Records Bureau",
+      "Directorate of Forensic Science Services",
+      "Bureau of Police Research and Development",
+      "National Investigation Agency"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "95. While documenting an open outdoor crime scene in a dense forest terrain lacking perpendicular reference walls, an investigator needs to accurately map the location of a firearm cartridge case relative to two permanent, immovable reference points. Which sketching measurement method should be used?",
+    "options": [
+      "Rectangular Coordinate Method",
+      "Triangulation Method",
+      "Polar Coordinate Method",
+      "Transect Baseline Method"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "96. For developing latent fingerprints on non-porous thermal paper receipts without causing thermal darkening or background blackening of printed text, which specialized reagent sequence or technique is preferred over standard ninhydrin treatment?",
+    "options": [
+      "1,2-Indanedione zinc or specialized thermal paper reagents like 1,8-diazafluoren-9-one",
+      "Concentrated Hydrochloric Acid liquid immersion",
+      "Silver Nitrate aqueous solution exposed to direct sunlight",
+      "Iodine fuming followed by direct steam application"
     ],
     "answer": 0
   },
   {
-    "q": "98. A portable Photoionization Detector (PID) or Hydrocarbon Sniffer is employed by Mobile Forensic Units at fire scenes primarily to locate:",
+    "q": "97. A window glass fracture at a crime scene is examined under a stereomicroscope to determine the direction of impact force using the 3R Rule. Which statement correctly expresses the 3R Rule in forensic glass examination?",
     "options": [
-      "Radioactive contamination",
-      "Volatile organic accelerant residues in arson cases",
-      "Narcotic powders",
-      "Latent protein traces"
+      "Radial fractures form Right angles on the Rear side of force application",
+      "Radial cracks form Right angles on the Reverse side of force application",
+      "Concentric fractures form Right angles on the Rear side of force application",
+      "Concentric fractures form Radial ridges on the Right side of impact"
     ],
     "answer": 1
   },
   {
-    "q": "99. In modern forensic DNA analysis, Short Tandem Repeats (STRs) are preferred over older methods primarily because STR markers:",
+    "q": "98. Under Section 39 of the Bharatiya Sakshya Adhiniyam (BSA), 2023, when a court forms an opinion regarding electronic signatures or digital evidence stored in a computer resource, the opinion of which certified authority is considered a relevant fact?",
     "options": [
-      "Require microgram quantities of intact genomic DNA",
-      "Can be successfully amplified from degraded or trace samples via PCR",
-      "Do not require gel or capillary electrophoresis",
-      "Are present exclusively on the Y-chromosome"
+      "Any certified hardware computer engineer",
+      "The Examiner of Electronic Evidence referred to in Section 79A of the Information Technology Act, 2000",
+      "The Station House Officer of the local Cyber Crime Police Station",
+      "The Nodal Officer of the local telecom service provider"
     ],
     "answer": 1
   },
   {
-    "q": "100. What is the fundamental mandate of a District Mobile Forensic Unit (DMFU) within the criminal justice framework?",
+    "q": "99. During capillary electrophoresis data analysis of a low-template short tandem repeat (STR) DNA sample, an analyst observes a peak four base pairs shorter than the true allele peak with a height equal to 8 percent of the main allele peak height. What is the standard technical designation for this PCR artifact?",
     "options": [
-      "To conduct formal court trials and cross-examinations",
-      "To provide rapid, on-scene forensic assistance, scientific evaluation, and proper evidence collection for investigating officers",
-      "To oversee prison security and inmate logistics",
-      "To issue formal medico-legal autopsy death certificates directly"
+      "Pull-up peak",
+      "Stutter peak",
+      "Minus A peak",
+      "Dye blob"
+    ],
+    "answer": 1
+  },
+  {
+    "q": "100. In an arson investigation, fire debris suspected of containing residual light petroleum distillates is processed in the laboratory. Which extraction technique utilizes a carbon-adsorbent strip suspended in the sealed headspace of a heated container to concentrate ignitable liquid vapors prior to GC-MS analysis?",
+    "options": [
+      "Solvent extraction using distilled water",
+      "Passive Headspace Extraction with Activated Charcoal Strip",
+      "Steam distillation extraction",
+      "Direct liquid sample injection"
     ],
     "answer": 1
   }
